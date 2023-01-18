@@ -26,7 +26,7 @@ export default function Footer(props) {
             component="footer"
             sx={{
                 py: 2,
-                backgroundColor: '#eeeeee',
+                backgroundColor: '#e0e2e1',
                 alignItems: 'center',
                 marginTop: 5
             }}>

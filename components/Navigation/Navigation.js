@@ -10,6 +10,8 @@ import { theme } from '../../utils/mainTheme';
 import Footer from './Footer';
 
 export default function Navigation(props) {
+    const navbarColor = { backgroundColor: '#3a424f' };
+
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
@@ -21,11 +23,11 @@ export default function Navigation(props) {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <AppBar position="fixed" sx={{
-                backgroundColor: '#101010',
+                ...navbarColor,
                 width: '100%',
             }}>
                 <Toolbar sx={{
-                    backgroundColor: '#101010',
+                    ...navbarColor,
                 }}>
                     <img src='/logo.png' alt='logo' width='50' height='50' />
                     <IconButton sx={{ marginLeft: 'auto' }}>

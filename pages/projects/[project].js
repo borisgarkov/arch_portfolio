@@ -6,6 +6,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import styles from '../../components/Projects/project-page.module.css';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import Link from "next/link";
 
 export default function Projects(props) {
     const router = useRouter();
@@ -36,7 +37,7 @@ export default function Projects(props) {
                     padding: 5,
                     borderRight: '1px solid black',
                 }}>
-                    <Typography variant="h5">Хотел на морето</Typography>
+                    <Typography variant="h5">ХОТЕЛ НА МОРЕТО</Typography>
                     <Typography sx={{
                         marginTop: 2
                     }}>
@@ -54,44 +55,51 @@ export default function Projects(props) {
                     <Typography variant="h6" sx={{
                         margin: '16px 0'
                     }}>
-                        Използвани програми
+                        ИЗПОЛЗВАНИ ПРОГРАМИ
                     </Typography>
 
-                    {
-                        skills.map(skill => {
-                            return (
-                                <Stack key={skill.title} sx={{
-                                    flexDirection: 'row',
-                                    gap: 1,
-                                    justifyContent: 'flex-start',
-                                    alignItems: 'center',
-                                    border: '1px solid black',
-                                    borderRadius: '16px',
-                                    padding: 1,
-                                    height: '48px',
-                                    backgroundColor: '#f5f5f5',
-                                    marginBottom: 1,
-                                    width: '80%'
-                                }}>
-                                    <img src={skill.path} alt='icon' width='16' height='16' />
-                                    {skill.title}
-                                </Stack>
-                            )
-                        })
-                    }
-
-                    <Stack sx={{
-                        flexDirection: 'row',
-                        alignItems: 'flex-end',
+                    <Box sx={{
+                        display: 'grid',
+                        gridTemplateColumns: '200px 200px',
                         gap: 2
                     }}>
-                        <ArrowBackIcon />
-                        <Typography sx={{
-                            marginTop: 2,
+                        {
+                            skills.map(skill => {
+                                return (
+                                    <Stack key={skill.title} sx={{
+                                        flexDirection: 'row',
+                                        gap: 1,
+                                        justifyContent: 'flex-start',
+                                        alignItems: 'center',
+                                        border: '1px solid black',
+                                        borderRadius: '16px',
+                                        padding: 1,
+                                        height: '48px',
+                                        backgroundColor: '#f5f5f5',
+                                    }}>
+                                        <img src={skill.path} alt='icon' width='16' height='16' />
+                                        {skill.title}
+                                    </Stack>
+                                )
+                            })
+                        }
+                    </Box>
+
+                    <Link href='/projects' style={{ textDecoration: 'none' }}>
+                        <Stack sx={{
+                            flexDirection: 'row',
+                            alignItems: 'flex-end',
+                            gap: 2,
+                            color: 'black',
                         }}>
-                            Назад към другите проекти
-                        </Typography>
-                    </Stack>
+                            <ArrowBackIcon />
+                            <Typography sx={{
+                                marginTop: 2,
+                            }}>
+                                Назад към другите проекти
+                            </Typography>
+                        </Stack>
+                    </Link>
                 </Grid>
                 <Grid item lg={8} sx={{
                     padding: 5

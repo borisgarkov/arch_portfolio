@@ -7,6 +7,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Box from '@mui/material/Box';
 import { ThemeProvider, CssBaseline } from "@mui/material";
 import { theme } from '../../utils/mainTheme';
+import Footer from './Footer';
 
 export default function Navigation(props) {
     return (
@@ -20,25 +21,13 @@ export default function Navigation(props) {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <AppBar position="fixed" sx={{
-                backgroundColor: 'black',
+                backgroundColor: '#101010',
                 width: '100%',
             }}>
                 <Toolbar sx={{
-                    backgroundColor: 'black',
+                    backgroundColor: '#101010',
                 }}>
-                    {/* <Typography sx={{
-                        transform: 'rotate(-90deg)'
-                    }}>
-                        arch
-                    </Typography>
-                    <Typography variant="h4" >
-                        N
-                    </Typography>
-                    <Typography variant="h4" sx={{
-                    }}>
-                        Ivanova
-                    </Typography> */}
-                    <img src='/logo.png' alt='logo' width='450' height='50' />
+                    <img src='/logo.png' alt='logo' width='50' height='50' />
                     <IconButton sx={{ marginLeft: 'auto' }}>
                         <MenuIcon sx={{ color: 'white' }} />
                     </IconButton>
@@ -51,6 +40,7 @@ export default function Navigation(props) {
                     props.children
                 }
             </Box>
+            <Footer />
         </ThemeProvider>
     )
 }

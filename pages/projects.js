@@ -1,17 +1,53 @@
-import { Typography } from "@mui/material";
+import * as React from 'react';
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
+import Divider from "@mui/material/Divider";
+import Typography from "@mui/material/Typography";
 import Navigation from "../components/Navigation/Navigation";
 import styles from '../components/Projects/projects.module.css';
 import Link from "next/link";
 
+const GridSectionImages = (props) => {
+    const gridHeadingsStyles = {
+        // textAlign: 'center',
+        paddingLeft: 1.5
+    };
+
+    return (
+        <>
+            < Typography variant="h6" sx={{
+                ...gridHeadingsStyles,
+            }}>
+                {props.title}
+            </Typography >
+            {
+                props.sectionProjects.map(project => {
+                    return (
+                        <>
+                            <Link key={project.title} href={`/projects/${project.title}`}>
+                                <Box className={styles.projectContainer}>
+                                    <img
+                                        src={project.image}
+                                        alt='project-image'
+                                        className={styles.projectImg}
+                                    />
+                                    <Typography className={styles.projectText}>
+                                        {project.imageText}
+                                    </Typography>
+                                </Box>
+                            </Link>
+                            <Divider sx={{ width: '70%', margin: '0 auto' }} />
+                        </>
+                    )
+                })
+            }
+        </>
+    )
+};
+
 export default function Projects(props) {
     const gridItemsStyles = {
         borderRight: { lg: '1px solid black' }
-    };
-
-    const gridHeadingsStyles = {
-        textAlign: 'center',
     };
 
     const firstSectionProjects = [
@@ -92,7 +128,7 @@ export default function Projects(props) {
                 marginTop: 10,
                 padding: 2,
             }}>
-                Студентски проекти
+                СТУДЕНТСКИ ПРОЕКТИ
             </Typography>
             <Grid container sx={{
                 justifyContent: 'center',
@@ -102,102 +138,26 @@ export default function Projects(props) {
                 <Grid item xs={12} lg={3} sx={{
                     ...gridItemsStyles
                 }}>
-                    <Typography variant="h6" sx={{
-                        ...gridHeadingsStyles
-                    }}>Жилищни сгради</Typography>
-                    {
-                        firstSectionProjects.map(project => {
-                            return (
-                                <Link key={project.title} href={`/projects/${project.title}`}>
-                                    <Box className={styles.projectContainer}>
-                                        <img
-                                            src={project.image}
-                                            alt='project-image'
-                                            className={styles.projectImg}
-                                        />
-                                        <Typography className={styles.projectText}>
-                                            {project.imageText}
-                                        </Typography>
-                                    </Box>
-                                </Link>
-                            )
-                        })
-                    }
+                    <GridSectionImages title='ЖИЛИЩНИ СГРАДИ'
+                        sectionProjects={firstSectionProjects} />
                 </Grid>
                 <Grid item xs={12} lg={3} sx={{
                     ...gridItemsStyles
                 }}>
-                    <Typography variant="h6" sx={{
-                        ...gridHeadingsStyles
-                    }}>Обществени сгради</Typography>
-                    {
-                        secondSectionProjets.map(project => {
-                            return (
-                                <Link key={project.title} href={`/projects/${project.title}`}>
-                                    <Box className={styles.projectContainer}>
-                                        <img
-                                            src={project.image}
-                                            alt='project-image'
-                                            className={styles.projectImg}
-                                        />
-                                        <Typography className={styles.projectText}>
-                                            {project.imageText}
-                                        </Typography>
-                                    </Box>
-                                </Link>
-                            )
-                        })
-                    }
+                    <GridSectionImages title='ОБЩЕСТВЕНИ СГРАДИ'
+                        sectionProjects={secondSectionProjets} />
                 </Grid>
                 <Grid item xs={12} lg={3} sx={{
                     ...gridItemsStyles
                 }}>
-                    <Typography variant="h6" sx={{
-                        ...gridHeadingsStyles
-                    }}>Интериор</Typography>
-                    {
-                        thirdSectionProjets.map(project => {
-                            return (
-                                <Link key={project.title} href={`/projects/${project.title}`}>
-                                    <Box className={styles.projectContainer}>
-                                        <img
-                                            src={project.image}
-                                            alt='project-image'
-                                            className={styles.projectImg}
-                                        />
-                                        <Typography className={styles.projectText}>
-                                            {project.imageText}
-                                        </Typography>
-                                    </Box>
-                                </Link>
-                            )
-                        })
-                    }
+                    <GridSectionImages title='ИНТЕРИОР'
+                        sectionProjects={thirdSectionProjets} />
                 </Grid>
                 <Grid item xs={12} lg={3} sx={{
                     ...gridItemsStyles
                 }}>
-                    <Typography variant="h6" sx={{
-                        ...gridHeadingsStyles
-                    }}>Градоустройство</Typography>
-                    {
-                        forthSectionProjets.map(project => {
-                            return (
-                                <Link key={project.title} href={`/projects/${project.title}`}>
-                                    <Box className={styles.projectContainer}>
-                                        <img
-                                            src={project.image}
-                                            alt='project-image'
-                                            className={styles.projectImg}
-                                        />
-                                        <Typography className={styles.projectText}>
-                                            {project.imageText}
-                                        </Typography>
-                                    </Box>
-                                </Link>
-                            )
-                        })
-                    }
+                    <GridSectionImages title='ГРАДОУСТРОЙСТВО'
+                        sectionProjects={forthSectionProjets} />
                 </Grid>
             </Grid>
         </Navigation>

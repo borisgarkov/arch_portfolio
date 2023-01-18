@@ -1,7 +1,7 @@
+import * as React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
-import * as React from 'react';
 import AboutMe from '../components/Home/AboutMe';
 import Navigation from '../components/Navigation/Navigation';
 
@@ -31,7 +31,7 @@ export default function Home() {
 
     return (
         <Navigation>
-            <Grid container sx={{}}>
+            {/* <Grid container sx={{}}>
                 <Grid item xs={0.6} sx={{ backgroundColor: '#f5f5f5' }}>
 
                 </Grid>
@@ -79,7 +79,7 @@ export default function Home() {
                         </Box>
                     </Box>
                 </Grid>
-            </Grid>
+            </Grid> */}
 
             <AboutMe />
         </Navigation>

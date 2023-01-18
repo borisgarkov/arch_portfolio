@@ -45,30 +45,30 @@ export default function AboutMe(props) {
 
     const activities = [
         {
-            path: '/programmes-icons/041-architect.svg',
-            title: 'some text',
-        },
-        {
             path: '/programmes-icons/Group.svg',
-            title: 'some text',
+            title: 'Проектиране на сгради',
         },
         {
             path: '/programmes-icons/Group-1.svg',
-            title: 'some text',
+            title: 'Заснемане на сгради',
         },
         {
-            path: '/programmes-icons/Group-2.svg',
-            title: 'some text',
+            path: '/programmes-icons/041-architect.svg',
+            title: 'Интериорни проекти',
         },
         {
             path: '/programmes-icons/Group-4.svg',
-            title: 'some text',
+            title: 'Фасадни решения',
+        },
+        {
+            path: '/programmes-icons/Group-2.svg',
+            title: '3D визуализации',
         },
     ]
 
     return (
         <Box sx={{
-            backgroundImage: "url('/programmes-icons/background.webp')",
+            // backgroundImage: "url('/programmes-icons/background.webp')",
             padding: '50px'
         }}>
             <Typography variant="h3" sx={{
@@ -103,9 +103,12 @@ export default function AboutMe(props) {
 
                                     <img src="/programmes-icons/icons8-greek-pillar.png"
                                         alt='icon' width='17' height='17' />
-                                    <Typography variant="h6" sx={{
-                                        textAlign: 'center',
-                                    }}>
+                                    <Typography
+                                        variant="h5"
+                                        sx={{
+                                            textAlign: 'center',
+                                        }}
+                                    >
                                         {point}
                                     </Typography>
                                 </Stack>
@@ -123,7 +126,7 @@ export default function AboutMe(props) {
 
                 <Box sx={{
                     display: 'grid',
-                    gridTemplateColumns: { xs: '250px', lg: '250px 250px 250px' },
+                    gridTemplateColumns: { xs: '250px', lg: '250px 250px 250px 250px 250px' },
                     gap: 2
                 }}>
                     {
@@ -132,8 +135,13 @@ export default function AboutMe(props) {
                                 <Stack key={skill.title} sx={{
                                     padding: 1,
                                 }}>
-                                    <img src={skill.path} alt='icon' width='70' height='70' />
-                                    {skill.title}
+                                    <img src={skill.path} alt='icon' width='50' height='50' />
+                                    <Typography
+                                        variant='h5'
+                                        sx={{ fontWeight: 'bold' }}
+                                    >
+                                        {skill.title}
+                                    </Typography>
                                 </Stack>
                             )
                         })

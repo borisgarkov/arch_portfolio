@@ -1,0 +1,9 @@
+.imgClass {
+    filter: grayscale(100%);
+    transition: all 0.3s;
+}
+
+.imgClass:hover {
+    transform: scale(1.1);
+    filter: grayscale(0%);
+}

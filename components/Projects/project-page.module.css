@@ -1,0 +1,28 @@
+.imgBigContainer {
+    overflow: hidden;
+    width: 500px;
+    height: 300px;
+    border-radius: 5px;
+}
+
+.imgSmallContainer {
+    overflow: hidden;
+    width: 300px;
+    height: 300px;
+    border-radius: 5px;
+}
+
+.projectImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.5s;
+}
+
+.imgBigContainer:hover>.projectImg {
+    transform: scale(1.05);
+}
+
+.imgSmallContainer:hover>.projectImg {
+    transform: scale(1.05);
+}

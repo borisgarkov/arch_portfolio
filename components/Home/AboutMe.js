@@ -1,28 +1,14 @@
 import Typography from "@mui/material/Typography";
-import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
 import CircleIcon from '@mui/icons-material/Circle';
 import { Stack } from "@mui/material";
-import { keyframes } from '@mui/system';
 import styles from './styles.module.css';
-import DoneIcon from '@mui/icons-material/Done';
 import { useRef } from "react";
 import useOnScreen from "../../hooks/useOnScreen";
 
 export default function AboutMe(props) {
     const ref = useRef(null);
     const isVisible = useOnScreen(ref);
-    console.log("isVisible ", isVisible);
-
-    const showProfilePic = keyframes`
-        from {
-            transform: translate(-1000px);
-        }
-        to {
-            transform: translate(0px);
-        }
-    `;
-
 
     const pointsAboutMe = [
         'Николета Пл. Иванова',
@@ -134,17 +120,6 @@ export default function AboutMe(props) {
                 </Box>
 
                 <Stack
-                    style={
-                        isVisible ?
-                            {
-                                animationName: 'fadeIn',
-                                animationTimingFunction: 'ease-out',
-                                animationDuration: '1.5s',
-                                animationDelay: `1s`,
-                                animationFillMode: 'backwards',
-                            }
-                            : { opacity: 0 }
-                    }
                     sx={{
                         gap: 2
                     }}
@@ -153,9 +128,10 @@ export default function AboutMe(props) {
                         Няколко думи за мен ...
                     </Typography>
 
-                    <Stack sx={{
-                        alignItems: 'flex-start',
-                    }}>
+                    <Stack
+                        sx={{
+                            alignItems: 'flex-start',
+                        }}>
                         {
                             pointsAboutMe.map(point => {
                                 return (
@@ -190,11 +166,27 @@ export default function AboutMe(props) {
                         gridTemplateColumns: { xs: '250px', lg: '250px 250px 250px' },
                     }}>
                         {
-                            activities.map(skill => {
+                            activities.map((skill, index) => {
+                                const animationDelay = index - 0.6;
+
                                 return (
-                                    <Stack key={skill.title} sx={{
-                                        padding: 1,
-                                    }}>
+                                    <Stack
+                                        key={skill.title}
+                                        sx={{
+                                            padding: 1,
+                                        }}
+                                    // style={
+                                    //     isVisible ?
+                                    //         {
+                                    //             animationName: 'fadeDown',
+                                    //             animationTimingFunction: 'ease-out',
+                                    //             animationDuration: '0.7s',
+                                    //             animationDelay: `${animationDelay}s`,
+                                    //             animationFillMode: 'backwards',
+                                    //         }
+                                    //         : { opacity: 0 }
+                                    // }
+                                    >
                                         <img src={skill.path} alt='icon' width='50' height='50' />
                                         <Typography>
                                             {skill.title}

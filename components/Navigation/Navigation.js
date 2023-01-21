@@ -29,14 +29,14 @@ export default function Navigation(props) {
                 <Toolbar sx={{
                     ...navbarColor,
                 }}>
-                    <img src='/logo.png' alt='logo' width='50' height='50' />
+                    <img src='/nav-logo.png' alt='logo' width='40' height='40' />
                     <IconButton sx={{ marginLeft: 'auto' }}>
                         <MenuIcon sx={{ color: 'white' }} />
                     </IconButton>
                 </Toolbar>
             </AppBar>
             <Box sx={{
-                marginTop: '60px'
+                marginTop: '60px',
             }}>
                 {
                     props.children

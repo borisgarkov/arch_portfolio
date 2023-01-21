@@ -49,24 +49,28 @@ export default function AboutMe(props) {
 
     const activities = [
         {
-            path: '/programmes-icons/Group.svg',
-            title: 'Проектиране на сгради',
+            path: '/programmes-icons/3.png',
+            title: 'Архитектурни проекти',
         },
         {
-            path: '/programmes-icons/Group-1.svg',
+            path: '/programmes-icons/2.png',
             title: 'Заснемане на сгради',
         },
         {
-            path: '/programmes-icons/041-architect.svg',
+            path: '/programmes-icons/6.png',
+            title: 'Проекти за реконструкция и преустройство',
+        },
+        {
+            path: '/programmes-icons/4.png',
             title: 'Интериорни проекти',
         },
         {
-            path: '/programmes-icons/Group-4.svg',
+            path: '/programmes-icons/5.png',
             title: 'Фасадни решения',
         },
         {
-            path: '/programmes-icons/Group-2.svg',
-            title: '3D визуализации',
+            path: '/programmes-icons/1.png',
+            title: '3D проекти',
         },
     ]
 

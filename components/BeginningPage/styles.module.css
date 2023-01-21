@@ -1,0 +1,61 @@
+.slidein {
+    animation: slidein 1.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+}
+
+.secondSlidein {
+    animation: slidein 3s;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+    animation-delay: 1s;
+}
+
+.upSlidein {
+    animation: upSlidein 3s;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+    animation-delay: 1s;
+}
+
+.zoom {
+    animation: tracking-in-contract-bck 1s cubic-bezier(.215, .61, .355, 1.000) both;
+    animation-delay: 4s;
+}
+
+@keyframes slidein {
+    from {
+        transform: translateX(0%);
+    }
+
+    to {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes upSlidein {
+    from {
+        height: 100%;
+    }
+
+    to {
+        height: 0%;
+    }
+}
+
+@keyframes tracking-in-contract-bck {
+    0% {
+        letter-spacing: 1em;
+        transform: translateZ(400px);
+        opacity: 0
+    }
+
+    40% {
+        opacity: .6
+    }
+
+    100% {
+        transform: translateZ(0);
+        opacity: 1
+    }
+}

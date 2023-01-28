@@ -2,10 +2,12 @@ import Box from "@mui/material/Box";
 import styles from '../components/BeginningPage/styles.module.css';
 
 export default function Home(props) {
+    const backgroundColor = '#858585';
+
     return (
         <>
             <Box sx={{
-                backgroundColor: '#101010',
+                backgroundColor: backgroundColor,
                 position: 'relative',
                 height: '100vh',
                 overflow: 'hidden',
@@ -40,7 +42,6 @@ export default function Home(props) {
                         zIndex: 1
                     }}
                 />
-
                 <img
                     src='/home-logo/3.png'
                     alt="logo"
@@ -49,11 +50,10 @@ export default function Home(props) {
                         position: 'absolute',
                         zIndex: 0
                     }}
-                // className={styles.zoom}
                 />
 
                 <Box className={styles.slidein} sx={{
-                    backgroundColor: '#101010',
+                    backgroundColor: backgroundColor,
                     position: 'absolute',
                     height: '100%',
                     width: '100%',
@@ -61,7 +61,7 @@ export default function Home(props) {
                 }}>
                 </Box>
                 <Box className={styles.secondSlidein} sx={{
-                    backgroundColor: '#101010',
+                    backgroundColor: backgroundColor,
                     position: 'absolute',
                     height: '100%',
                     width: '100%',
@@ -69,7 +69,7 @@ export default function Home(props) {
                 }}>
                 </Box>
                 <Box className={styles.upSlidein} sx={{
-                    backgroundColor: '#101010',
+                    backgroundColor: backgroundColor,
                     position: 'absolute',
                     height: '100%',
                     width: '100%',

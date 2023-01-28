@@ -5,16 +5,17 @@ import { Stack } from "@mui/material";
 import styles from './styles.module.css';
 import { useRef } from "react";
 import useOnScreen from "../../hooks/useOnScreen";
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 export default function AboutMe(props) {
     const ref = useRef(null);
     const isVisible = useOnScreen(ref);
 
-    const pointsAboutMe = [
-        'Николета Пл. Иванова',
-        'Университет по архитектура, строителство и геодезия, випуск 2022',
-        'Катедра: Градоустройство',
-    ];
+    const animationSettings = {
+        animationTimingFunction: 'ease-out',
+        animationDuration: '1.5s',
+        animationFillMode: 'forwards',
+    };
 
     const skills = [
         {
@@ -74,122 +75,155 @@ export default function AboutMe(props) {
         },
     ]
 
+    const profilePicStyleProps = {
+        width: 355.87,
+        height: 250,
+        position: 'relative',
+        top: '50px',
+        right: '100px',
+        boxShadow: '0px 1px 4px 0px rgba(0,0,0,0.6)',
+    };
+
     return (
-        <Box
-            ref={ref}
-            sx={{
-                padding: '50px'
-            }}
-        >
-            <Stack sx={{
-                flexDirection: { xs: 'column', lg: 'row' },
-                margin: '0 auto',
-                justifyContent: 'space-evenly'
-            }}>
-                <Box
-                    style={
-                        isVisible ?
-                            {
-                                animationName: 'fadeRight',
-                                animationTimingFunction: 'ease-out',
-                                animationDuration: '1.5s',
-                                animationFillMode: 'backwards',
+        <Box sx={{
+            padding: '0 80px',
+            width: '100%',
+            height: '825px',
+            position: 'relative',
+            overflow: 'hidden',
+        }}>
+            <Box
+                sx={{
+                    backgroundColor: '#858585',
+                    width: '100%',
+                    height: '100%',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'baseline',
+                }}
+            >
+                <Box sx={{
+                    backgroundColor: '#f3ede9',
+                    width: '459px',
+                    height: '680px',
+                    padding: 8,
+                    position: 'relative',
+                    top: '100px',
+                    left: '20px',
+                    zIndex: 1,
+                }} >
+                    <Typography variant="h4" ref={ref} style={
+                        isVisible ? {
+                            animation: 'someWordsAboutMe',
+                            ...animationSettings
+                        } : {
+                            opacity: '0'
+                        }
+                    }>
+                        Няколко думи за мен ...
+                    </Typography>
+                    <Typography variant="h6" sx={{ marginTop: 2, }} style={
+                        isVisible ? {
+                            animation: 'someWordsAboutMe',
+                            ...animationSettings
+                        } : {
+                            opacity: '0'
+                        }
+                    }>
+                        Университет по архитектура, строителство и геодезия, випуск 2022
+                    </Typography>
+                    <Typography variant="h6" sx={{ marginTop: 1, }} style={
+                        isVisible ? {
+                            animation: 'someWordsAboutMe',
+                            ...animationSettings
+                        } : {
+                            opacity: '0'
+                        }
+                    }>
+                        Катедра: Градоустройство
+                    </Typography>
+                    <Stack
+                        className={styles.seeMoreContainer}
+                        sx={{
+                            flexDirection: 'row',
+                            alignItems: 'center',
+                            marginTop: 2,
+                            gap: 1,
+                            cursor: 'pointer',
+                        }}
+                        style={
+                            isVisible ? {
+                                animation: 'someWordsAboutMe',
+                                ...animationSettings
+                            } : {
+                                opacity: '0'
                             }
-                            : { opacity: 0 }
-                    }
-                    sx={{
-                        position: 'relative',
-                        margin: '100px 0',
-                    }}
-                >
+                        }
+                    >
+                        <Typography className={styles.seeMoreText}>
+                            Виж повече
+                        </Typography>
+                        <ArrowForwardIosIcon className={styles.arrowIcon} sx={{ width: '15px', height: '15px' }} />
+                    </Stack>
+
                     <img
                         src="/programmes-icons/profile.jpg"
                         alt='my-pic'
-                        style={{
-                            width: 355.87,
-                            height: 250,
-                            borderRadius: '5px',
-                        }}
+                        style={
+                            isVisible ? {
+                                ...profilePicStyleProps,
+                                animation: 'profilePicMainPagefadeIn',
+                                ...animationSettings,
+                            } : {
+                                opacity: 0
+                            }
+                        }
                     />
-                    <Box sx={{
-                        backgroundColor: '#e0e2e1',
-                        height: '400px',
-                        width: '350px',
-                        position: 'absolute',
-                        zIndex: '-1',
-                        top: -100,
-                        left: 30,
-                        borderRadius: '5px',
-                    }} />
                 </Box>
 
-                <Stack
-                    sx={{
-                        gap: 2
-                    }}
-                >
-                    <Typography variant="h2">
-                        Няколко думи за мен ...
-                    </Typography>
-
-                    <Stack
-                        sx={{
-                            alignItems: 'flex-start',
-                        }}>
-                        {
-                            pointsAboutMe.map(point => {
-                                return (
-                                    <Stack key={point} sx={{
-                                        flexDirection: 'row',
-                                        alignItems: 'baseline',
-                                        justifyContent: 'center',
-                                        gap: 2
-                                    }}>
-                                        <img src="/programmes-icons/icons8-greek-pillar.png"
-                                            alt='icon' width='17' height='17' />
-                                        <Typography
-                                            variant="h5"
-                                            sx={{
-                                                textAlign: 'left',
-                                            }}
-                                        >
-                                            {point}
-                                        </Typography>
-                                    </Stack>
-                                )
-                            })
+                <Box sx={{
+                    backgroundColor: '#e5ddd4',
+                    width: '559px',
+                    height: '550px',
+                    padding: 8,
+                    position: 'relative',
+                    top: '50px',
+                    zIndex: 2,
+                }} >
+                    <Typography variant="h4" style={
+                        isVisible ? {
+                            animation: 'activitiesTextMainPage',
+                            ...animationSettings
+                        } : {
+                            opacity: '0'
                         }
-                    </Stack>
-
-                    <Typography variant="h5" sx={{ margin: '15px 0', fontWeight: 'bold' }}>
+                    }>
                         Дейности
                     </Typography>
-
-                    <Box sx={{
-                        display: 'grid',
-                        gridTemplateColumns: { xs: '250px', lg: '250px 250px 250px' },
-                    }}>
+                    <Box
+                        sx={{
+                            display: 'grid',
+                            gridTemplateColumns: { xs: '250px', lg: '250px 250px' },
+                            gap: 2,
+                            marginTop: '27px',
+                        }}
+                        style={
+                            isVisible ? {
+                                animation: 'activitiesTextMainPage',
+                                ...animationSettings
+                            } : {
+                                opacity: '0'
+                            }
+                        }
+                    >
                         {
-                            activities.map((skill, index) => {
-                                const animationDelay = index - 0.6;
-
+                            activities.map((skill) => {
                                 return (
                                     <Stack
                                         key={skill.title}
                                         sx={{
                                             padding: 1,
                                         }}
-                                    // style={
-                                    //     isVisible ?
-                                    //         {
-                                    //             animationName: 'fadeDown',
-                                    //             animationTimingFunction: 'ease-out',
-                                    //             animationDuration: '0.7s',
-                                    //             animationDelay: `${animationDelay}s`,
-                                    //             animationFillMode: 'backwards',
-                                    //         }
-                                    //         : { opacity: 0 }
-                                    // }
                                     >
                                         <img src={skill.path} alt='icon' width='50' height='50' />
                                         <Typography>
@@ -200,59 +234,8 @@ export default function AboutMe(props) {
                             })
                         }
                     </Box>
-                </Stack>
-            </Stack >
-
-
-
-            {/* <Stack sx={{
-                justifyContent: 'center',
-            }}>
-                <Typography variant="h5" sx={{ margin: '15px 0', fontWeight: 'bold' }}>
-                    Софтуерни умения
-                </Typography>
-
-                <Box sx={{
-                    display: 'grid',
-                    gridTemplateColumns: { xs: '250px', lg: '250px 250px 250px 250px' },
-                    gap: 2
-                }}>
-                    {
-                        skills.map(skill => {
-                            return (
-                                <Stack key={skill.title} sx={{
-                                    flexDirection: 'row',
-                                    gap: 1,
-                                    justifyContent: 'flex-start',
-                                    alignItems: 'center',
-                                    border: '1px solid black',
-                                    borderRadius: '16px',
-                                    padding: 1,
-                                    height: '48px',
-                                    backgroundColor: '#f5f5f5',
-                                }}>
-                                    <img src={skill.path} alt='icon' width='16' height='16' />
-                                    {skill.title}
-                                </Stack>
-                            )
-                        })
-                    }
                 </Box>
-
-                <Typography variant="h5" sx={{
-                    textAlign: 'center',
-                    maxWidth: '200px',
-                    padding: 0.5,
-                    transition: 'transform 0.5s',
-                    cursor: 'pointer',
-                    '&:hover': {
-                        transform: 'scale(1.1)'
-                    },
-                    margin: '50px auto',
-                }}>
-                    Виж още ...
-                </Typography>
-            </Stack> */}
+            </Box>
         </Box >
     )
-}
+};

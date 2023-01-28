@@ -7,6 +7,10 @@ const theme = createTheme({
     palette: {
         background: {
             default: '#ffffff',
+        },
+        neutral: {
+            main: '#858585',
+            contrastText: '#fff',
         }
     }
 });

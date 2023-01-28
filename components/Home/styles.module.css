@@ -1,9 +1,12 @@
-.imgClass {
-    filter: grayscale(100%);
-    transition: all 0.3s;
+.backgroundColorSection {
+    background: rgb(243, 237, 233);
+    background: linear-gradient(90deg, rgba(243, 237, 233, 1) 0%, rgba(243, 237, 233, 1) 45%, rgba(255, 255, 255, 1) 77%);
 }
 
-.imgClass:hover {
-    transform: scale(1.1);
-    filter: grayscale(0%);
+.arrowIcon {
+    transition: transform 0.5s;
+}
+
+.seeMoreContainer:hover>.arrowIcon {
+    transform: translate(5px);
 }

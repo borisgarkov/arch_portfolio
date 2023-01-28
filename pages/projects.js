@@ -3,9 +3,11 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
+import Skeleton from '@mui/material/Skeleton';
 import Navigation from "../components/Navigation/Navigation";
 import styles from '../components/Projects/projects.module.css';
 import Link from "next/link";
+import Image from 'next/image';
 
 const GridSectionImages = (props) => {
     const gridHeadingsStyles = {
@@ -23,12 +25,16 @@ const GridSectionImages = (props) => {
             {
                 props.sectionProjects.map(project => {
                     return (
-                        <>
-                            <Link key={project.title} href={`/projects/${project.title}`}>
+                        <React.Fragment key={project.title} >
+                            <Link href={`/projects/${project.title}`}>
                                 <Box className={styles.projectContainer}>
-                                    <img
+                                    <Image
                                         src={project.image}
                                         alt='project-image'
+                                        fill='cover'
+                                        sizes='100%'
+                                        // placeholder='blur'
+                                        // blurDataURL={<Skeleton variant='rectangular' />}
                                         className={styles.projectImg}
                                     />
                                     <Typography className={styles.projectText}>
@@ -37,7 +43,7 @@ const GridSectionImages = (props) => {
                                 </Box>
                             </Link>
                             <Divider sx={{ width: '70%', margin: '0 auto' }} />
-                        </>
+                        </React.Fragment>
                     )
                 })
             }

@@ -1,87 +1,82 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
+import Stack from '@mui/material/Stack';
+import Typography from '@mui/material/Typography';
 import AboutMe from '../components/Home/AboutMe';
 import Navigation from '../components/Navigation/Navigation';
+import styles from '../components/Navigation/main-page-background.module.css';
 
 export default function Home() {
-    const [activeImgIndex, setActiveImgIndex] = React.useState(0);
-
-    const updateImgIndex = (imgIndex) => {
-        if (activeImgIndex > 1) {
-            setActiveImgIndex(0)
-        } else {
-            setActiveImgIndex(imgIndex)
-        }
+    const animationSettings = {
+        animationTimingFunction: 'ease-out',
+        animationDuration: '1.5s',
+        animationFillMode: 'forwards',
     };
-
-    // React.useEffect(() => {
-    //     const interval = setInterval(() => {
-    //         updateImgIndex(activeImgIndex + 1)
-    //     }, 3000);
-
-    //     return () => {
-    //         if (interval) {
-    //             clearInterval(interval);
-    //         }
-    //         console.log('img caroussel unmounted')
-    //     };
-    // });
 
     return (
         <Navigation>
-            {/* <Grid container sx={{}}>
-                <Grid item xs={0.6} sx={{ backgroundColor: '#f5f5f5' }}>
-
-                </Grid>
-                <Grid item xs={11.4} >
-                    <Box sx={{
-                        overflow: 'hidden',
+            <Box className={styles.background}>
+                <Grid
+                    container
+                    sx={{
                         width: '100%',
-                        // height: '100vh',
-                        margin: '0 auto',
-                    }}>
-                        <Box sx={{
-                            width: '100%',
-                            display: 'flex',
-                            flexDirection: 'row',
+                        marginBottom: 20,
+                        marginTop: 10,
+                    }}
+                >
+                    <Grid item sm={4}>
+                        <Box
+                            sx={{
+                                backgroundColor: '#f3ede9',
+                                height: '252px',
+                                width: '682px',
+                                zIndex: '1',
+                                position: 'relative',
+                                left: '40%',
+                                animationName: 'rectangleNextToImageMainPage',
+                                ...animationSettings
+                            }}
+                        />
+                        <Stack sx={{
                             position: 'relative',
-                            // whiteSpace: 'nowrap',
-                            transition: 'transform 2s',
-                            transform: `translateX(-${activeImgIndex * 100}%)`
+                            zIndex: '2',
+                            animationName: 'mainTextNextToImageMainPage',
+                            ...animationSettings
                         }}>
-                            <img src='/image-gallery-homepage/1.jpg' style={{ width: '100%' }} />
-                            <img src='/image-gallery-homepage/2.jpg' style={{ width: '100%' }} />
-                            <img src='/image-gallery-homepage/3.jpg' style={{ width: '100%' }} />
-                            <Box sx={{
-                                display: 'flex',
-                                justifyContent: 'center',
-                                position: 'absolute',
-                                bottom: 10,
-                                left: 0,
-                                right: 0,
-                                margin: 'auto'
-                            }}>
-                                <Typography id='0' sx={{
-                                    height: '10px', width: '10px', borderRadius: '50%',
-                                    backgroundColor: '#f2f1f1', margin: '0 3px',
-                                }} />
-                                <Typography id='1' sx={{
-                                    height: '10px', width: '10px', borderRadius: '50%',
-                                    backgroundColor: '#f2f1f1', margin: '0 3px',
-                                }} />
-                                <Typography id='2' sx={{
-                                    height: '10px', width: '10px', borderRadius: '50%',
-                                    backgroundColor: '#f2f1f1', margin: '0 3px',
-                                }} />
-                            </Box>
-                        </Box>
-                    </Box>
-                </Grid>
-            </Grid> */}
+                            <Typography variant='h2'>
+                                PORTFOLIO
+                            </Typography>
 
-            <AboutMe />
-        </Navigation>
+                            <Typography variant='h6'>
+                                by Nikoleta Ivanova
+                            </Typography>
+                        </Stack>
+                    </Grid>
+
+                    <Grid item xs={12} sm={8} sx={{
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        width: '100%',
+                        height: '100%',
+                        backgroundColor: '#e5ddd4',
+                        padding: 5,
+                    }}>
+                        <img
+                            src='/image-gallery-homepage/6.jpg'
+                            alt='carousel-image'
+                            style={{
+                                width: '80%',
+                                height: '80%',
+                                objectFit: 'contain',
+                                zIndex: '2',
+                            }}
+                        />
+                    </Grid>
+                </Grid>
+                <AboutMe />
+            </Box>
+        </Navigation >
     )
 };

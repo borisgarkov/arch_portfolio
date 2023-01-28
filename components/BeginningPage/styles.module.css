@@ -15,12 +15,22 @@
     animation: upSlidein 3s;
     animation-fill-mode: forwards;
     animation-timing-function: linear;
-    animation-delay: 1s;
+    animation-delay: 2s;
 }
 
-.zoom {
+/* .zoom {
     animation: tracking-in-contract-bck 1s cubic-bezier(.215, .61, .355, 1.000) both;
-    animation-delay: 4s;
+} */
+
+@keyframes slideinZIndex {
+    from {
+        transform: translateX(0%);
+    }
+
+    to {
+        transform: translateX(100%);
+        z-index: 0;
+    }
 }
 
 @keyframes slidein {
@@ -35,11 +45,11 @@
 
 @keyframes upSlidein {
     from {
-        height: 100%;
+        transform: translateY(0%);
     }
 
     to {
-        height: 0%;
+        transform: translateY(-100%);
     }
 }
 

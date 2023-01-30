@@ -69,7 +69,7 @@ export default function SidebarMenu(props) {
     return (
         <div className={classNames.join(' ')}>
 
-            <Link className={styles.menuItem} href='/cv'>CV</Link>
+            <Link className={styles.menuItem} href='/personal-info'>CV</Link>
 
             <Stack
                 onClick={handleProjectItemClick}
@@ -98,7 +98,7 @@ export default function SidebarMenu(props) {
                             href={item.link}
                             style={{
                                 transformOrigin: 'top center',
-                                animation: `rotateX 300ms ${item.num * 0.06}s ease-in-out forwards`
+                                animation: `dropdownMenuAnimation 300ms ${item.num * 0.06}s ease-in-out forwards`
                             }}
                         >
                             {item.title}
@@ -108,9 +108,7 @@ export default function SidebarMenu(props) {
             </Stack>
 
             <Link className={styles.menuItem} href=''>Дейности</Link>
-
             <Link className={styles.menuItem} href='/contacts'>Контакти</Link>
-
         </div >
     )
 };

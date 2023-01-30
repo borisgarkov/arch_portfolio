@@ -1,5 +1,4 @@
-import '../components/Home/animation-keyframes.css';
-import '../components/Navigation/keyframes.module.css';
+import '../utils/animation-keyframes.css';
 
 export default function App({ Component, pageProps }) {
 	return <Component {...pageProps} />

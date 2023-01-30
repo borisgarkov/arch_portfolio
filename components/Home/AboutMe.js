@@ -2,7 +2,7 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import CircleIcon from '@mui/icons-material/Circle';
 import { Stack } from "@mui/material";
-import styles from './styles.module.css';
+import styles from './aboutme-styles.module.css';
 import { useRef } from "react";
 import useOnScreen from "../../hooks/useOnScreen";
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';

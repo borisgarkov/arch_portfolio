@@ -1,82 +1,100 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
-import Stack from '@mui/material/Stack';
-import Typography from '@mui/material/Typography';
-import AboutMe from '../components/Home/AboutMe';
-import Navigation from '../components/Navigation/Navigation';
-import styles from '../components/Navigation/main-page-background.module.css';
+import Box from "@mui/material/Box";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import styles from '../components/IntroPage/intro-styles.module.css';
 
-export default function Home() {
-    const animationSettings = {
-        animationTimingFunction: 'ease-out',
-        animationDuration: '1.5s',
-        animationFillMode: 'forwards',
-    };
+export default function Home(props) {
+    const router = useRouter();
+
+    const backgroundColor = '#858585';
 
     return (
-        <Navigation>
-            <Box className={styles.background}>
-                <Grid
-                    container
-                    sx={{
-                        width: '100%',
-                        marginBottom: 20,
-                        marginTop: 10,
-                    }}
-                >
-                    <Grid item sm={4}>
-                        <Box
-                            sx={{
-                                backgroundColor: '#f3ede9',
-                                height: '252px',
-                                width: '682px',
-                                zIndex: '1',
-                                position: 'relative',
-                                left: '40%',
-                                animationName: 'rectangleNextToImageMainPage',
-                                ...animationSettings
-                            }}
-                        />
-                        <Stack sx={{
-                            position: 'relative',
-                            zIndex: '2',
-                            animationName: 'mainTextNextToImageMainPage',
-                            ...animationSettings
-                        }}>
-                            <Typography variant='h2'>
-                                PORTFOLIO
-                            </Typography>
+        <Box sx={{
+            backgroundColor: backgroundColor,
+            position: 'relative',
+            height: '100vh',
+            overflow: 'hidden',
+            display: 'flex',
+            alignItems: 'center',
+        }}>
 
-                            <Typography variant='h6'>
-                                by Nikoleta Ivanova
-                            </Typography>
-                        </Stack>
-                    </Grid>
+            <img
+                src='/home-logo/4.png'
+                alt="logo"
+                style={{
+                    width: '100%',
+                    position: 'absolute',
+                    zIndex: 5
+                }}
+            />
+            <img
+                src='/home-logo/1.png'
+                alt="logo"
+                style={{
+                    width: '100%',
+                    position: 'absolute',
+                    zIndex: 3
+                }}
+            />
+            <img
+                src='/home-logo/2.png'
+                alt="logo"
+                style={{
+                    width: '100%',
+                    position: 'absolute',
+                    zIndex: 1
+                }}
+            />
+            <img
+                src='/home-logo/3.png'
+                alt="logo"
+                style={{
+                    width: '100%',
+                    position: 'absolute',
+                    zIndex: 0
+                }}
+            />
 
-                    <Grid item xs={12} sm={8} sx={{
-                        display: 'flex',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        width: '100%',
-                        height: '100%',
-                        backgroundColor: '#e5ddd4',
-                        padding: 5,
-                    }}>
-                        <img
-                            src='/image-gallery-homepage/6.jpg'
-                            alt='carousel-image'
-                            style={{
-                                width: '80%',
-                                height: '80%',
-                                objectFit: 'contain',
-                                zIndex: '2',
-                            }}
-                        />
-                    </Grid>
-                </Grid>
-                <AboutMe />
+            <Box className={styles.slidein} sx={{
+                backgroundColor: backgroundColor,
+                position: 'absolute',
+                height: '100%',
+                width: '100%',
+                zIndex: 6
+            }}>
             </Box>
-        </Navigation >
+            <Box className={styles.secondSlidein} sx={{
+                backgroundColor: backgroundColor,
+                position: 'absolute',
+                height: '100%',
+                width: '100%',
+                zIndex: 4
+            }}>
+            </Box>
+            <Box className={styles.upSlidein} sx={{
+                backgroundColor: backgroundColor,
+                position: 'absolute',
+                height: '100%',
+                width: '100%',
+                zIndex: 2
+            }}>
+            </Box>
+
+            <Box onClick={() => router.push('/home')} sx={{
+                backgroundColor: '#ffffff',
+                padding: 2,
+                cursor: 'pointer',
+                zIndex: 7,
+                color: '#6d6d6d',
+                position: 'absolute',
+                bottom: '20%',
+                left: '20%',
+            }}>
+                КЪМ ПОРТФОЛИО
+            </Box>
+        </Box>
     )
 };
+
+// #f3ede9
+// #e5ddd4

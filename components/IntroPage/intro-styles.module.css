@@ -18,10 +18,6 @@
     animation-delay: 2s;
 }
 
-/* .zoom {
-    animation: tracking-in-contract-bck 1s cubic-bezier(.215, .61, .355, 1.000) both;
-} */
-
 @keyframes slideinZIndex {
     from {
         transform: translateX(0%);

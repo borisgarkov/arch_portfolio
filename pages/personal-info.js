@@ -68,11 +68,11 @@ export default function CV(props) {
     const languages = [
         {
             title: 'Български',
-            icon: '/programmes-icons/bulgaria.png',
+            icon: '/cv/bulgaria.png',
         },
         {
             title: 'Английски',
-            icon: '/programmes-icons/united-kingdom.png',
+            icon: '/cv/united-kingdom.png',
         },
     ];
 
@@ -316,7 +316,7 @@ export default function CV(props) {
                                         gap: 1,
                                         marginBottom: 1,
                                     }}>
-                                    <img src='/programmes-icons/prize.png' alt='prize' width='15' height='15' />
+                                    <img src='/cv/prize.png' alt='prize' width='15' height='15' />
                                     <Stack>
                                         {
                                             contest.map(c => (

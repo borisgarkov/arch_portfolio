@@ -114,7 +114,8 @@ export default function Contacts(props) {
                     </Button>
                 </Grid>
             </Grid>
-            <img src='/contacts-image.png' style={{ width: '100%', height: '100%', position: 'absolute', top: 0, opacity: 0.5 }} />
+            <img src='/contacts/contacts-image.png'
+                style={{ width: '100%', height: '100%', position: 'absolute', top: 0, opacity: 0.5 }} />
         </Navigation >
     )
 };

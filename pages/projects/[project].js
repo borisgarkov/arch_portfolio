@@ -1,5 +1,4 @@
 import Navigation from "../../components/Navigation/Navigation";
-import { useRouter } from "next/router";
 import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
@@ -7,26 +6,11 @@ import Typography from "@mui/material/Typography";
 import styles from '../../components/Projects/project-page.module.css';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import Link from "next/link";
+import { getAllProjectsSlugs, getCurrentProjectData } from "../../components/Projects/getProjectsData";
+import programsPictureMapping from "../../components/Projects/programsPictureMapping";
 
 export default function Projects(props) {
-    const router = useRouter();
-    const { project } = router.query;
-    console.log(project);
-
-    const skills = [
-        {
-            path: '/programmes-icons/archicad.png',
-            title: 'Archicad'
-        },
-        {
-            path: '/programmes-icons/autocad.png',
-            title: 'Autocad'
-        },
-        {
-            path: '/programmes-icons/lumoin.png',
-            title: 'Lumoin'
-        },
-    ];
+    const project = props.project;
 
     return (
         <Navigation>
@@ -37,36 +21,37 @@ export default function Projects(props) {
                     padding: 5,
                     borderRight: '1px solid black',
                 }}>
-                    <Typography variant="h5">ХОТЕЛ НА МОРЕТО</Typography>
-                    <Typography sx={{
-                        marginTop: 2
-                    }}>
-                        It is a long established fact that a reader will be distracted
-                        by the readable content of a page when looking at its layout.
-                        The point of using Lorem Ipsum is that it has a more-or-less
-                        normal distribution of letters, as opposed to using Content here
-                        , content here, making it look like readable English. Many
-                        desktop publishing packages and web page editors now use Lorem
-                        Ipsum as their default model text, and a search for lorem ips
-                        um will uncover many web sites still in their infancy. Variou
-                        s versions have evolved over the years, sometimes by accident,
-                        sometimes on purpose (injected humour and the like).
+                    <Typography variant="h5">
+                        {project.title}
                     </Typography>
+                    {
+                        project.content.map(text => (
+                            <Typography
+                                key={text}
+                                sx={{
+                                    marginTop: 2
+                                }}
+                            >
+                                {text}
+                            </Typography>
+                        ))
+                    }
+
+
                     <Typography variant="h6" sx={{
                         margin: '16px 0'
                     }}>
                         ИЗПОЛЗВАНИ ПРОГРАМИ
                     </Typography>
-
                     <Box sx={{
                         display: 'grid',
                         gridTemplateColumns: '200px 200px',
                         gap: 2
                     }}>
                         {
-                            skills.map(skill => {
+                            project.programmes.map(program => {
                                 return (
-                                    <Stack key={skill.title} sx={{
+                                    <Stack key={program} sx={{
                                         flexDirection: 'row',
                                         gap: 1,
                                         justifyContent: 'flex-start',
@@ -77,8 +62,13 @@ export default function Projects(props) {
                                         height: '48px',
                                         backgroundColor: '#f5f5f5',
                                     }}>
-                                        <img src={skill.path} alt='icon' width='16' height='16' />
-                                        {skill.title}
+                                        <img
+                                            src={programsPictureMapping[program.toLowerCase()]}
+                                            alt='icon'
+                                            width='16'
+                                            height='16'
+                                        />
+                                        {program}
                                     </Stack>
                                 )
                             })
@@ -101,6 +91,7 @@ export default function Projects(props) {
                         </Stack>
                     </Link>
                 </Grid>
+
                 <Grid item lg={8} sx={{
                     padding: 5
                 }}>
@@ -112,14 +103,14 @@ export default function Projects(props) {
                     }}>
                         <Box className={styles.imgBigContainer}>
                             <img
-                                src='https://source.unsplash.com/random/tree/'
+                                src={project.images[0]}
                                 alt='project-img'
                                 className={styles.projectImg}
                             />
                         </Box>
                         <Box className={styles.imgSmallContainer}>
                             <img
-                                src='https://source.unsplash.com/random/ocean/'
+                                src={project.images[1]}
                                 alt='project-img'
                                 className={styles.projectImg}
                             />
@@ -132,14 +123,14 @@ export default function Projects(props) {
                     }}>
                         <Box className={styles.imgSmallContainer}>
                             <img
-                                src='https://source.unsplash.com/random/woman/'
+                                src={project.images[2]}
                                 alt='project-img'
                                 className={styles.projectImg}
                             />
                         </Box>
                         <Box className={styles.imgBigContainer}>
                             <img
-                                src='https://source.unsplash.com/random/angel/'
+                                src={project.images[3]}
                                 alt='project-img'
                                 className={styles.projectImg}
                             />
@@ -149,4 +140,17 @@ export default function Projects(props) {
             </Grid>
         </Navigation >
     )
+};
+
+export async function getStaticPaths() {
+    return {
+        paths: getAllProjectsSlugs(),
+        fallback: false,
+    }
+};
+
+export async function getStaticProps(props) {
+    return {
+        props: { project: getCurrentProjectData(props.params.project) }
+    }
 };

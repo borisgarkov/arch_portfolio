@@ -1,7 +1,5 @@
 import Box from "@mui/material/Box";
-import Link from "next/link";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
 import styles from '../components/IntroPage/intro-styles.module.css';
 
 export default function Home(props) {
@@ -20,7 +18,7 @@ export default function Home(props) {
         }}>
 
             <img
-                src='/home-logo/4.png'
+                src='/intro-logo/4.png'
                 alt="logo"
                 style={{
                     width: '100%',
@@ -29,7 +27,7 @@ export default function Home(props) {
                 }}
             />
             <img
-                src='/home-logo/1.png'
+                src='/intro-logo/1.png'
                 alt="logo"
                 style={{
                     width: '100%',
@@ -38,7 +36,7 @@ export default function Home(props) {
                 }}
             />
             <img
-                src='/home-logo/2.png'
+                src='/intro-logo/2.png'
                 alt="logo"
                 style={{
                     width: '100%',
@@ -47,7 +45,7 @@ export default function Home(props) {
                 }}
             />
             <img
-                src='/home-logo/3.png'
+                src='/intro-logo/3.png'
                 alt="logo"
                 style={{
                     width: '100%',

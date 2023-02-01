@@ -39,7 +39,7 @@ export default function Navigation(props) {
                 <title>Nikoleta Ivanova Portfolio</title>
                 <meta name="description" content="architecture portfolio" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <link rel="shortcut icon" href="/nav-logo-black.png" />
+                <link rel="shortcut icon" href="/navbar-logo/nav-logo-black.png" />
             </Head>
             <AppBar position="fixed" elevation={0} sx={{
                 ...navbarColor,
@@ -49,7 +49,7 @@ export default function Navigation(props) {
                     ...navbarColor,
                 }}>
                     <Link href='/home'>
-                        <img src='/nav-logo.png' alt='logo' width='40' height='40' />
+                        <img src='/navbar-logo/nav-logo.png' alt='logo' width='40' height='40' />
                     </Link>
 
                     <Box sx={{

@@ -50,27 +50,27 @@ export default function AboutMe(props) {
 
     const activities = [
         {
-            path: '/programmes-icons/3.png',
+            path: '/aboutme/3.png',
             title: 'Архитектурни проекти',
         },
         {
-            path: '/programmes-icons/2.png',
+            path: '/aboutme/2.png',
             title: 'Заснемане на сгради',
         },
         {
-            path: '/programmes-icons/6.png',
+            path: '/aboutme/6.png',
             title: 'Проекти за реконструкция и преустройство',
         },
         {
-            path: '/programmes-icons/4.png',
+            path: '/aboutme/4.png',
             title: 'Интериорни проекти',
         },
         {
-            path: '/programmes-icons/5.png',
+            path: '/aboutme/5.png',
             title: 'Фасадни решения',
         },
         {
-            path: '/programmes-icons/1.png',
+            path: '/aboutme/1.png',
             title: '3D проекти',
         },
     ]
@@ -167,7 +167,7 @@ export default function AboutMe(props) {
                     </Stack>
 
                     <img
-                        src="/programmes-icons/profile.jpg"
+                        src="/aboutme/profile.jpg"
                         alt='my-pic'
                         style={
                             isVisible ? {

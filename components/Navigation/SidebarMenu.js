@@ -52,17 +52,17 @@ export default function SidebarMenu(props) {
         {
             num: 2,
             title: 'Предишен опит',
-            link: '',
+            link: '/home',
         },
         {
             num: 3,
             title: 'Проекти',
-            link: '',
+            link: '/home',
         },
         {
             num: 4,
             title: 'БалканАРХитрав',
-            link: '',
+            link: '/home',
         },
     ];
 

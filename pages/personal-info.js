@@ -227,7 +227,7 @@ export default function CV(props) {
                         }}>
                             <WorkOutlineOutlinedIcon fontSize='small' sx={{ color: '#858585' }} />
                             <Typography variant='h6' sx={{ ...subsectionStyle }}>
-                                Стаж: Направление "Архитектура, Строителство и Геодезия" Общинска администрация
+                                Стаж: Направление &quot;Архитектура, Строителство и Геодезия&quot; Общинска администрация
                             </Typography>
                         </Stack>
                         <Typography variant='h6' sx={{}}>Община Челопеч, с. Челопеч</Typography>
@@ -260,7 +260,7 @@ export default function CV(props) {
                                 Технически асистент
                             </Typography>
                         </Stack>
-                        <Typography variant='h6' sx={{}}>"Дънди Прешъс Металс Челопеч", с. Челопеч</Typography>
+                        <Typography variant='h6' sx={{}}>&quot;Дънди Прешъс Металс Челопеч&quot;, с. Челопеч</Typography>
                         <Typography variant='h6' sx={{}}>10/07/2019г. - 14/09/2019г.</Typography>
                         <Typography variant='h6' sx={{}}>Придобити умения в сферата на технологиите, комуникациите и работата в екип.</Typography>
 
@@ -286,7 +286,7 @@ export default function CV(props) {
                         }}>
                             <SchoolOutlinedIcon fontSize='small' sx={{ color: '#858585' }} />
                             <Typography variant='h6' sx={{ fontWeight: 'bold' }}>
-                                Участник в Дружеството "БалканАРХитрав" - Лятно архитектурно училище
+                                Участник в Дружеството &quot;БалканАРХитрав&quot; - Лятно архитектурно училище
                             </Typography>
                         </Stack>
                         <Typography variant='h6'>2019г., 2020г., 2021г.</Typography>
@@ -300,7 +300,7 @@ export default function CV(props) {
                         }}>
                             <SchoolOutlinedIcon fontSize='small' sx={{ color: '#858585' }} />
                             <Typography variant='h6' sx={{ fontWeight: 'bold' }}>
-                                "ЧПГЧО Челопеч", с. Челопеч
+                                &quot;ЧПГЧО Челопеч&quot;, с. Челопеч
                             </Typography>
                         </Stack>
                         <Typography variant='h6' sx={{}}>2011 - 2016</Typography>
@@ -320,7 +320,7 @@ export default function CV(props) {
                                     <Stack>
                                         {
                                             contest.map(c => (
-                                                <Typography variant='h6'>{c}</Typography>
+                                                <Typography key={c} variant='h6'>{c}</Typography>
                                             ))
                                         }
                                     </Stack>

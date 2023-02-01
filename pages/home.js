@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useRef, useEffect, useState, useLayoutEffect } from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
@@ -7,6 +7,32 @@ import AboutMe from '../components/Home/AboutMe';
 import Navigation from '../components/Navigation/Navigation';
 
 export default function Home() {
+
+    const [imageIndex, setImageIndex] = useState(0);
+
+    const images = [
+        '/image-gallery-homepage/6.jpg',
+        '/image-gallery-homepage/1.jpg',
+        '/image-gallery-homepage/2.jpg',
+    ];
+
+    useEffect(() => {
+        const timeInteval = setInterval(() => {
+            if (imageIndex === 3) {
+                setImageIndex(0);
+                return
+            }
+
+            setImageIndex(prevState => prevState + 1);
+            images.push(images.shift())
+            console.log(imageIndex)
+        }, 2000);
+
+        return () => {
+            clearInterval(timeInteval)
+        }
+    }, [imageIndex]);
+
     const animationSettings = {
         animationTimingFunction: 'ease-out',
         animationDuration: '1.5s',
@@ -21,7 +47,7 @@ export default function Home() {
                     sx={{
                         width: '100%',
                         marginBottom: 20,
-                        marginTop: 10,
+                        marginTop: '95px',
                     }}
                 >
                     <Grid item sm={4}>
@@ -61,17 +87,50 @@ export default function Home() {
                         height: '100%',
                         backgroundColor: '#e5ddd4',
                         padding: 5,
+                        gap: 2,
                     }}>
-                        <img
-                            src='/image-gallery-homepage/6.jpg'
-                            alt='carousel-image'
-                            style={{
-                                width: '80%',
-                                height: '80%',
-                                objectFit: 'contain',
+                        <Box sx={{
+                            zIndex: '2',
+                            width: '100%',
+                            height: '100%',
+                            overflow: 'hidden',
+                        }}>
+                            <Box sx={{
+                                display: 'flex',
+                                width: '100%',
+                                height: '100%',
                                 zIndex: '2',
-                            }}
-                        />
+                                transition: 'transform 1s',
+                                transform: `translateX(-${(imageIndex * 100)}%)`
+                            }}>
+                                {
+                                    images.map(image => (
+                                        <img
+                                            key={image}
+                                            src={image}
+                                            alt='carousel-image'
+                                            style={{
+                                                width: '100%',
+                                                height: '100%',
+                                                objectFit: 'contain',
+                                                zIndex: '2',
+                                            }}
+                                        />
+                                    ))
+                                }
+
+                                {/* <img
+                                    src={images[0]}
+                                    alt='carousel-image'
+                                    style={{
+                                        width: '100%',
+                                        height: '80%',
+                                        objectFit: 'contain',
+                                        zIndex: '2',
+                                    }}
+                                /> */}
+                            </Box>
+                        </Box>
                     </Grid>
                 </Grid>
                 <AboutMe />

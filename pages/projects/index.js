@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
 import Navigation from "../../components/Navigation/Navigation";
-import styles from '../components/Projects/projects.module.css';
+import styles from '../../components/Projects/projects.module.css';
 import Link from "next/link";
 import Image from 'next/image';
 
@@ -16,7 +16,7 @@ const GridSectionImages = (props) => {
 
     return (
         <>
-            < Typography variant="h6" sx={{
+            < Typography variant="h6s" sx={{
                 ...gridHeadingsStyles,
             }}>
                 {props.title}
@@ -54,6 +54,8 @@ export default function Projects(props) {
     const gridItemsStyles = {
         borderRight: { lg: '1px solid black' }
     };
+
+    console.log(props.data);
 
     const firstSectionProjects = [
         {
@@ -167,4 +169,16 @@ export default function Projects(props) {
             </Grid>
         </Navigation>
     )
+};
+
+export async function getStaticProps(params) {
+    const fs = require('fs');
+    const yaml = require('js-yaml');
+    const data = yaml.load(fs.readFileSync(process.cwd() + '/public/projects-content/test.yml'))
+
+    return {
+        props: {
+            data
+        }
+    }
 }

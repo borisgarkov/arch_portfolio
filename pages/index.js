@@ -1,6 +1,7 @@
 import Box from "@mui/material/Box";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 import styles from '../components/IntroPage/intro-styles.module.css';
 
 export default function Home(props) {
@@ -95,6 +96,3 @@ export default function Home(props) {
         </Box>
     )
 };
-
-// #f3ede9
-// #e5ddd4

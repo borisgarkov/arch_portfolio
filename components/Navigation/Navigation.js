@@ -30,7 +30,7 @@ export default function Navigation(props) {
         }
     };
 
-    const navbarColor = { backgroundColor: '#858585' };
+    const navbarColor = { backgroundColor: '#ffffff' };
 
     return (
         <ThemeProvider theme={theme}>
@@ -49,7 +49,7 @@ export default function Navigation(props) {
                     ...navbarColor,
                 }}>
                     <Link href='/home'>
-                        <img src='/navbar-logo/nav-logo.png' alt='logo' width='40' height='40' />
+                        <img src='/navbar-logo/nav-logo-black.png' alt='logo' width='40' height='40' />
                     </Link>
 
                     <Box sx={{

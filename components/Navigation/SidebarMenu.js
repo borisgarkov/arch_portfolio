@@ -62,7 +62,7 @@ export default function SidebarMenu(props) {
         {
             num: 4,
             title: 'БалканАРХитрав',
-            link: '/home',
+            link: '/balkan-arhitrav',
         },
     ];
 
@@ -107,7 +107,7 @@ export default function SidebarMenu(props) {
                 }
             </Stack>
 
-            <Link className={styles.menuItem} href=''>Дейности</Link>
+            <Link className={styles.menuItem} href='/activities'>Дейности</Link>
             <Link className={styles.menuItem} href='/contacts'>Контакти</Link>
         </div >
     )

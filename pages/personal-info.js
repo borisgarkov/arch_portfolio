@@ -1,4 +1,4 @@
-import { Divider, Grid, Typography, Stack, Box } from '@mui/material';
+import { Divider, Grid, Typography, Stack, Box, Zoom, Fade } from '@mui/material';
 import Navigation from '../components/Navigation/Navigation';
 import AlternateEmailOutlinedIcon from '@mui/icons-material/AlternateEmailOutlined';
 import WorkOutlineOutlinedIcon from '@mui/icons-material/WorkOutlineOutlined';
@@ -114,10 +114,12 @@ export default function CV(props) {
     return (
         <Navigation>
             <Box sx={{ overflow: 'hidden', position: 'relative' }} ref={ref}>
-                <Stack sx={{ width: '90%', margin: '50px auto' }}>
-                    <Typography variant='h3'>Николета Иванова</Typography>
-                    <Typography variant='h4'>Архитект</Typography>
-                </Stack>
+                <Fade in timeout={1000}>
+                    <Stack sx={{ width: '90%', margin: '50px auto' }}>
+                        <Typography variant='h3'>Николета Иванова</Typography>
+                        <Typography variant='h4'>Архитект</Typography>
+                    </Stack>
+                </Fade>
 
                 <Grid container sx={{ width: '90%', margin: '0 auto', }}>
                     <Grid item xs={12} lg={2} style={
@@ -331,7 +333,7 @@ export default function CV(props) {
 
                     {
                         !isMobile && <img
-                            src='/image-gallery-homepage/backgroundScetchImage.png'
+                            src='/cv/backgroundScetchImage.png'
                             alt=""
                             style={
                                 isVisible ? {

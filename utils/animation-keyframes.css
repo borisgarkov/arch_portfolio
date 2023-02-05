@@ -183,7 +183,7 @@
     }
 
     100% {
-        opacity: 0.3;
+        opacity: 0.1;
         transform: scale(1) rotateZ(353deg);
     }
 }

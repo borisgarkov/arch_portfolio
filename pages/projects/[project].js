@@ -8,6 +8,31 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import Link from "next/link";
 import { getAllProjectsSlugs, getCurrentProjectData } from "../../components/Projects/getProjectsData";
 import programsPictureMapping from "../../components/Projects/programsPictureMapping";
+import { Fade } from "@mui/material";
+
+const BigImageContainer = ({ image }) => {
+    return (
+        <Box className={styles.imgBigContainer}>
+            <img
+                src={image}
+                alt='project-img'
+                className={styles.projectImg}
+            />
+        </Box>
+    )
+};
+
+const SmallImageContainer = ({ image }) => {
+    return (
+        <Box className={styles.imgSmallContainer}>
+            <img
+                src={image}
+                alt='project-img'
+                className={styles.projectImg}
+            />
+        </Box>
+    )
+};
 
 export default function Projects(props) {
     const project = props.project;
@@ -45,31 +70,40 @@ export default function Projects(props) {
                     </Typography>
                     <Box sx={{
                         display: 'grid',
-                        gridTemplateColumns: '200px 200px',
+                        gridTemplateColumns: '50% 50%',
                         gap: 2
                     }}>
                         {
-                            project.programmes.map(program => {
+                            project.programmes.map((program, index) => {
                                 return (
-                                    <Stack key={program} sx={{
-                                        flexDirection: 'row',
-                                        gap: 1,
-                                        justifyContent: 'flex-start',
-                                        alignItems: 'center',
-                                        border: '1px solid black',
-                                        borderRadius: '16px',
-                                        padding: 1,
-                                        height: '48px',
-                                        backgroundColor: '#f5f5f5',
-                                    }}>
-                                        <img
-                                            src={programsPictureMapping[program.toLowerCase()]}
-                                            alt='icon'
-                                            width='16'
-                                            height='16'
-                                        />
-                                        {program}
-                                    </Stack>
+                                    <Fade in
+                                        timeout={1000}
+                                        style={{ transitionDelay: `${index * 400}ms` }}
+                                        key={program}
+                                    >
+                                        <Stack sx={{
+                                            flexDirection: 'row',
+                                            gap: 1,
+                                            justifyContent: 'flex-start',
+                                            alignItems: 'center',
+                                            border: '1px solid black',
+                                            // borderRadius: '16px',
+                                            padding: 1,
+                                            height: '48px',
+                                            backgroundColor: '#f2f2f2',
+                                        }}>
+                                            <img
+                                                src={programsPictureMapping[program.toLowerCase()]}
+                                                alt='icon'
+                                                width='16'
+                                                height='16'
+                                                style={{
+                                                    filter: 'brightness(0) invert(1)'
+                                                }}
+                                            />
+                                            {program}
+                                        </Stack>
+                                    </Fade>
                                 )
                             })
                         }
@@ -101,40 +135,16 @@ export default function Projects(props) {
                         justifyContent: 'space-evenly',
                         marginBottom: 2
                     }}>
-                        <Box className={styles.imgBigContainer}>
-                            <img
-                                src={project.images[0]}
-                                alt='project-img'
-                                className={styles.projectImg}
-                            />
-                        </Box>
-                        <Box className={styles.imgSmallContainer}>
-                            <img
-                                src={project.images[1]}
-                                alt='project-img'
-                                className={styles.projectImg}
-                            />
-                        </Box>
+                        <BigImageContainer image={project.images[0]} />
+                        <SmallImageContainer image={project.images[1]} />
                     </Stack>
                     <Stack sx={{
                         flexDirection: 'row',
                         gap: 2,
                         justifyContent: 'space-evenly',
                     }}>
-                        <Box className={styles.imgSmallContainer}>
-                            <img
-                                src={project.images[2]}
-                                alt='project-img'
-                                className={styles.projectImg}
-                            />
-                        </Box>
-                        <Box className={styles.imgBigContainer}>
-                            <img
-                                src={project.images[3]}
-                                alt='project-img'
-                                className={styles.projectImg}
-                            />
-                        </Box>
+                        <SmallImageContainer image={project.images[2]} />
+                        <BigImageContainer image={project.images[3]} />
                     </Stack>
                 </Grid>
             </Grid>

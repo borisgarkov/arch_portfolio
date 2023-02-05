@@ -79,7 +79,7 @@ export default function Navigation(props) {
             </Box>
 
             <SidebarMenu classNames={classNames} />
-            {/* <Footer /> */}
+            <Footer />
         </ThemeProvider>
     )
 }

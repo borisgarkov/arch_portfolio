@@ -6,24 +6,36 @@ const ActivitiesImageSection = ({ activity }) => {
     const additionalStyle = activity.reverse ? { left: '-30px' } : { marginLeft: 'auto', right: '-30px' }
 
     return (
-        <Box sx={{ backgroundColor: '#858585', width: '250px', height: '180px' }}>
+        <Box sx={{
+            // backgroundColor: '#858585',
+            backgroundImage: 'url("/activities/IMG-7546.jpg")',
+            backgroundSize: 'cover',
+            // backgroundRepeat: 'no-repeat',
+            width: '250px',
+            height: '180px'
+        }}>
             <Box sx={{
-                backgroundColor: '#e5ddd4', width: '150px',
+                // backgroundColor: 'white',
+                opacity: 0.7,
+                backgroundImage: 'url("/activities/IMG-7806.jpg")',
+                backgroundSize: 'contain',
+                // backgroundImage: 'url("/activities/IMG-7550.jpg")',
+                width: '150px',
                 height: '150px',
                 position: 'relative',
                 marginTop: '15px',
                 ...additionalStyle,
             }}>
-                <Box sx={{
+                {/* <Box sx={{
                     width: '75px', height: '75px',
                     display: 'inline-flex',
                     justifyContent: 'center',
                     alignItems: 'center',
                     position: 'relative',
                     transform: 'translate(50%, 50%)',
-                }}>
-                    <img src={activity.image} alt='icon' width='50' height='50' />
-                </Box>
+                }}> */}
+                <img src={activity.image} alt='icon' width='50' height='50' style={{ transform: 'translate(100%, 100%)' }} />
+                {/* </Box> */}
             </Box>
         </Box >
     )
@@ -59,7 +71,7 @@ const ActivitiesTemplate = ({ activity, index }) => {
         <Fade in timeout={1000} style={{ transitionDelay: `${index * 400}ms` }}>
             <Box sx={{
                 width: '100%', display: 'flex', flexDirection: 'row',
-                justifyContent: 'space-between', marginBottom: 7
+                justifyContent: 'space-evenly', marginBottom: 7
             }}>
                 {
                     activity.reverse
@@ -149,10 +161,7 @@ export default function Activities() {
 
     return (
         <Navigation>
-            <Box sx={{
-                width: '70%',
-                margin: '0 auto',
-            }}>
+            <Box>
                 <Slide in direction='right' timeout={1000}>
                     <Box sx={{ position: 'relative', width: '200px', marginTop: '100px', marginBottom: '60px' }}>
                         <Typography variant='h3' sx={{ width: '100%', textAlign: 'right' }}>Дейности</Typography>

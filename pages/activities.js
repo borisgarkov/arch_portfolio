@@ -3,39 +3,33 @@ import React from 'react';
 import Navigation from '../components/Navigation/Navigation';
 
 const ActivitiesImageSection = ({ activity }) => {
-    const additionalStyle = activity.reverse ? { left: '-30px' } : { marginLeft: 'auto', right: '-30px' }
+    const additionalStyle =
+        activity.reverse ?
+            { left: '-30px' }
+            : { marginLeft: 'auto', right: '-30px' };
 
     return (
         <Box sx={{
-            // backgroundColor: '#858585',
-            backgroundImage: 'url("/activities/IMG-7546.jpg")',
+            backgroundImage:
+                activity.reverse ?
+                    'url("/activities/background-reverse.jpg")'
+                    : 'url("/activities/background.jpg")',
             backgroundSize: 'cover',
-            // backgroundRepeat: 'no-repeat',
             width: '250px',
-            height: '180px'
+            height: '180px',
         }}>
             <Box sx={{
-                // backgroundColor: 'white',
                 opacity: 0.7,
-                backgroundImage: 'url("/activities/IMG-7806.jpg")',
+                backgroundImage: 'url("/activities/frame.png")',
                 backgroundSize: 'contain',
-                // backgroundImage: 'url("/activities/IMG-7550.jpg")',
-                width: '150px',
-                height: '150px',
+                width: '170px',
+                height: '170px',
                 position: 'relative',
-                marginTop: '15px',
                 ...additionalStyle,
             }}>
-                {/* <Box sx={{
-                    width: '75px', height: '75px',
-                    display: 'inline-flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    position: 'relative',
-                    transform: 'translate(50%, 50%)',
-                }}> */}
-                <img src={activity.image} alt='icon' width='50' height='50' style={{ transform: 'translate(100%, 100%)' }} />
-                {/* </Box> */}
+                <img src={activity.image} alt='icon' width='50'
+                    height='50' style={{ transform: 'translate(120%, 130%)' }}
+                />
             </Box>
         </Box >
     )

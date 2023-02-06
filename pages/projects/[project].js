@@ -8,7 +8,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import Link from "next/link";
 import { getAllProjectsSlugs, getCurrentProjectData } from "../../components/Projects/getProjectsData";
 import programsPictureMapping from "../../components/Projects/programsPictureMapping";
-import { Fade } from "@mui/material";
+import { Fade, Slide } from "@mui/material";
 
 const BigImageContainer = ({ image }) => {
     return (
@@ -45,32 +45,42 @@ export default function Projects(props) {
                 <Grid item lg={4} sx={{
                     padding: 5,
                     borderRight: '1px solid black',
+                    display: 'flex',
+                    flexDirection: 'column',
                 }}>
-                    <Typography variant="h5">
-                        {project.title}
-                    </Typography>
+                    <Box sx={{
+                        marginBottom: 5,
+                        display: 'inline-block',
+                    }}>
+                        <Slide in timeout={1000} direction='right'>
+                            <Box sx={{
+                                borderTop: '2px solid black',
+                                marginBottom: 3,
+                                width: '50%'
+                            }} />
+                        </Slide>
+                        <Typography variant='h5' sx={{ textTransform: 'uppercase' }}>
+                            {project.title}
+                        </Typography>
+                    </Box>
+
                     {
                         project.content.map(text => (
-                            <Typography
-                                key={text}
-                                sx={{
-                                    marginTop: 2
-                                }}
-                            >
+                            <Typography key={text} sx={{ textAlign: 'justify' }}>
                                 {text}
                             </Typography>
                         ))
                     }
 
-
-                    <Typography variant="h6" sx={{
-                        margin: '16px 0'
+                    <Typography sx={{
+                        marginTop: 5,
+                        marginBottom: 2
                     }}>
                         ИЗПОЛЗВАНИ ПРОГРАМИ
                     </Typography>
-                    <Box sx={{
-                        display: 'grid',
-                        gridTemplateColumns: '50% 50%',
+
+                    <Stack sx={{
+                        flexDirection: 'row',
                         gap: 2
                     }}>
                         {
@@ -82,34 +92,44 @@ export default function Projects(props) {
                                         key={program}
                                     >
                                         <Stack sx={{
-                                            flexDirection: 'row',
+                                            flexDirection: 'column',
                                             gap: 1,
-                                            justifyContent: 'flex-start',
+                                            justifyContent: 'center',
                                             alignItems: 'center',
-                                            border: '1px solid black',
-                                            // borderRadius: '16px',
-                                            padding: 1,
-                                            height: '48px',
-                                            backgroundColor: '#f2f2f2',
+
+                                            borderRadius: '50%',
+
+                                            // gap: 2
                                         }}>
-                                            <img
-                                                src={programsPictureMapping[program.toLowerCase()]}
-                                                alt='icon'
-                                                width='16'
-                                                height='16'
-                                                style={{
-                                                    filter: 'brightness(0) invert(1)'
-                                                }}
-                                            />
-                                            {program}
+                                            <Box sx={{
+                                                border: '1px solid black',
+                                                borderRadius: '50%',
+                                                backgroundColor: 'black',
+                                                height: '32px',
+                                                width: '32px',
+                                                overflow: 'hidden',
+                                                display: 'flex',
+                                                justifyContent: 'center',
+                                                alignItems: 'center',
+                                            }}>
+                                                <img
+                                                    src={programsPictureMapping[program.toLowerCase()]}
+                                                    alt='icon'
+                                                    width='20'
+                                                    height='20'
+                                                />
+                                            </Box>
+                                            <Typography sx={{}}>
+                                                {program}
+                                            </Typography>
                                         </Stack>
                                     </Fade>
                                 )
                             })
                         }
-                    </Box>
+                    </Stack>
 
-                    <Link href='/projects' style={{ textDecoration: 'none' }}>
+                    <Link href='/projects' style={{ textDecoration: 'none', marginTop: 'auto' }}>
                         <Stack sx={{
                             flexDirection: 'row',
                             alignItems: 'flex-end',
@@ -117,10 +137,8 @@ export default function Projects(props) {
                             color: 'black',
                         }}>
                             <ArrowBackIcon />
-                            <Typography sx={{
-                                marginTop: 2,
-                            }}>
-                                Назад към другите проекти
+                            <Typography>
+                                Назад към СТУДЕНТСКИ ПРОЕКТИ
                             </Typography>
                         </Stack>
                     </Link>

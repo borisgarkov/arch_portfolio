@@ -30,7 +30,7 @@ export default function Navigation(props) {
         }
     };
 
-    const navbarColor = { backgroundColor: '#ffffff' };
+    const navbarColor = { backgroundColor: 'rgba(255, 255, 255, 0.5)' };
 
     return (
         <ThemeProvider theme={theme}>

@@ -12,8 +12,8 @@ const ActivitiesImageSection = ({ activity }) => {
         <Box sx={{
             backgroundImage:
                 activity.reverse ?
-                    'url("/activities/background-reverse.jpg")'
-                    : 'url("/activities/background.jpg")',
+                    'url("/activities/background-reverse.JPG")'
+                    : 'url("/activities/background.JPG")',
             backgroundSize: 'cover',
             width: '250px',
             height: '180px',

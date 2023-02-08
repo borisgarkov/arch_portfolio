@@ -50,15 +50,16 @@ export default function BalkanArhitrav() {
                 padding: '0 30px'
             }}>
                 <PageTitleTemplate>
-                    <Typography variant='h2'>БалканАРХитрав</Typography>
+                    <Typography variant='h2'>Балкан АРХитрав</Typography>
                 </PageTitleTemplate>
 
 
                 <Stack sx={{
-                    flexDirection: 'row', gap: 10,
+                    flexDirection: { xs: 'column-reverse', lg: 'row' }, gap: 10,
                     alignItems: 'flex-start',
                 }}>
-                    <Box sx={{ width: '30%' }}>
+
+                    <Box sx={{ width: { xs: '100%', lg: '30%' } }}>
                         {
                             texts.map(text => (
                                 <Typography key={text} variant='h6' sx={{
@@ -71,21 +72,23 @@ export default function BalkanArhitrav() {
                             ))
                         }
                     </Box>
-                    <Stack sx={{
-                        width: '70%', flexDirection: 'row',
-                        position: 'sticky', top: 100
 
+                    <Stack sx={{
+                        width: { xs: '100%', lg: '70%' }, flexDirection: { xs: 'column', lg: 'row' },
+                        position: { xs: 'static', lg: 'sticky' }, top: 100,
+                        gap: { xs: 5, lg: 0 }
                     }}>
                         {
                             projectsSection.map((project, index) => (
                                 <Fade key={project.title} in timeout={1000}
-                                    style={{ transitionDelay: `${index * 400}ms` }}>
+                                    style={{ transitionDelay: `${index * 400}ms` }}
+                                >
                                     <Stack className={styles.projectContainer} sx={{
                                         cursor: 'pointer',
-                                        width: '33.33%',
+                                        width: { xs: '100%', lg: '33.33%' },
                                         padding: '0 2.6vw',
-                                        borderRight: 'solid 1px #6A6A6A',
-                                        borderLeft: index === 0 ? 'solid 1px #6A6A6A' : null,
+                                        borderRight: { lg: 'solid 1px #6A6A6A' },
+                                        borderLeft: { lg: index === 0 ? 'solid 1px #6A6A6A' : null },
                                     }}>
                                         <Typography
                                             className={styles.textTitle}

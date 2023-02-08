@@ -15,7 +15,7 @@ export default function TopHomeSection(params) {
 
     useEffect(() => {
         const timeInteval = setInterval(() => {
-            if (imageIndex === 3) {
+            if (imageIndex === 2) {
                 setImageIndex(0);
                 return
             }
@@ -113,17 +113,6 @@ export default function TopHomeSection(params) {
                                 />
                             ))
                         }
-
-                        {/* <img
-                                    src={images[0]}
-                                    alt='carousel-image'
-                                    style={{
-                                        width: '100%',
-                                        height: '80%',
-                                        objectFit: 'contain',
-                                        zIndex: '2',
-                                    }}
-                                /> */}
                     </Box>
                 </Box>
             </Grid>

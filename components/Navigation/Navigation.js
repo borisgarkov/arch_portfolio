@@ -78,7 +78,7 @@ export default function Navigation(props) {
                 }
             </Box>
 
-            <SidebarMenu classNames={classNames} />
+            <SidebarMenu classNames={classNames} handleDrawerClick={handleDrawerClick} />
             <Footer />
         </ThemeProvider>
     )

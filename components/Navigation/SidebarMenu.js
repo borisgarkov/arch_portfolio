@@ -1,11 +1,11 @@
-import { IconButton, Stack } from '@mui/material';
+import { IconButton, Stack, Typography } from '@mui/material';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import styles from './sidebar-style.module.css';
 import { useState } from 'react';
 import Link from 'next/link';
 
 export default function SidebarMenu(props) {
-    const { classNames } = props;
+    const { classNames, handleDrawerClick } = props;
 
     const initialProjectMenuStyle = {
         transition: 'transform 0.5s',
@@ -69,7 +69,7 @@ export default function SidebarMenu(props) {
     return (
         <div className={classNames.join(' ')}>
 
-            <Link className={styles.menuItem} href='/personal-info'>CV</Link>
+            <Link onClick={handleDrawerClick} className={styles.menuItem} href='/personal-info'>CV</Link>
 
             <Stack
                 onClick={handleProjectItemClick}
@@ -82,7 +82,7 @@ export default function SidebarMenu(props) {
                 <IconButton sx={{ ...projectMenuItemStyle, position: 'absolute', top: '23px', left: '-43px' }}>
                     <ArrowForwardIosIcon />
                 </IconButton>
-                <Link className={styles.menuItem} href=''>Проекти</Link>
+                <Typography className={styles.menuItem}>Проекти</Typography>
             </Stack>
 
             <Stack sx={{
@@ -93,6 +93,7 @@ export default function SidebarMenu(props) {
                 {
                     projectItems.map(item => (
                         <Link
+                            onClick={handleDrawerClick}
                             key={item.num}
                             className={styles.projectMenuItem}
                             href={item.link}
@@ -107,8 +108,8 @@ export default function SidebarMenu(props) {
                 }
             </Stack>
 
-            <Link className={styles.menuItem} href='/activities'>Дейности</Link>
-            <Link className={styles.menuItem} href='/contacts'>Контакти</Link>
+            <Link onClick={handleDrawerClick} className={styles.menuItem} href='/activities'>Дейности</Link>
+            <Link onClick={handleDrawerClick} className={styles.menuItem} href='/contacts'>Контакти</Link>
         </div >
     )
 };

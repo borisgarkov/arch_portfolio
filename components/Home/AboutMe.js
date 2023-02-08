@@ -1,79 +1,24 @@
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import CircleIcon from '@mui/icons-material/Circle';
 import { Stack } from "@mui/material";
 import styles from './aboutme-styles.module.css';
 import { useRef } from "react";
 import useOnScreen from "../../hooks/useOnScreen";
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import activities from '../Activities/activities.json';
+import IconImageFrame from "../Activities/IconImageFrame";
+import { useRouter } from "next/router";
 
-export default function AboutMe(props) {
+export default function AboutMe() {
     const ref = useRef(null);
     const isVisible = useOnScreen(ref);
+    const router = useRouter();
 
     const animationSettings = {
         animationTimingFunction: 'ease-out',
         animationDuration: '1.5s',
         animationFillMode: 'forwards',
     };
-
-    const skills = [
-        {
-            path: '/programmes-icons/archicad.png',
-            title: 'Archicad'
-        },
-        {
-            path: '/programmes-icons/autocad.png',
-            title: 'Autocad'
-        },
-        {
-            path: '/programmes-icons/lumoin.png',
-            title: 'Lumoin'
-        },
-        {
-            path: '/programmes-icons/office.png',
-            title: 'Microsoft Office'
-        },
-        {
-            path: '/programmes-icons/photoshop.png',
-            title: 'Photoshop'
-        },
-        {
-            path: '/programmes-icons/sketchup.png',
-            title: 'Sketchup'
-        },
-        {
-            path: '/programmes-icons/twinmotion.png',
-            title: 'Twinmotion'
-        },
-    ];
-
-    const activities = [
-        {
-            path: '/aboutme/3.png',
-            title: 'Архитектурни проекти',
-        },
-        {
-            path: '/aboutme/2.png',
-            title: 'Заснемане на сгради',
-        },
-        {
-            path: '/aboutme/6.png',
-            title: 'Проекти за реконструкция и преустройство',
-        },
-        {
-            path: '/aboutme/4.png',
-            title: 'Интериорни проекти',
-        },
-        {
-            path: '/aboutme/5.png',
-            title: 'Фасадни решения',
-        },
-        {
-            path: '/aboutme/1.png',
-            title: '3D проекти',
-        },
-    ]
 
     const profilePicStyleProps = {
         width: 355.87,
@@ -111,7 +56,7 @@ export default function AboutMe(props) {
                     top: '100px',
                     left: '20px',
                     zIndex: 1,
-                }} >
+                }}>
                     <Typography variant="h4" ref={ref} style={
                         isVisible ? {
                             animation: 'someWordsAboutMe',
@@ -143,6 +88,7 @@ export default function AboutMe(props) {
                         Катедра: Градоустройство
                     </Typography>
                     <Stack
+                        onClick={() => router.push('/personal-info')}
                         className={styles.seeMoreContainer}
                         sx={{
                             flexDirection: 'row',
@@ -184,7 +130,7 @@ export default function AboutMe(props) {
                 <Box sx={{
                     backgroundColor: '#e5ddd4',
                     width: '559px',
-                    height: '550px',
+                    height: '100%',
                     padding: 8,
                     position: 'relative',
                     top: '50px',
@@ -200,12 +146,14 @@ export default function AboutMe(props) {
                     }>
                         Дейности
                     </Typography>
+
                     <Box
                         sx={{
                             display: 'grid',
                             gridTemplateColumns: { xs: '250px', lg: '250px 250px' },
+                            justifyContent: 'center',
                             gap: 2,
-                            marginTop: '27px',
+                            // marginTop: '27px',
                         }}
                         style={
                             isVisible ? {
@@ -217,21 +165,25 @@ export default function AboutMe(props) {
                         }
                     >
                         {
-                            activities.map((skill) => {
-                                return (
-                                    <Stack
-                                        key={skill.title}
-                                        sx={{
-                                            padding: 1,
-                                        }}
-                                    >
-                                        <img src={skill.path} alt='icon' width='50' height='50' />
-                                        <Typography>
-                                            {skill.title}
-                                        </Typography>
-                                    </Stack>
-                                )
-                            })
+                            Object.values(activities).map((activity) =>
+                                <Stack
+                                    onClick={() => router.push('/activities')}
+                                    key={activity.title}
+                                    sx={{
+                                        alignItems: 'center',
+                                    }}
+                                    className={styles.iconsContainer}
+                                >
+                                    <IconImageFrame activity={activity} />
+                                    <Typography sx={{
+                                        textAlign: 'center',
+                                        position: 'relative',
+                                        top: '-20px',
+                                    }}>
+                                        {activity.title}
+                                    </Typography>
+                                </Stack>
+                            )
                         }
                     </Box>
                 </Box>

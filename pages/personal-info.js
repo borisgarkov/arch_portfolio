@@ -1,4 +1,4 @@
-import { Divider, Grid, Typography, Stack, Box, Zoom, Fade } from '@mui/material';
+import { Divider, Grid, Typography, Stack, Box, Zoom, Fade, Slide } from '@mui/material';
 import Navigation from '../components/Navigation/Navigation';
 import useScreenResolution from '../hooks/useScreenResolution';
 import useOnScreen from '../hooks/useOnScreen';
@@ -7,6 +7,7 @@ import WorkExperience from '../components/PersonalInfo/WorkExperience';
 import Education from '../components/PersonalInfo/Education';
 import Contests from '../components/PersonalInfo/Contests';
 import PersonalInfo from '../components/PersonalInfo/PersonalInfo';
+import PageTitleTemplate from '../components/CommonComponents/PageTitleTemplate';
 
 export default function CV() {
     const isMobile = useScreenResolution('lg');
@@ -16,7 +17,7 @@ export default function CV() {
 
     const animationSettings = {
         animationTimingFunction: 'ease-out',
-        animationDuration: '1.5s',
+        animationDuration: '1s',
         animationFillMode: 'forwards',
     };
 
@@ -28,15 +29,14 @@ export default function CV() {
 
     return (
         <Navigation>
-            <Box sx={{ overflow: 'hidden', position: 'relative' }} ref={ref}>
-                <Fade in timeout={1000}>
-                    <Stack sx={{ width: '90%', margin: '50px auto' }}>
-                        <Typography variant='h3'>Николета Иванова</Typography>
-                        <Typography variant='h4'>Архитект</Typography>
-                    </Stack>
-                </Fade>
+            <Box sx={{ overflow: 'hidden', position: 'relative', padding: '0 30px' }} ref={ref}>
 
-                <Grid container sx={{ width: '90%', margin: '0 auto', }}>
+                <PageTitleTemplate>
+                    <Typography variant='h3'>Николета Иванова</Typography>
+                    <Typography variant='h4'>Архитект</Typography>
+                </PageTitleTemplate>
+
+                <Grid container sx={{ margin: '0 auto', }}>
                     <Grid
                         item
                         xs='auto'

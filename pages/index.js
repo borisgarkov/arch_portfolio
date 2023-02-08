@@ -5,7 +5,7 @@ import styles from '../components/IntroPage/intro-styles.module.css';
 export default function Home(props) {
     const router = useRouter();
 
-    const backgroundColor = '#858585';
+    const backgroundColor = '#444444';
 
     return (
         <Box sx={{

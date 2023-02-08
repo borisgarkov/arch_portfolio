@@ -12,3 +12,12 @@
 .seeMoreContainer:hover>.arrowIcon {
     transform: translate(5px);
 }
+
+.iconsContainer {
+    transition: transform 1s;
+    cursor: pointer;
+}
+
+.iconsContainer:hover {
+    transform: scale(1.05);
+}

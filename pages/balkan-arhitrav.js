@@ -1,6 +1,7 @@
 import { Box, Fade, Slide, Stack, Typography } from '@mui/material';
 import Navigation from '../components/Navigation/Navigation';
 import styles from '../components/BalkanArhitrav/balkaarhitrav-style.module.css';
+import PageTitleTemplate from '../components/CommonComponents/PageTitleTemplate';
 
 export default function BalkanArhitrav() {
     const texts = [
@@ -48,19 +49,11 @@ export default function BalkanArhitrav() {
             <Box sx={{
                 padding: '0 30px'
             }}>
-                <Typography variant='h2' sx={{
-                    marginTop: 10, marginBottom: 10,
-                    display: 'inline-block',
-                }}>
-                    <Slide in timeout={1000} direction='right'>
-                        <Box sx={{
-                            borderTop: '2px solid black',
-                            marginBottom: 5,
-                            width: '50%'
-                        }} />
-                    </Slide>
-                    БалканАРХитрав
-                </Typography>
+                <PageTitleTemplate>
+                    <Typography variant='h2'>БалканАРХитрав</Typography>
+                </PageTitleTemplate>
+
+
                 <Stack sx={{
                     flexDirection: 'row', gap: 10,
                     alignItems: 'flex-start',

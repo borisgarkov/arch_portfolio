@@ -1,4 +1,4 @@
-import { IconButton, Stack, Typography } from '@mui/material';
+import { Box, IconButton, Stack, Typography } from '@mui/material';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import styles from './sidebar-style.module.css';
 import { useState } from 'react';
@@ -82,7 +82,7 @@ export default function SidebarMenu(props) {
                 <IconButton sx={{ ...projectMenuItemStyle, position: 'absolute', top: '23px', left: '-43px' }}>
                     <ArrowForwardIosIcon />
                 </IconButton>
-                <Typography className={styles.menuItem}>Проекти</Typography>
+                <Box className={styles.menuItem}>Проекти</Box>
             </Stack>
 
             <Stack sx={{

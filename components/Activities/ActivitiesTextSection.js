@@ -1,13 +1,16 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import useScreenResolution from "../../hooks/useScreenResolution";
 
 export default function ActivitiesTextSection({ activity }) {
+    const isMobile = useScreenResolution('lg');
+
     return (
         <Box sx={{
             display: 'flex',
             flexDirection: 'column',
             flexBasis: '70%',
-            textAlign: activity.reverse ? 'left' : 'right'
+            textAlign: isMobile ? 'right' : activity.reverse ? 'left' : 'right'
         }}>
             <Box>
                 <Typography variant='h5' sx={{

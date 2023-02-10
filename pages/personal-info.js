@@ -29,7 +29,7 @@ export default function CV() {
 
     return (
         <Navigation>
-            <Box sx={{ overflow: 'hidden', position: 'relative', padding: '0 30px' }} ref={ref}>
+            <Box sx={{ padding: '0 30px' }} ref={ref}>
 
                 <PageTitleTemplate>
                     <Typography variant='h3'>Николета Иванова</Typography>
@@ -53,7 +53,9 @@ export default function CV() {
                         <PersonalInfo />
                     </Grid>
 
-                    <Divider flexItem orientation='vertical' />
+                    {
+                        !isMobile && <Divider flexItem orientation='vertical' />
+                    }
 
                     <Grid
                         item

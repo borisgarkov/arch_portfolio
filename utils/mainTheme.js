@@ -11,6 +11,10 @@ const theme = createTheme({
         neutral: {
             main: '#858585',
             contrastText: '#fff',
+        },
+        mainPage: {
+            main: '#ececec',
+            secondary: '#cac8c8'
         }
     }
 });

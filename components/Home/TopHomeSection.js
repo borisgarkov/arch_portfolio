@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
+import { Divider } from '@mui/material';
 
 export default function TopHomeSection(params) {
     const [imageIndex, setImageIndex] = useState(0);
@@ -43,44 +44,47 @@ export default function TopHomeSection(params) {
                 width: '100%',
                 marginBottom: 20,
                 marginTop: '95px',
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                padding: '0 80px',
             }}
         >
             <Grid item sm={4}>
                 <Box
                     sx={{
-                        backgroundColor: '#f3ede9',
-                        height: '252px',
-                        width: '682px',
-                        zIndex: '1',
+                        backgroundImage: 'url("/image-gallery-homepage/portfolioBackground.png")',
+                        backgroundSize: 'contain',
+                        backgroundRepeat: 'no-repeat',
+                        height: '300px',
                         position: 'relative',
-                        left: '40%',
                         animationName: 'rectangleNextToImageMainPage',
-                        ...animationSettings
+                        ...animationSettings,
+                        display: 'flex',
+                        alignItems: 'center',
                     }}
-                />
-                <Stack sx={{
-                    position: 'relative',
-                    zIndex: '2',
-                    animationName: 'mainTextNextToImageMainPage',
-                    ...animationSettings
-                }}>
-                    <Typography variant='h2'>
-                        PORTFOLIO
-                    </Typography>
+                >
+                    <Stack sx={{
+                        position: 'relative',
+                    }}>
+                        <Typography variant='h2'>
+                            PORTFOLIO
+                        </Typography>
 
-                    <Typography variant='h6'>
-                        by Nikoleta Ivanova
-                    </Typography>
-                </Stack>
+                        <Typography variant='h6'>
+                            by Nikoleta Ivanova
+                        </Typography>
+                    </Stack>
+                </Box>
             </Grid>
 
-            <Grid item xs={12} sm={8} sx={{
+            <Grid item xs={12} sm={7} sx={{
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
                 width: '100%',
                 height: '100%',
-                backgroundColor: '#e5ddd4',
+                backgroundColor: 'mainPage.main',
                 padding: 5,
                 gap: 2,
             }}>

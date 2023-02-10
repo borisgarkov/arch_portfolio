@@ -39,8 +39,7 @@ export default function WorkExperience() {
             }}>
                 <WorkOutlineOutlinedIcon fontSize='small' sx={{ color: '#858585' }} />
                 <Typography variant='h6' sx={{ ...subsectionStyle }}>
-                    Стаж: Направление &quot;Архитектура,
-                    Строителство и Геодезия&quot; Общинска администрация
+                    Стаж: Направление &quot;Архитектура, Строителство и Геодезия&quot; Общинска администрация
                 </Typography>
             </Stack>
             <Typography variant='h6'>

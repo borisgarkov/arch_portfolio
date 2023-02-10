@@ -17,8 +17,12 @@ export default function IconImageFrame({ activity }) {
             position: 'relative',
             // ...additionalStyle,
         }}>
-            <img src={activity.image} alt='icon' width='50'
-                height='50' style={{ transform: 'translate(120%, 130%)' }}
+            <img
+                src={activity.image}
+                alt='icon'
+                width='50'
+                height='50'
+                style={{ transform: 'translate(120%, 130%)' }}
             />
         </Box>
     )

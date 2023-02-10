@@ -3,7 +3,6 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-import { Divider } from '@mui/material';
 
 export default function TopHomeSection(params) {
     const [imageIndex, setImageIndex] = useState(0);
@@ -14,22 +13,22 @@ export default function TopHomeSection(params) {
         '/image-gallery-homepage/2.jpg',
     ];
 
-    useEffect(() => {
-        const timeInteval = setInterval(() => {
-            if (imageIndex === 2) {
-                setImageIndex(0);
-                return
-            }
+    // useEffect(() => {
+    //     const timeInteval = setInterval(() => {
+    //         if (imageIndex === 2) {
+    //             setImageIndex(0);
+    //             return
+    //         }
 
-            setImageIndex(prevState => prevState + 1);
-            images.push(images.shift())
-            console.log(imageIndex)
-        }, 2000);
+    //         setImageIndex(prevState => prevState + 1);
+    //         images.push(images.shift())
+    //         console.log(imageIndex)
+    //     }, 2000);
 
-        return () => {
-            clearInterval(timeInteval)
-        }
-    }, [imageIndex]);
+    //     return () => {
+    //         clearInterval(timeInteval)
+    //     }
+    // }, [imageIndex]);
 
     const animationSettings = {
         animationTimingFunction: 'ease-out',
@@ -42,7 +41,7 @@ export default function TopHomeSection(params) {
             container
             sx={{
                 width: '100%',
-                marginBottom: 20,
+                marginBottom: 10,
                 marginTop: '95px',
                 display: 'flex',
                 justifyContent: 'space-between',
@@ -58,7 +57,7 @@ export default function TopHomeSection(params) {
                         backgroundRepeat: 'no-repeat',
                         height: '300px',
                         position: 'relative',
-                        animationName: 'rectangleNextToImageMainPage',
+                        animationName: 'fadeRightPortfolioMainPage',
                         ...animationSettings,
                         display: 'flex',
                         alignItems: 'center',

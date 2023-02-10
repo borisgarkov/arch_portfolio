@@ -33,53 +33,56 @@ export default function Navigation(props) {
     const navbarColor = { backgroundColor: 'rgba(255, 255, 255, 0.5)' };
 
     return (
-        <ThemeProvider theme={theme}>
-            <CssBaseline />
+        <>
             <Head>
-                <title>Nikoleta Ivanova Portfolio</title>
-                <meta name="description" content="architecture portfolio" />
+                <meta charset="UTF-8" />
+                <meta name="author" content="Nikoleta Ivanova" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="shortcut icon" href="/navbar-logo/nav-logo-black.png" />
             </Head>
-            <AppBar position="fixed" elevation={0} sx={{
-                ...navbarColor,
-                width: '100%',
-            }}>
-                <Toolbar sx={{
+            <ThemeProvider theme={theme}>
+                <CssBaseline />
+
+                <AppBar position="fixed" elevation={0} sx={{
                     ...navbarColor,
+                    width: '100%',
                 }}>
-                    <Link href='/home'>
-                        <img src='/navbar-logo/nav-logo-black.png' alt='logo' width='40' height='40' />
-                    </Link>
+                    <Toolbar sx={{
+                        ...navbarColor,
+                    }}>
+                        <Link href='/home'>
+                            <img src='/navbar-logo/nav-logo-black.png' alt='logo' width='40' height='40' />
+                        </Link>
 
-                    <Box sx={{
-                        marginLeft: 'auto',
-                        cursor: 'pointer',
-                    }}
-                        onClick={handleDrawerClick}
-                    >
-                        <span className={styles.menuIcon} style={{
-                            transform: openDrawer ? 'translateY(12px) translate(-64px)' : 'none'
-                        }}>
-                            {menuIconText}
-                        </span>
-                        <div className={styles.trait1}></div>
-                        <div className={styles.trait2} style={{
-                            transform: openDrawer ? 'translateY(-9px)' : 'none',
-                        }}></div>
-                    </Box>
-                </Toolbar>
-            </AppBar>
-            <Box sx={{
-                marginTop: '60px',
-            }}>
-                {
-                    props.children
-                }
-            </Box>
+                        <Box sx={{
+                            marginLeft: 'auto',
+                            cursor: 'pointer',
+                        }}
+                            onClick={handleDrawerClick}
+                        >
+                            <span className={styles.menuIcon} style={{
+                                transform: openDrawer ? 'translateY(12px) translate(-64px)' : 'none'
+                            }}>
+                                {menuIconText}
+                            </span>
+                            <div className={styles.trait1}></div>
+                            <div className={styles.trait2} style={{
+                                transform: openDrawer ? 'translateY(-9px)' : 'none',
+                            }}></div>
+                        </Box>
+                    </Toolbar>
+                </AppBar>
+                <Box sx={{
+                    marginTop: '60px',
+                }}>
+                    {
+                        props.children
+                    }
+                </Box>
 
-            <SidebarMenu classNames={classNames} handleDrawerClick={handleDrawerClick} />
-            <Footer />
-        </ThemeProvider>
+                <SidebarMenu classNames={classNames} handleDrawerClick={handleDrawerClick} />
+                <Footer />
+            </ThemeProvider>
+        </>
     )
-}
+};

@@ -170,6 +170,7 @@ export default function AboutMe() {
 
     return (
         <Box sx={{
+            marginTop: 10,
             padding: '0 80px',
             width: '100%',
             // height: { lg: '825px' },

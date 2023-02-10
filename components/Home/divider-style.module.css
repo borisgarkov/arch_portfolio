@@ -1,0 +1,16 @@
+.divider {
+    margin: 0 auto;
+    border-color: black;
+    animation: divider-animation 2s ease-out forwards;
+}
+
+
+@keyframes divider-animation {
+    0% {
+        width: 0vw;
+    }
+
+    100% {
+        width: 80vw;
+    }
+}

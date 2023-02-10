@@ -1,20 +1,45 @@
 import React from 'react';
 import Box from '@mui/material/Box';
-import AboutMe from '../components/Home/AboutMe';
 import Navigation from '../components/Navigation/Navigation';
-import TopHomeSection from '../components/Home/TopHomeSection';
 import AboutMeMobile from '../components/Home/AbouMeMobile';
-import { Divider } from '@mui/material';
+import DividerSection from '../components/Home/DividerSection';
+import LoadingSpinner from '../utils/LoadingSpinner';
+import Head from 'next/head';
+
+const TopHomeSection = React.lazy(() => import('../components/Home/TopHomeSection'));
+const AboutMe = React.lazy(() => import('../components/Home/AboutMe'));
 
 export default function Home() {
     return (
-        <Navigation>
-            <Box>
-                <TopHomeSection />
-                <Divider />
-                <AboutMe />
-                {/* <AboutMeMobile /> */}
-            </Box>
-        </Navigation >
+        <>
+            <Head>
+                <title>Nikoleta Ivanova Portfolio</title>
+
+                <meta
+                    name="description"
+                    content="Архитектурен портфолио уебсайт. Architecture Portfolio website"
+                    key="desc"
+                />
+                <meta name="keywords"
+                    content="архитектура, портфолио, 
+                    architecture, portfolio, Nikoleta Ivanova,
+                    Николета Иванова, desgin, дизайн, 3D, интериор, заснемане на сгради,
+                    проекти, реконструкция" />
+            </Head>
+
+            <Navigation>
+                <Box>
+                    <React.Suspense fallback={<LoadingSpinner />}>
+                        <TopHomeSection />
+                    </React.Suspense>
+
+                    <DividerSection />
+
+                    <React.Suspense fallback={<LoadingSpinner />}>
+                        <AboutMe />
+                    </React.Suspense>
+                </Box>
+            </Navigation>
+        </>
     )
 };

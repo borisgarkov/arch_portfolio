@@ -1,13 +1,12 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import Navigation from '../components/Navigation/Navigation';
-import AboutMeMobile from '../components/Home/AbouMeMobile';
 import DividerSection from '../components/Home/DividerSection';
 import LoadingSpinner from '../utils/LoadingSpinner';
 import Head from 'next/head';
 
-const TopHomeSection = React.lazy(() => import('../components/Home/TopHomeSection'));
-const AboutMe = React.lazy(() => import('../components/Home/AboutMe'));
+const TopHomeSection = React.lazy(() => import('../components/Home//TopHomeSection/TopHomeSection'));
+const AboutMe = React.lazy(() => import('../components/Home/AboutMe/AboutMe'));
 
 export default function Home() {
     return (

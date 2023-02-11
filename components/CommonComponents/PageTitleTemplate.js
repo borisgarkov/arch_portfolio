@@ -5,8 +5,9 @@ import Divider from "@mui/material/Divider";
 export default function PageTitleTemplate(props) {
     return (
         <Box sx={{
-            marginTop: 15,
-            marginBottom: 10,
+            // marginTop: 15,
+            paddingTop: 5,
+            paddingBottom: 10,
         }}>
             <Slide in timeout={1000} direction='right'>
                 <Divider sx={{

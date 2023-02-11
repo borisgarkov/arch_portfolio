@@ -1,0 +1,28 @@
+.arrowIcon {
+    width: 15px;
+    height: 15px;
+    transition: transform 0.5s;
+}
+
+.seeMoreContainer:hover>.arrowIcon {
+    transform: translate(5px);
+}
+
+.profilePic {
+    width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+    margin-top: 20px;
+}
+
+
+@media (min-width: 1200px) {
+    .profilePic {
+        width: 320px;
+        height: 320px;
+        position: relative;
+        top: 50px;
+        right: 100px;
+        margin-top: 0;
+    }
+}

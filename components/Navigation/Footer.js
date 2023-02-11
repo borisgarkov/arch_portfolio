@@ -29,7 +29,7 @@ export default function Footer(props) {
                 py: 2,
                 backgroundColor: '#444444',
                 alignItems: 'center',
-                marginTop: 5
+                // marginTop: 5
             }}>
             <Copyright />
         </Stack>

@@ -1,5 +1,6 @@
 import Box from "@mui/material/Box";
-import picturesFolder from "./config";
+import { imageBox } from "./iconsStyles";
+import styles from './styles.module.css';
 
 export default function IconImageFrame({ activity }) {
     const additionalStyle =
@@ -9,21 +10,10 @@ export default function IconImageFrame({ activity }) {
 
     return (
         <Box sx={{
-            opacity: 0.7,
-            backgroundImage: `url(${picturesFolder}/frame.png)`,
-            backgroundSize: 'contain',
-            width: '170px',
-            height: '170px',
-            position: 'relative',
+            ...imageBox
             // ...additionalStyle,
         }}>
-            <img
-                src={activity.image}
-                alt='icon'
-                width='50'
-                height='50'
-                style={{ transform: 'translate(120%, 130%)' }}
-            />
+            <img src={activity.image} alt='icon' className={styles.image} />
         </Box>
     )
 };

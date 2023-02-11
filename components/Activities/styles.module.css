@@ -1,0 +1,13 @@
+.image {
+    width: 40px;
+    height: 40px;
+    transform: translate(70%, 80%)
+}
+
+@media (min-width: 1200px) {
+    .image {
+        width: 50px;
+        height: 50px;
+        transform: translate(120%, 130%)
+    }
+}

@@ -1,12 +1,14 @@
-import { Box, Button, Checkbox, FormControlLabel, Grid, Stack, TextField, Typography } from '@mui/material';
+import { Box, Button, Grid, TextField, Typography } from '@mui/material';
 import { useState } from 'react';
 import Navigation from '../components/Navigation/Navigation';
 import PageTitleTemplate from '../components/CommonComponents/PageTitleTemplate';
+import {
+    mainBoxStyle, textFieldStyle,
+    sendButtonStyle, gridContainerStyle
+} from '../components/Contacts/contacts-styles';
+import styles from '../components/Contacts/styles.module.css';
 
-export default function Contacts(props) {
-    const [checked, setChecked] = useState(false);
-    const handleCheckChange = (event) => { setChecked(event.target.checked) };
-
+export default function Contacts() {
     const [details, setDetails] = useState({
         email: '',
         name: '',
@@ -25,25 +27,24 @@ export default function Contacts(props) {
     };
 
     const sendMessage = () => {
-        if (details.email.trim() === '' || details.name.trim() === '' || details.message.trim() === '' || !checked) {
+        if (
+            details.email.trim() === '' ||
+            details.name.trim() === '' ||
+            details.message.trim() === ''
+        ) {
             return
         }
     };
 
     return (
         <Navigation>
-            <Box sx={{
-                padding: '0 30px',
-            }}>
+            <Box sx={{ ...mainBoxStyle, }}>
                 <PageTitleTemplate>
                     <Typography variant='h3'>Контакти</Typography>
                 </PageTitleTemplate>
 
-                <Grid container spacing={2} sx={{
-                    width: { xs: '100%', lg: '50%' },
-                }}>
+                <Grid container spacing={2} sx={{ ...gridContainerStyle }}>
                     <Grid item xs={12} lg={6}>
-                        {/* <Typography variant='h6' sx={{ fontWeight: 'bold' }}>Имейл*</Typography> */}
                         <TextField
                             fullWidth
                             required
@@ -54,13 +55,11 @@ export default function Contacts(props) {
                             type='email'
                             value={details.email}
                             onChange={updateDetails}
-                            sx={{
-                                color: '#f3ede9'
-                            }}
+                            sx={{ ...textFieldStyle }}
+                            InputProps={{ classes: { input: styles.resizeText } }}
                         />
                     </Grid>
                     <Grid item xs={12} lg={6}>
-                        {/* <Typography variant='h6' sx={{ fontWeight: 'bold' }}>Име*</Typography> */}
                         <TextField
                             fullWidth
                             required
@@ -71,13 +70,11 @@ export default function Contacts(props) {
                             type='text'
                             value={details.name}
                             onChange={updateDetails}
-                            sx={{
-                                color: '#f3ede9'
-                            }}
+                            sx={{ ...textFieldStyle }}
+                            InputProps={{ classes: { input: styles.resizeText } }}
                         />
                     </Grid>
                     <Grid item xs={12}>
-                        {/* <Typography variant='h6' sx={{ fontWeight: 'bold' }}>Съобщение*</Typography> */}
                         <TextField
                             fullWidth
                             id="message"
@@ -85,26 +82,19 @@ export default function Contacts(props) {
                             variant="filled"
                             color='neutral'
                             type='text'
-                            minRows='10'
+                            minRows='6'
                             multiline
                             value={details.message}
                             onChange={updateDetails}
-                            sx={{
-                                color: '#f3ede9'
-                            }}
+                            sx={{ ...textFieldStyle }}
+                            InputProps={{ classes: { input: styles.resizeText } }}
                         />
                     </Grid>
-                    {/* <Grid item>
-                        <FormControlLabel
-                            control={<Checkbox checked={checked} onChange={handleCheckChange} color="default" />}
-                            label='Не съм робот'
-                        />
-                    </Grid> */}
                     <Grid item xs={12}>
                         <Button
                             fullWidth
                             variant='contained'
-                            sx={{ backgroundColor: '#858585', '&:hover': { backgroundColor: '#858585' } }}
+                            sx={{ ...sendButtonStyle }}
                             onSubmit={sendMessage}
                         >
                             Изпрати

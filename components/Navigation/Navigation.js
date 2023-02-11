@@ -73,7 +73,7 @@ export default function Navigation(props) {
                     </Toolbar>
                 </AppBar>
                 <Box sx={{
-                    marginTop: '60px',
+                    marginTop: '64px',
                 }}>
                     {
                         props.children

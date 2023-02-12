@@ -1,5 +1,6 @@
 const mainContainer = {
     marginTop: { xs: 5, lg: 10 },
+    marginBottom: 4,
     padding: { xs: '0 20px', lg: '0 80px' },
     width: '100%',
     position: 'relative',

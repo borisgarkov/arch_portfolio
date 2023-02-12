@@ -14,7 +14,7 @@ export default function Education() {
             <Typography variant='h5' sx={{ ...titlesStyle }}>Образование</Typography>
             <Stack sx={{
                 flexDirection: 'row',
-                alignItems: 'center',
+                alignItems: 'baseline',
                 gap: 1,
                 marginTop: 2,
             }}>

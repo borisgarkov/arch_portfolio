@@ -25,8 +25,9 @@ const gridItemImageCaroussel = {
     width: '100%',
     height: '100%',
     backgroundColor: 'mainPage.main',
-    padding: { xs: 1, lg: 5 },
+    // padding: { xs: 1, lg: 5 },
     gap: 2,
+    position: 'relative',
 };
 
 const imageStyle = {
@@ -51,11 +52,26 @@ const innerBoxImageCarousel = {
     transition: 'transform 1s',
 };
 
+const mainTextStyle = {
+    position: 'absolute',
+    bottom: '25%',
+    left: '5%',
+    zIndex: 2,
+    border: '2px solid white',
+    padding: 10
+};
+
+const typography = {
+    color: 'white',
+};
+
 export {
     mainGridContainer,
     gridItemText,
     gridItemImageCaroussel,
     imageStyle,
     outerBoxImageCarousel,
-    innerBoxImageCarousel
+    innerBoxImageCarousel,
+    mainTextStyle,
+    typography
 }

@@ -3,14 +3,9 @@ import AlternateEmailOutlinedIcon from '@mui/icons-material/AlternateEmailOutlin
 import HistoryEduOutlinedIcon from '@mui/icons-material/HistoryEduOutlined';
 import Diversity3OutlinedIcon from '@mui/icons-material/Diversity3Outlined';
 import AutoFixHighOutlinedIcon from '@mui/icons-material/AutoFixHighOutlined';
+import { titlesStyle } from "./commonStyle";
 
 export default function PersonalInfo() {
-    const titlesStyle = {
-        textTransform: 'uppercase',
-        marginBottom: 2,
-        marginTop: 5,
-        fontWeight: 'bold',
-    };
 
     const softwareSkills = [
         {

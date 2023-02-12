@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import {
     gridItemImageCaroussel, gridItemText,
     mainGridContainer, imageStyle,
-    outerBoxImageCarousel, innerBoxImageCarousel
+    outerBoxImageCarousel, innerBoxImageCarousel, mainTextStyle, typography
 } from './styles';
 import Animation from '../../../utils/Animation';
 import useScreenResolution from '../../../hooks/useScreenResolution';
@@ -40,23 +40,23 @@ export default function TopHomeSection() {
 
     return (
         <Grid container sx={{ ...mainGridContainer }}>
-            <Grid item sm={4}>
-                <Animation type={isMobile ? 'fadeRight' : 'fadeRightPortfolioMainPage'}>
-                    <Box sx={{ ...gridItemText }}>
-                        <Stack>
-                            <Typography variant='h3'>
-                                PORTFOLIO
-                            </Typography>
+            {/* <Grid item sm={4}>
+                <Box sx={{ ...gridItemText }}>
+                    <Stack>
+                        <Typography variant='h1'>
+                            PORTFOLIO
+                        </Typography>
 
-                            <Typography variant='h6'>
-                                by Nikoleta Ivanova
-                            </Typography>
-                        </Stack>
-                    </Box>
-                </Animation>
-            </Grid>
+                        <Typography variant='h4'>
+                            by Nikoleta Ivanova
+                        </Typography>
+                    </Stack>
+                </Box>
+            </Grid> */}
+            {/* <Animation type={isMobile ? 'fadeRight' : 'fadeRightPortfolioMainPage'}> */}
+            {/* </Animation> */}
 
-            <Grid item xs={12} sm={7} sx={{ ...gridItemImageCaroussel }}>
+            <Grid item xs={12} sm={12} sx={{ ...gridItemImageCaroussel }}>
                 <Box sx={{ ...outerBoxImageCarousel }}>
                     <Box sx={{
                         ...innerBoxImageCarousel,
@@ -74,6 +74,15 @@ export default function TopHomeSection() {
                         }
                     </Box>
                 </Box>
+                <Stack sx={{ ...mainTextStyle }}>
+                    <Typography variant='h1' sx={{ ...typography }}>
+                        PORTFOLIO
+                    </Typography>
+
+                    <Typography variant='h4' sx={{ ...typography }}>
+                        by Nikoleta Ivanova
+                    </Typography>
+                </Stack>
             </Grid>
         </Grid>
     )

@@ -7,7 +7,7 @@ export default function PageTitleTemplate(props) {
         <Box sx={{
             // marginTop: 15,
             paddingTop: 5,
-            paddingBottom: 10,
+            paddingBottom: 5,
         }}>
             <Slide in timeout={1000} direction='right'>
                 <Divider sx={{

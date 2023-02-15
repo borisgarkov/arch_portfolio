@@ -28,9 +28,9 @@ export default function Home() {
 
             <Navigation>
                 <Box>
-                    <React.Suspense fallback={<LoadingSpinner />}>
+                    {/* <React.Suspense fallback={<LoadingSpinner />}>
                         <TopHomeSection />
-                    </React.Suspense>
+                    </React.Suspense> */}
 
                     <DividerSection />
 

@@ -7,6 +7,7 @@ import {
     sendButtonStyle, gridContainerStyle
 } from '../components/Contacts/contacts-styles';
 import styles from '../components/Contacts/styles.module.css';
+import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 
 export default function Contacts() {
     const [details, setDetails] = useState({
@@ -82,7 +83,7 @@ export default function Contacts() {
                             variant="filled"
                             color='neutral'
                             type='text'
-                            minRows='6'
+                            minRows='10'
                             multiline
                             value={details.message}
                             onChange={updateDetails}
@@ -99,6 +100,13 @@ export default function Contacts() {
                         >
                             Изпрати
                         </Button>
+                    </Grid>
+
+                    <Grid className={styles.gridItemEmail}>
+                        <EmailOutlinedIcon />
+                        <a href="mailto: nikoleta.pl.ivanova@gmail.com" className={styles.sendEmail}>
+                            nikoleta.pl.ivanova@gmail.com
+                        </a>
                     </Grid>
                 </Grid>
             </Box>

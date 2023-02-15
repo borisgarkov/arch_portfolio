@@ -11,7 +11,7 @@ export default function Animation(props) {
     const duration = props.duration ?? 1500;
     const delay = props.delay ?? 0;
     const count = props.iterationCount ?? 1;
-    const fillMode = props.fillMode ?? 'forwards';
+    const fillMode = props.fillMode ?? 'backwards';
 
     return (
         <div

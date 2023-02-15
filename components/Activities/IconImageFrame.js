@@ -3,16 +3,8 @@ import { imageBox } from "./iconsStyles";
 import styles from './styles.module.css';
 
 export default function IconImageFrame({ activity }) {
-    const additionalStyle =
-        activity.reverse
-            ? { left: '-30px' }
-            : { marginLeft: 'auto', right: '-30px' };
-
     return (
-        <Box sx={{
-            ...imageBox
-            // ...additionalStyle,
-        }}>
+        <Box sx={{ ...imageBox }}>
             <img src={activity.image} alt='icon' className={styles.image} />
         </Box>
     )

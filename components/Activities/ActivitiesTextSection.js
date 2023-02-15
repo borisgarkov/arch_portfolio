@@ -28,7 +28,9 @@ export default function ActivitiesTextSection({ activity }) {
                     }} />
                 </Typography>
             </Box>
-            <Typography variant='h6' sx={{ textAlign: 'justify' }}>{activity.text}</Typography>
+            <Typography variant='h6' sx={{ textAlign: 'justify' }}>
+                {activity.text}
+            </Typography>
         </Box>
     )
 };

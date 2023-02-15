@@ -1,45 +1,41 @@
-.slidein {
-    animation: slidein 1.5s;
+.schema {
+    animation: translateXTo100Perc 1.5s;
     animation-fill-mode: forwards;
     animation-timing-function: linear;
 }
 
-.secondSlidein {
-    animation: slidein 3s;
+.nivanova {
+    animation: translateXTo100Perc 1.5s;
     animation-fill-mode: forwards;
     animation-timing-function: linear;
     animation-delay: 1s;
 }
 
-.upSlidein {
-    animation: upSlidein 3s;
+@keyframes translateXTo100Perc {
+    from {
+        transform: translateX(0%);
+    }
+
+    to {
+        transform: translateX(100%);
+    }
+}
+
+.portfolio {
+    animation: translateYTo100Perc 2.5s;
     animation-fill-mode: forwards;
     animation-timing-function: linear;
-    animation-delay: 2s;
+    animation-delay: 1.5s;
 }
 
-@keyframes slideinZIndex {
-    from {
-        transform: translateX(0%);
-    }
-
-    to {
-        transform: translateX(100%);
-        z-index: 0;
-    }
+.arch {
+    animation: translateYTo100Perc 2s;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+    animation-delay: 1.5s;
 }
 
-@keyframes slidein {
-    from {
-        transform: translateX(0%);
-    }
-
-    to {
-        transform: translateX(100%);
-    }
-}
-
-@keyframes upSlidein {
+@keyframes translateYTo100Perc {
     from {
         transform: translateY(0%);
     }
@@ -49,19 +45,28 @@
     }
 }
 
-@keyframes tracking-in-contract-bck {
-    0% {
-        letter-spacing: 1em;
-        transform: translateZ(400px);
-        opacity: 0
-    }
+.portfolioButton {
+    color: white;
+    border: 1px solid white;
+    border-radius: 20px;
+    padding: 8px 50px;
+    position: absolute;
+    cursor: pointer;
+    bottom: 50px;
+    animation: portfolioButton 1s;
+    animation-fill-mode: backwards;
+    animation-timing-function: linear;
+    animation-delay: 3s;
+}
 
-    40% {
-        opacity: .6
+@keyframes portfolioButton {
+    0% {
+        opacity: 0;
+        bottom: 0px;
     }
 
     100% {
-        transform: translateZ(0);
-        opacity: 1
+        opacity: 100%;
+        bottom: 50px;
     }
 }

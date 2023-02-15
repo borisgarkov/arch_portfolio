@@ -1,94 +1,58 @@
 import Box from "@mui/material/Box";
 import { useRouter } from "next/router";
+import React from "react";
+import { CoverBox, imageStyle, mainBoxStyle } from "../components/Index/styles";
 import styles from '../components/IntroPage/intro-styles.module.css';
 
-export default function Home(props) {
+export default function Home() {
     const router = useRouter();
+    let zIndex = 9999;
 
-    const backgroundColor = '#444444';
+    const images = [
+        {
+            coverBoxStyle: styles.schema,
+            image: 'schema.png',
+        },
+        {
+            coverBoxStyle: styles.nivanova,
+            image: 'nivanova.png',
+        },
+        {
+            coverBoxStyle: styles.portfolio,
+            image: 'portfolio.png',
+        },
+        {
+            coverBoxStyle: styles.arch,
+            image: 'arch.png',
+        },
+    ];
 
     return (
-        <Box sx={{
-            backgroundColor: backgroundColor,
-            position: 'relative',
-            height: '100vh',
-            overflow: 'hidden',
-            display: 'flex',
-            alignItems: 'center',
-        }}>
+        <Box sx={{ ...mainBoxStyle }}>
+            {
+                images.map((image, index) => {
+                    zIndex -= 1
 
-            <img
-                src='/intro-logo/4.png'
-                alt="logo"
-                style={{
-                    width: '100%',
-                    position: 'absolute',
-                    zIndex: 5
-                }}
-            />
-            <img
-                src='/intro-logo/1.png'
-                alt="logo"
-                style={{
-                    width: '100%',
-                    position: 'absolute',
-                    zIndex: 3
-                }}
-            />
-            <img
-                src='/intro-logo/2.png'
-                alt="logo"
-                style={{
-                    width: '100%',
-                    position: 'absolute',
-                    zIndex: 1
-                }}
-            />
-            <img
-                src='/intro-logo/3.png'
-                alt="logo"
-                style={{
-                    width: '100%',
-                    position: 'absolute',
-                    zIndex: 0
-                }}
-            />
+                    return (
+                        <React.Fragment key={index}>
+                            <CoverBox
+                                className={image.coverBoxStyle}
+                                zIndex={zIndex - index}
+                            />
+                            <img
+                                src={`/intro-logo/${image.image}`}
+                                alt="logo"
+                                style={{ ...imageStyle, zIndex: zIndex - index - 1 }}
+                            />
+                        </React.Fragment>
+                    )
+                })
+            }
 
-            <Box className={styles.slidein} sx={{
-                backgroundColor: backgroundColor,
-                position: 'absolute',
-                height: '100%',
-                width: '100%',
-                zIndex: 6
-            }}>
-            </Box>
-            <Box className={styles.secondSlidein} sx={{
-                backgroundColor: backgroundColor,
-                position: 'absolute',
-                height: '100%',
-                width: '100%',
-                zIndex: 4
-            }}>
-            </Box>
-            <Box className={styles.upSlidein} sx={{
-                backgroundColor: backgroundColor,
-                position: 'absolute',
-                height: '100%',
-                width: '100%',
-                zIndex: 2
-            }}>
-            </Box>
-
-            <Box onClick={() => router.push('/home')} sx={{
-                backgroundColor: '#ffffff',
-                padding: 2,
-                cursor: 'pointer',
-                zIndex: 7,
-                color: '#6d6d6d',
-                position: 'absolute',
-                bottom: '20%',
-                left: '20%',
-            }}>
+            <Box
+                onClick={() => router.push('/home')}
+                className={styles.portfolioButton}
+            >
                 КЪМ ПОРТФОЛИО
             </Box>
         </Box>

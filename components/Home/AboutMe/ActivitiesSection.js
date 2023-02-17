@@ -1,6 +1,9 @@
 import { Box, Stack, Typography } from "@mui/material";
 import { useRouter } from "next/router";
-import { activitiesMainBox, iconsMainBox, iconsContainer, iconTitle } from "./activitiesSectionStyle";
+import {
+    activitiesMainBox, iconsMainBox,
+    iconsContainer, iconTitle, titleStyle
+} from "./activitiesSectionStyle";
 import activities from '../../Activities/activities.json';
 import IconImageFrame from "../../Activities/IconImageFrame";
 import Animation from "../../../utils/Animation";
@@ -12,7 +15,7 @@ export default function ActivitiesSection() {
         <Box sx={{ ...activitiesMainBox }}>
 
             <Animation type='activitiesTextMainPage'>
-                <Typography variant="h4">
+                <Typography variant="h4" sx={{ ...titleStyle }}>
                     Дейности
                 </Typography>
 

@@ -53,7 +53,7 @@ export default function Home() {
                 onClick={() => router.push('/home')}
                 className={styles.portfolioButton}
             >
-                КЪМ ПОРТФОЛИО
+                НАЧАЛО
             </Box>
         </Box>
     )

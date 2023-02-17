@@ -1,24 +1,25 @@
 const activitiesMainBox = {
     backgroundColor: 'mainPage.main',
-    width: { lg: '559px' },
+    width: { xs: '100%', lg: '559px' },
     height: '100%',
-    padding: 8,
+    padding: { xs: 0, lg: 8 },
     position: 'relative',
-    top: '40px',
+    top: { lg: '40px' },
     zIndex: 2,
 };
 
 const iconsMainBox = {
     display: 'grid',
-    gridTemplateColumns: { xs: '100px 100px', lg: '250px 250px' },
+    gridTemplateColumns: 'repeat(auto-fit, minmax(170px, 1fr))',
     justifyContent: 'center',
-    gap: 2,
+    gridGap: '16px',
 };
 
 const iconsContainer = {
     transition: 'transform 1s',
     cursor: 'pointer',
     alignItems: 'center',
+    width: '100%',
     '&:hover': {
         transform: 'scale(1.05)',
     }
@@ -30,9 +31,15 @@ const iconTitle = {
     top: '-20px',
 };
 
+const titleStyle = {
+    textAlign: { xs: 'center', lg: 'left' },
+    paddingTop: { xs: '50px', lg: '0px' },
+};
+
 export {
     activitiesMainBox,
     iconsMainBox,
     iconsContainer,
-    iconTitle
+    iconTitle,
+    titleStyle
 };

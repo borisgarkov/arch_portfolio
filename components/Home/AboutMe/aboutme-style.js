@@ -18,14 +18,7 @@ const boxContainer = {
     alignItems: 'baseline',
 };
 
-const animationSettings = {
-    animationTimingFunction: 'ease-out',
-    animationDuration: '1.5s',
-    animationFillMode: 'forwards',
-};
-
 export {
     mainContainer,
     boxContainer,
-    animationSettings
 };

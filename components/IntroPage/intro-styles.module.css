@@ -11,6 +11,13 @@
     animation-delay: 1s;
 }
 
+.portfolio {
+    animation: translateXTo100Perc 2.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+    animation-delay: 1.5s;
+}
+
 @keyframes translateXTo100Perc {
     from {
         transform: translateX(0%);
@@ -19,13 +26,6 @@
     to {
         transform: translateX(100%);
     }
-}
-
-.portfolio {
-    animation: translateYTo100Perc 2.5s;
-    animation-fill-mode: forwards;
-    animation-timing-function: linear;
-    animation-delay: 1.5s;
 }
 
 .arch {
@@ -49,10 +49,12 @@
     color: white;
     border: 1px solid white;
     border-radius: 20px;
-    padding: 8px 50px;
+    padding: 8px 70px;
     position: absolute;
     cursor: pointer;
     bottom: 50px;
+    left: 50%;
+    transform: translateX(-100%);
     animation: portfolioButton 1s;
     animation-fill-mode: backwards;
     animation-timing-function: linear;

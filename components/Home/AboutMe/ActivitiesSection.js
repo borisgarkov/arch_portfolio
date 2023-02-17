@@ -18,13 +18,14 @@ export default function ActivitiesSection() {
                 <Typography variant="h4" sx={{ ...titleStyle }}>
                     Дейности
                 </Typography>
+            </Animation>
 
-                <Box sx={{ ...iconsMainBox }}>
-                    {
-                        Object.values(activities).map((activity) =>
+            <Box sx={{ ...iconsMainBox }}>
+                {
+                    Object.values(activities).map((activity) =>
+                        <Animation type='activitiesTextMainPage' key={activity.title}>
                             <Stack
                                 onClick={() => router.push('/activities')}
-                                key={activity.title}
                                 sx={{ ...iconsContainer }}
                             >
                                 <IconImageFrame activity={activity} />
@@ -32,10 +33,10 @@ export default function ActivitiesSection() {
                                     {activity.title}
                                 </Typography>
                             </Stack>
-                        )
-                    }
-                </Box>
-            </Animation>
+                        </Animation>
+                    )
+                }
+            </Box>
         </Box>
     )
 };

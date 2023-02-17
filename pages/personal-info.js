@@ -41,7 +41,10 @@ export default function CV() {
                         </PageTitleTemplate>
                     </Box>
 
-                    <Grid container sx={{ margin: '0 auto', justifyContent: 'space-evenly' }}>
+                    <Grid container sx={{
+                        margin: '0 auto',
+                        justifyContent: { lg: 'space-evenly' }
+                    }}>
 
                         <Animation type='CVleftSide'>
                             <Grid

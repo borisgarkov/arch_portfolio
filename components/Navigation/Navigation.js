@@ -9,6 +9,7 @@ import Footer from './Footer';
 import SidebarMenu from './SidebarMenu';
 import styles from './sidebar-style.module.css';
 import Link from 'next/link';
+import LoadingButton from './LoadingButton';
 
 export default function Navigation(props) {
     const [openDrawer, setOpenDrawer] = React.useState(false);
@@ -29,6 +30,24 @@ export default function Navigation(props) {
             setMenuIconText('Затвори');
         }
     };
+
+    const [loading, setLoading] = React.useState(true);
+
+    React.useEffect(() => {
+        const onPageLoad = () => {
+            setLoading(false);
+        };
+
+        // Check if the page has already loaded
+        if (document.readyState === 'complete') {
+            onPageLoad();
+        } else {
+            window.addEventListener('load', onPageLoad);
+            // Remove the event listener when component unmounts
+            return () => window.removeEventListener('load', onPageLoad);
+        }
+    }, []);
+
 
     const navbarColor = { backgroundColor: 'rgba(255, 255, 255, 0.5)' };
 
@@ -72,11 +91,11 @@ export default function Navigation(props) {
                         </Box>
                     </Toolbar>
                 </AppBar>
-                <Box sx={{
-                    marginTop: '64px',
-                }}>
+                <Box style={{ marginTop: '64px' }}>
                     {
-                        props.children
+                        loading
+                            ? <LoadingButton />
+                            : props.children
                     }
                 </Box>
 

@@ -31,24 +31,6 @@ export default function Navigation(props) {
         }
     };
 
-    const [loading, setLoading] = React.useState(true);
-
-    React.useEffect(() => {
-        const onPageLoad = () => {
-            setLoading(false);
-        };
-
-        // Check if the page has already loaded
-        if (document.readyState === 'complete') {
-            onPageLoad();
-        } else {
-            window.addEventListener('load', onPageLoad);
-            // Remove the event listener when component unmounts
-            return () => window.removeEventListener('load', onPageLoad);
-        }
-    }, []);
-
-
     const navbarColor = { backgroundColor: 'rgba(255, 255, 255, 0.5)' };
 
     return (
@@ -93,9 +75,7 @@ export default function Navigation(props) {
                 </AppBar>
                 <Box style={{ marginTop: '64px' }}>
                     {
-                        loading
-                            ? <LoadingButton />
-                            : props.children
+                        props.children
                     }
                 </Box>
 

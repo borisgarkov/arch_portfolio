@@ -1,24 +1,31 @@
-const mainContainer = {
-    marginTop: { xs: 5, lg: 10 },
-    marginBottom: 4,
-    padding: { xs: '0 20px', lg: '0 80px' },
-    width: '100%',
-    position: 'relative',
-    overflow: 'hidden',
-}
+import styled from "@emotion/styled";
 
-const boxContainer = {
-    backgroundImage: 'url(/aboutme/backgroundImage.jpeg)',
-    backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',
-    width: '100%',
-    height: '100%',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'baseline',
-};
+const MainContainer = styled.div`
+    margin-top: 40px;
+    margin-bottom: 32px;
+    padding: 0 20px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    
+    @media (min-width: 1200px) {
+        margin-top: 80px;
+        padding: 0 80px;
+    }
+`
+
+const BoxContainer = styled.div`
+    background-image: url("/aboutme/backgroundImage.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+`
 
 export {
-    mainContainer,
-    boxContainer,
+    MainContainer,
+    BoxContainer
 };

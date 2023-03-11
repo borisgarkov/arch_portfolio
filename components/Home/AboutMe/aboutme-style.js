@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from "styled-components";
 
 const MainContainer = styled.div`
     margin-top: 40px;

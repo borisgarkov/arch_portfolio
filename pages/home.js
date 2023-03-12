@@ -4,10 +4,9 @@ import Navigation from '../components/Navigation/Navigation';
 import DividerSection from '../components/Home/DividerSection';
 import LoadingSpinner from '../utils/LoadingSpinner';
 import Head from 'next/head';
-import AboutMe from '../components/Home/AboutMe/AboutMe';
 
 const TopHomeSection = React.lazy(() => import('../components/Home//TopHomeSection/TopHomeSection'));
-// const AboutMe = React.lazy(() => import('../components/Home/AboutMe/AboutMe'));
+const AboutMe = React.lazy(() => import('../components/Home/AboutMe/AboutMe'));
 
 export default function Home() {
     return (
@@ -29,8 +28,15 @@ export default function Home() {
 
             <Navigation>
                 <Box>
+                    {/* <React.Suspense fallback={<LoadingSpinner />}>
+                        <TopHomeSection />
+                    </React.Suspense> */}
+
                     <DividerSection />
-                    <AboutMe />
+
+                    <React.Suspense fallback={<LoadingSpinner />}>
+                        <AboutMe />
+                    </React.Suspense>
                 </Box>
             </Navigation>
         </>

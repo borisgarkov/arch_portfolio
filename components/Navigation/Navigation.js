@@ -9,7 +9,6 @@ import Footer from './Footer';
 import SidebarMenu from './SidebarMenu';
 import styles from './sidebar-style.module.css';
 import Link from 'next/link';
-import LoadingButton from './LoadingButton';
 
 export default function Navigation(props) {
     const [openDrawer, setOpenDrawer] = React.useState(false);
@@ -40,9 +39,6 @@ export default function Navigation(props) {
                 <meta name="author" content="Nikoleta Ivanova" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="shortcut icon" href="/navbar-logo/nav-logo-black.png" />
-                <link rel="preconnect" href="https://fonts.googleapis.com" />
-                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-                <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
             </Head>
             <ThemeProvider theme={theme}>
                 <CssBaseline />
@@ -76,7 +72,9 @@ export default function Navigation(props) {
                         </Box>
                     </Toolbar>
                 </AppBar>
-                <Box style={{ marginTop: '64px' }}>
+                <Box sx={{
+                    marginTop: '64px',
+                }}>
                     {
                         props.children
                     }

@@ -5,6 +5,7 @@ import SomeWordsAboutMeSection from "../SomeWordsAboutMeSection/SomeWordsAboutMe
 import useScreenResolution from '../../../hooks/useScreenResolution';
 import MobileSomeWordsAboutMeSection from "../SomeWordsAboutMeSection/MobileSomeWordsAboutMeSection";
 import Image from "next/image";
+import backgroundImage from '/aboutme/backgroundImage.jpeg';
 
 export default function AboutMe() {
     const isMobile = useScreenResolution('lg')
@@ -18,8 +19,8 @@ export default function AboutMe() {
                         <ActivitiesSection />
                     </>
                     : <Box sx={{ ...boxContainer }}>
-                        <img
-                            src='/aboutme/backgroundImage.jpeg'
+                        <Image
+                            src={backgroundImage}
                             alt="background"
                             // width={1000}
                             // height={1000}

@@ -5,6 +5,7 @@ import { mainBox, seeMoreContainer } from './styles';
 import styles from './styles.module.css';
 import Animation from '../../../utils/Animation';
 import Image from 'next/image';
+import profilePic from '/aboutme/profile.jpg';
 
 const SomeWordsAboutMeSection = () => {
     const router = useRouter();
@@ -40,18 +41,10 @@ const SomeWordsAboutMeSection = () => {
 
             <Animation type='profilePicMainPagefadeIn' >
                 <Image
-                    src='/aboutme/profile.jpg'
+                    src={profilePic}
                     alt='my-pic'
                     className={styles.profilePic}
-                    width={200}
-                    height={200}
                 />
-                {/* <img
-                    src="/aboutme/profile.jpg"
-                    alt='my-pic'
-                    className={styles.profilePic}
-
-                /> */}
             </Animation>
         </Box>
     )

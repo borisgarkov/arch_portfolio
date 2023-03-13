@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import { mainBox, seeMoreContainer } from './styles';
 import styles from './styles.module.css';
 import Animation from '../../../utils/Animation';
+import Image from 'next/image';
 
 const SomeWordsAboutMeSection = () => {
     const router = useRouter();
@@ -38,11 +39,19 @@ const SomeWordsAboutMeSection = () => {
             </Animation>
 
             <Animation type='profilePicMainPagefadeIn' >
-                <img
+                <Image
+                    src='/aboutme/profile.jpg'
+                    alt='my-pic'
+                    className={styles.profilePic}
+                    width={200}
+                    height={200}
+                />
+                {/* <img
                     src="/aboutme/profile.jpg"
                     alt='my-pic'
                     className={styles.profilePic}
-                />
+
+                /> */}
             </Animation>
         </Box>
     )

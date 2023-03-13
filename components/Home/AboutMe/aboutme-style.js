@@ -8,14 +8,15 @@ const mainContainer = {
 }
 
 const boxContainer = {
-    backgroundImage: 'url(/aboutme/backgroundImage.jpeg)',
-    backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',
+    // backgroundImage: 'url(/aboutme/backgroundImage.jpeg)',
+    // backgroundSize: 'cover',
+    // backgroundRepeat: 'no-repeat',
     width: '100%',
     height: '100%',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'baseline',
+    position: 'relative',
 };
 
 export {

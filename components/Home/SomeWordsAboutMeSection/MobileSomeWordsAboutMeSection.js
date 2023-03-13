@@ -4,6 +4,8 @@ import styles from './styles.module.css';
 import { seeMoreContainer } from "./styles";
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import Animation from "../../../utils/Animation";
+import Image from 'next/image';
+import profilePic from '../../../public/aboutme/profile.jpg';
 
 const MobileSomeWordsAboutMeSection = () => {
     const router = useRouter();
@@ -36,10 +38,12 @@ const MobileSomeWordsAboutMeSection = () => {
             </Animation>
 
             <Animation type='profilePicMainPagefadeIn'>
-                <img
-                    src="/aboutme/profile.jpg"
+                <Image
+                    src={profilePic}
                     alt='my-pic'
                     className={styles.profilePic}
+                    placeholder='blur'
+                    priority
                 />
             </Animation>
         </>

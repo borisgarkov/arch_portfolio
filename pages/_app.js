@@ -8,6 +8,7 @@ import '../utils/global.css';
 import createEmotionCache from '../utils/createEmotionCache';
 import { theme } from '../utils/mainTheme';
 import LoadingButton from '../components/Navigation/LoadingButton';
+import Router from 'next/router';
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
@@ -15,10 +16,22 @@ const clientSideEmotionCache = createEmotionCache();
 export default function MyApp(props) {
 	const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
 
-	const [isLoading, setIsLoading] = React.useState(true);
+	const [isLoading, setIsLoading] = React.useState(false);
+
 	React.useEffect(() => {
-		setIsLoading(false)
-	}, []);
+		Router.events.on("routeChangeStart", () => {
+			setIsLoading(true)
+		});
+
+		Router.events.on("routeChangeComplete", () => {
+			setIsLoading(false)
+		});
+
+		Router.events.on("routeChangeError", () => {
+			setIsLoading(false)
+		});
+
+	}, [Router])
 
 	return (
 		<CacheProvider value={emotionCache}>

@@ -8,6 +8,8 @@ import PersonalInfo from '../components/PersonalInfo/PersonalInfo';
 import PageTitleTemplate from '../components/CommonComponents/PageTitleTemplate';
 import Head from 'next/head';
 import Animation from '../utils/Animation';
+import Image from 'next/image';
+import profilePic from '../public/cv/profile.jpg';
 
 export default function CV() {
     const isMobile = useScreenResolution('lg');
@@ -34,7 +36,15 @@ export default function CV() {
                     <Box sx={{ marginLeft: '6%' }}>
                         <PageTitleTemplate>
                             <Box sx={{ marginTop: 5 }}>
-                                <Avatar src='/cv/profile.jpg' alt='profile-pic' sx={{ width: 150, height: 150 }} />
+                                <Image
+                                    src={profilePic}
+                                    alt='profile-pic'
+                                    width={150}
+                                    height={150}
+                                    style={{ borderRadius: '50%' }}
+                                    placeholder='blur'
+                                    priority
+                                />
                                 <Typography variant='h3'>Николета Иванова</Typography>
                                 <Typography variant='h4'>Архитект</Typography>
                             </Box>

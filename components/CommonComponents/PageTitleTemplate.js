@@ -8,6 +8,8 @@ export default function PageTitleTemplate(props) {
             // marginTop: 15,
             paddingTop: 5,
             paddingBottom: 5,
+            zIndex: 1,
+            position: 'relative'
         }}>
             <Slide in timeout={1000} direction='right'>
                 <Divider sx={{

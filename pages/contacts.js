@@ -8,6 +8,8 @@ import {
 } from '../components/Contacts/contacts-styles';
 import styles from '../components/Contacts/styles.module.css';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
+import backgroundImage from '../public/contacts/contacts-image.jpg';
+import Image from 'next/image';
 
 export default function Contacts() {
     const [details, setDetails] = useState({
@@ -40,75 +42,90 @@ export default function Contacts() {
     return (
         <Navigation>
             <Box sx={{ ...mainBoxStyle, }}>
-                <PageTitleTemplate>
-                    <Typography variant='h3'>Контакти</Typography>
-                </PageTitleTemplate>
+                <Image
+                    src={backgroundImage}
+                    alt='background-image'
+                    placeholder='blur'
+                    priority
+                    style={{
+                        width: '100%',
+                        height: '100%',
+                        position: 'absolute',
+                    }}
+                />
+                <Box sx={{
+                    padding: '0 30px 30px 30px',
+                }}>
+                    <PageTitleTemplate>
+                        <Typography variant='h3'>Контакти</Typography>
+                    </PageTitleTemplate>
 
-                <Grid container spacing={2} sx={{ ...gridContainerStyle }}>
-                    <Grid item xs={12} lg={6}>
-                        <TextField
-                            fullWidth
-                            required
-                            id="email"
-                            label="Имейл"
-                            variant="filled"
-                            color='neutral'
-                            type='email'
-                            value={details.email}
-                            onChange={updateDetails}
-                            sx={{ ...textFieldStyle }}
-                            InputProps={{ classes: { input: styles.resizeText } }}
-                        />
-                    </Grid>
-                    <Grid item xs={12} lg={6}>
-                        <TextField
-                            fullWidth
-                            required
-                            id="name"
-                            label="Име"
-                            variant="filled"
-                            color='neutral'
-                            type='text'
-                            value={details.name}
-                            onChange={updateDetails}
-                            sx={{ ...textFieldStyle }}
-                            InputProps={{ classes: { input: styles.resizeText } }}
-                        />
-                    </Grid>
-                    <Grid item xs={12}>
-                        <TextField
-                            fullWidth
-                            id="message"
-                            label="Напиши съобщение..."
-                            variant="filled"
-                            color='neutral'
-                            type='text'
-                            minRows='10'
-                            multiline
-                            value={details.message}
-                            onChange={updateDetails}
-                            sx={{ ...textFieldStyle }}
-                            InputProps={{ classes: { input: styles.resizeText } }}
-                        />
-                    </Grid>
-                    <Grid item xs={12}>
-                        <Button
-                            fullWidth
-                            variant='contained'
-                            sx={{ ...sendButtonStyle }}
-                            onSubmit={sendMessage}
-                        >
-                            Изпрати
-                        </Button>
-                    </Grid>
+                    <Grid container spacing={2} sx={{ ...gridContainerStyle }}>
+                        <Grid item xs={12} lg={6}>
+                            <TextField
+                                fullWidth
+                                required
+                                id="email"
+                                label="Имейл"
+                                variant="filled"
+                                color='neutral'
+                                type='email'
+                                value={details.email}
+                                onChange={updateDetails}
+                                sx={{ ...textFieldStyle }}
+                                InputProps={{ classes: { input: styles.resizeText } }}
+                            />
+                        </Grid>
+                        <Grid item xs={12} lg={6}>
+                            <TextField
+                                fullWidth
+                                required
+                                id="name"
+                                label="Име"
+                                variant="filled"
+                                color='neutral'
+                                type='text'
+                                value={details.name}
+                                onChange={updateDetails}
+                                sx={{ ...textFieldStyle }}
+                                InputProps={{ classes: { input: styles.resizeText } }}
+                            />
+                        </Grid>
+                        <Grid item xs={12}>
+                            <TextField
+                                fullWidth
+                                id="message"
+                                label="Напиши съобщение..."
+                                variant="filled"
+                                color='neutral'
+                                type='text'
+                                minRows='10'
+                                multiline
+                                value={details.message}
+                                onChange={updateDetails}
+                                sx={{ ...textFieldStyle }}
+                                InputProps={{ classes: { input: styles.resizeText } }}
+                            />
+                        </Grid>
+                        <Grid item xs={12}>
+                            <Button
+                                fullWidth
+                                variant='contained'
+                                sx={{ ...sendButtonStyle }}
+                                onSubmit={sendMessage}
+                            >
+                                Изпрати
+                            </Button>
+                        </Grid>
 
-                    <Grid className={styles.gridItemEmail}>
-                        <EmailOutlinedIcon />
-                        <a href="mailto: nikoleta.pl.ivanova@gmail.com" className={styles.sendEmail}>
-                            nikoleta.pl.ivanova@gmail.com
-                        </a>
+                        <Grid className={styles.gridItemEmail}>
+                            <EmailOutlinedIcon />
+                            <a href="mailto: nikoleta.pl.ivanova@gmail.com" className={styles.sendEmail}>
+                                nikoleta.pl.ivanova@gmail.com
+                            </a>
+                        </Grid>
                     </Grid>
-                </Grid>
+                </Box>
             </Box>
         </Navigation >
     )

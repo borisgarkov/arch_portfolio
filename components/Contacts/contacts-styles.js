@@ -1,10 +1,12 @@
 const mainBoxStyle = {
-    padding: '0 30px 30px 30px',
-    backgroundImage: { lg: 'url("/contacts/contacts-image.jpg")' },
-    backgroundPosition: 'right',
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
-    height: { lg: '100vh' },
+    // padding: '0 30px 30px 30px',
+    position: 'relative',
+    // zIndex: '-1',
+    // backgroundImage: { lg: 'url("/contacts/contacts-image.jpg")' },
+    // backgroundPosition: 'right',
+    // backgroundRepeat: 'no-repeat',
+    // backgroundSize: 'cover',
+    // height: { lg: '100vh' },
 };
 
 const textFieldStyle = {

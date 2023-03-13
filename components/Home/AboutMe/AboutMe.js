@@ -30,6 +30,7 @@ export default function AboutMe() {
                                 position: 'absolute',
                                 // objectFit: 'contain',
                             }}
+                            placeholder='blur'
                         />
                         <SomeWordsAboutMeSection />
                         <ActivitiesSection />

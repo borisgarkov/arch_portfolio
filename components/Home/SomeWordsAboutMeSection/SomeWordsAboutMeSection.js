@@ -44,6 +44,7 @@ const SomeWordsAboutMeSection = () => {
                     src={profilePic}
                     alt='my-pic'
                     className={styles.profilePic}
+                    placeholder='blur'
                 />
             </Animation>
         </Box>

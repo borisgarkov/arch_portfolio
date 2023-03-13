@@ -3,7 +3,6 @@ import Document, { Html, Head, Main, NextScript } from 'next/document';
 import createEmotionServer from '@emotion/server/create-instance';
 import theme, { defaultFont } from '../utils/mainTheme';
 import createEmotionCache from '../utils/createEmotionCache';
-import loader from '../utils/loader';
 
 // https://github.com/mui/material-ui/tree/dbddc26ff0e421603a196e68e4d80878d262c632/examples/material-next
 // check for reference
@@ -14,11 +13,6 @@ export default function MyDocument(props) {
 	return (
 		<Html lang="en" className={defaultFont.className}>
 			<Head>
-				<head>
-					<style>
-						{loader}
-					</style>
-				</head>
 				{/* PWA primary color */}
 				{/* <meta name="theme-color" content={theme.palette.primary.main} /> */}
 				<link rel="shortcut icon" href="/favicon.ico" />
@@ -26,12 +20,6 @@ export default function MyDocument(props) {
 				{emotionStyleTags}
 			</Head>
 			<body>
-				<div id={'globalLoader'}>
-					<div className="loader">
-						<div />
-						<div />
-					</div>
-				</div>
 				<Main />
 				<NextScript />
 			</body>

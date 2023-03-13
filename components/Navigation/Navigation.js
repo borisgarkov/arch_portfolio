@@ -3,8 +3,6 @@ import Head from "next/head";
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Box from '@mui/material/Box';
-import { ThemeProvider, CssBaseline } from "@mui/material";
-import { theme } from '../../utils/mainTheme';
 import Footer from './Footer';
 import SidebarMenu from './SidebarMenu';
 import styles from './sidebar-style.module.css';

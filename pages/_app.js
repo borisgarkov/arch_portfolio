@@ -7,6 +7,7 @@ import '../utils/animation-keyframes.css';
 import '../utils/global.css';
 import createEmotionCache from '../utils/createEmotionCache';
 import { theme } from '../utils/mainTheme';
+import LoadingButton from '../components/Navigation/LoadingButton';
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
@@ -14,13 +15,9 @@ const clientSideEmotionCache = createEmotionCache();
 export default function MyApp(props) {
 	const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
 
-	// Hide splash screen shen we are server side 
+	const [isLoading, setIsLoading] = React.useState(true);
 	React.useEffect(() => {
-		if (typeof window !== 'undefined') {
-			const loader = document.getElementById('globalLoader');
-			if (loader)
-				loader.style.display = 'none';
-		}
+		setIsLoading(false)
 	}, []);
 
 	return (
@@ -34,7 +31,11 @@ export default function MyApp(props) {
 			<ThemeProvider theme={theme}>
 				{/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
 				<CssBaseline />
-				<Component {...pageProps} />
+				{
+					isLoading
+						? <LoadingButton />
+						: <Component {...pageProps} />
+				}
 			</ThemeProvider>
 		</CacheProvider>
 	);

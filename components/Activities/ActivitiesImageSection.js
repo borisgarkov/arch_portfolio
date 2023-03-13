@@ -14,7 +14,7 @@ export default function ActivitiesImageSection({ activity }) {
             height: '180px',
             position: 'relative',
         }}>
-            <Image
+            {/* <Image
                 src={
                     isMobile
                         ? backgroundImage
@@ -31,7 +31,7 @@ export default function ActivitiesImageSection({ activity }) {
                     position: 'absolute',
                     objectFit: 'cover',
                 }}
-            />
+            /> */}
             <IconImageFrame activity={activity} />
         </Box >
     )

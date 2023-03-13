@@ -1,5 +1,4 @@
 import Box from "@mui/material/Box";
-import { imageBox } from "./iconsStyles";
 import styles from './styles.module.css';
 import Image from "next/image";
 import frame from '../../public/activities/frame.png';

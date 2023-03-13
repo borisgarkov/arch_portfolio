@@ -7,7 +7,6 @@ import backgroundReverseImage from '../../public/activities/background-reverse.j
 
 export default function ActivitiesImageSection({ activity }) {
     const isMobile = useScreenResolution('lg');
-    const image = isMobile || !activity.reverse ? backgroundImage : backgroundReverseImage
 
     return (
         <Box sx={{
@@ -16,7 +15,13 @@ export default function ActivitiesImageSection({ activity }) {
             position: 'relative',
         }}>
             <Image
-                src={image}
+                src={
+                    isMobile
+                        ? backgroundImage
+                        : activity.reverse
+                            ? backgroundReverseImage
+                            : backgroundImage
+                }
                 alt='background-image'
                 placeholder='blur'
                 priority
@@ -31,11 +36,3 @@ export default function ActivitiesImageSection({ activity }) {
         </Box >
     )
 };
-
-// backgroundImage:
-//                 isMobile
-//                     ? `url(${picturesFolder}/background.JPG)`
-//                     : activity.reverse
-//                         ? `url(${picturesFolder}/background-reverse.JPG)`
-//                         : `url(${picturesFolder}/background.JPG)`,
-//             backgroundSize: 'cover',

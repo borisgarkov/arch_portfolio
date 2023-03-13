@@ -5,7 +5,7 @@ import SomeWordsAboutMeSection from "../SomeWordsAboutMeSection/SomeWordsAboutMe
 import useScreenResolution from '../../../hooks/useScreenResolution';
 import MobileSomeWordsAboutMeSection from "../SomeWordsAboutMeSection/MobileSomeWordsAboutMeSection";
 import Image from "next/image";
-import backgroundImage from '/aboutme/backgroundImage.jpeg';
+import backgroundImage from '../../../public/aboutme/backgroundImage.jpeg';
 
 export default function AboutMe() {
     const isMobile = useScreenResolution('lg')

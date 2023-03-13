@@ -5,7 +5,7 @@ import { mainBox, seeMoreContainer } from './styles';
 import styles from './styles.module.css';
 import Animation from '../../../utils/Animation';
 import Image from 'next/image';
-import profilePic from '/aboutme/profile.jpg';
+import profilePic from '../../../public/aboutme/profile.jpg';
 
 const SomeWordsAboutMeSection = () => {
     const router = useRouter();

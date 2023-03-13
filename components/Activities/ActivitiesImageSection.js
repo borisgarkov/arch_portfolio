@@ -2,8 +2,8 @@ import Box from "@mui/material/Box";
 import Image from "next/image";
 import useScreenResolution from "../../hooks/useScreenResolution";
 import IconImageFrame from "./IconImageFrame";
-import backgroundImage from '../../public/activities/background.jpg';
-import backgroundReverseImage from '../../public/activities/background-reverse.jpg';
+import backgroundImage from '../../public/activities/background.JPG';
+import backgroundReverseImage from '../../public/activities/background-reverse.JPG';
 
 export default function ActivitiesImageSection({ activity }) {
     const isMobile = useScreenResolution('lg');

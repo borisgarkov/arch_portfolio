@@ -10,8 +10,11 @@ import styles from '../components/Contacts/styles.module.css';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import backgroundImage from '../public/contacts/contacts-image.jpg';
 import Image from 'next/image';
+import useScreenResolution from '../hooks/useScreenResolution';
 
 export default function Contacts() {
+    const isMobile = useScreenResolution('lg');
+
     const [details, setDetails] = useState({
         email: '',
         name: '',
@@ -42,17 +45,23 @@ export default function Contacts() {
     return (
         <Navigation>
             <Box sx={{ ...mainBoxStyle, }}>
-                <Image
-                    src={backgroundImage}
-                    alt='background-image'
-                    placeholder='blur'
-                    priority
-                    style={{
-                        width: '100%',
-                        height: '100%',
-                        position: 'absolute',
-                    }}
-                />
+
+                {
+                    isMobile
+                        ? null
+                        : <Image
+                            src={backgroundImage}
+                            alt='background-image'
+                            placeholder='blur'
+                            priority
+                            style={{
+                                width: '100%',
+                                height: '100vh',
+                                position: 'absolute',
+                            }}
+                        />
+                }
+
                 <Box sx={{
                     padding: '0 30px 30px 30px',
                 }}>

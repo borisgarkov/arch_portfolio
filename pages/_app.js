@@ -14,6 +14,15 @@ const clientSideEmotionCache = createEmotionCache();
 export default function MyApp(props) {
 	const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
 
+	// Hide splash screen shen we are server side 
+	React.useEffect(() => {
+		if (typeof window !== 'undefined') {
+			const loader = document.getElementById('globalLoader');
+			if (loader)
+				loader.style.display = 'none';
+		}
+	}, []);
+
 	return (
 		<CacheProvider value={emotionCache}>
 			<Head>

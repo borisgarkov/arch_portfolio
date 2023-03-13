@@ -5,7 +5,8 @@ import DividerSection from '../components/Home/DividerSection';
 import Head from 'next/head';
 import AboutMe from '../components/Home/AboutMe/AboutMe';
 
-export default function Home() {
+function Home() {
+
     return (
         <>
             <Head>
@@ -34,3 +35,5 @@ export default function Home() {
         </>
     )
 };
+
+export default Home;

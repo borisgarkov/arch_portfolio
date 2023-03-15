@@ -2,39 +2,35 @@ import * as React from 'react';
 import Head from 'next/head';
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import { CacheProvider } from '@emotion/react';
 import '../utils/animation-keyframes.css';
 import '../utils/global.css';
-import createEmotionCache from '../utils/createEmotionCache';
 import { theme } from '../utils/mainTheme';
 import LoadingButton from '../components/Navigation/LoadingButton';
-import Router from 'next/router';
-
-// Client-side cache, shared for the whole session of the user in the browser.
-const clientSideEmotionCache = createEmotionCache();
+import { useRouter } from 'next/router';
 
 export default function MyApp(props) {
-	const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
+	const { Component, pageProps } = props;
 
-	const [isLoading, setIsLoading] = React.useState(false);
+	// const [isLoading, setIsLoading] = React.useState(false);
+	// const router = useRouter();
 
-	React.useEffect(() => {
-		Router.events.on("routeChangeStart", () => {
-			setIsLoading(true)
-		});
+	// React.useEffect(() => {
+	// 	const handleStart = (url) => (url !== router.asPath) && setIsLoading(true);
+	// 	const handleComplete = (url) => (url === router.asPath) && setIsLoading(false);
 
-		Router.events.on("routeChangeComplete", () => {
-			setIsLoading(false)
-		});
+	// 	router.events.on('routeChangeStart', handleStart);
+	// 	router.events.on('routeChangeComplete', handleComplete);
+	// 	router.events.on('routeChangeError', handleComplete);
 
-		Router.events.on("routeChangeError", () => {
-			setIsLoading(false)
-		});
-
-	}, [Router])
+	// 	return () => {
+	// 		router.events.off('routeChangeStart', handleStart);
+	// 		router.events.off('routeChangeComplete', handleComplete);
+	// 		router.events.off('routeChangeError', handleComplete);
+	// 	}
+	// })
 
 	return (
-		<CacheProvider value={emotionCache}>
+		<>
 			<Head>
 				<meta charset="UTF-8" />
 				<meta name="author" content="Nikoleta Ivanova" />
@@ -45,11 +41,9 @@ export default function MyApp(props) {
 				{/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
 				<CssBaseline />
 				{
-					isLoading
-						? <LoadingButton />
-						: <Component {...pageProps} />
+					<Component {...pageProps} />
 				}
 			</ThemeProvider>
-		</CacheProvider>
+		</>
 	);
 }

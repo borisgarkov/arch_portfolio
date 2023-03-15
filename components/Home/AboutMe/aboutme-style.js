@@ -1,3 +1,9 @@
+let backgroundImage = 'url(/aboutme/backgroundImage.avif)';
+
+if (typeof window !== 'undefined' && window.clientInformation.userAgent.includes('Edg')) {
+    backgroundImage = 'url(/aboutme/backgroundImage.webp)';
+}
+
 const mainContainer = {
     marginTop: { xs: 5, lg: 10 },
     marginBottom: 4,
@@ -8,9 +14,9 @@ const mainContainer = {
 }
 
 const boxContainer = {
-    // backgroundImage: 'url(/aboutme/backgroundImage.jpeg)',
-    // backgroundSize: 'cover',
-    // backgroundRepeat: 'no-repeat',
+    backgroundImage: 'url(/aboutme/backgroundImage.webp)',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
     width: '100%',
     height: '100%',
     display: 'flex',

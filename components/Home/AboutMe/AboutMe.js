@@ -19,20 +19,6 @@ export default function AboutMe() {
                         <ActivitiesSection />
                     </>
                     : <Box sx={{ ...boxContainer }}>
-                        <Image
-                            src={backgroundImage}
-                            alt="background"
-                            // width={1000}
-                            // height={1000}
-                            style={{
-                                width: '100%',
-                                height: '100%',
-                                position: 'absolute',
-                                // objectFit: 'contain',
-                            }}
-                            placeholder='blur'
-                            priority
-                        />
                         <SomeWordsAboutMeSection />
                         <ActivitiesSection />
                     </Box>

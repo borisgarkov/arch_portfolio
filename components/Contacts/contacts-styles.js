@@ -2,7 +2,7 @@ const mainBoxStyle = {
     padding: '0 30px 30px 30px',
     position: 'relative',
     zIndex: '-1',
-    backgroundImage: { lg: 'url("/contacts/contacts-image.avif")' },
+    backgroundImage: { lg: 'url("/contacts/contacts-image.webp")' },
     backgroundPosition: 'right',
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',

@@ -40,13 +40,19 @@ const SomeWordsAboutMeSection = () => {
             </Animation>
 
             <Animation type='profilePicMainPagefadeIn' >
-                <Image
+                {/* <Image
                     src={profilePic}
                     alt='my-pic'
                     className={styles.profilePic}
                     placeholder='blur'
                     priority
-                />
+                /> */}
+
+                <picture>
+                    <source srcset="/aboutme/profile.avif" type="image/avif" />
+                    <source srcset="/aboutme/profile.webp" type="image/webp" />
+                    <img src="/aboutme/profile.avif" alt="photo" className={styles.profilePic} />
+                </picture>
             </Animation>
         </Box>
     )

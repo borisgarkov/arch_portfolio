@@ -9,7 +9,7 @@ import PageTitleTemplate from '../components/CommonComponents/PageTitleTemplate'
 import Head from 'next/head';
 import Animation from '../utils/Animation';
 import Image from 'next/image';
-import profilePic from '../public/cv/profile.jpg';
+import profilePic from '../public/aboutme/profile.webp';
 
 export default function CV() {
     const isMobile = useScreenResolution('lg');

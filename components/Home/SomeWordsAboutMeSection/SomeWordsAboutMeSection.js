@@ -4,8 +4,9 @@ import { useRouter } from 'next/router';
 import { mainBox, seeMoreContainer } from './styles';
 import styles from './styles.module.css';
 import Animation from '../../../utils/Animation';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 import Image from 'next/image';
-import profilePic from '../../../public/aboutme/profile.webp';
 
 const SomeWordsAboutMeSection = () => {
     const router = useRouter();
@@ -40,19 +41,14 @@ const SomeWordsAboutMeSection = () => {
             </Animation>
 
             <Animation type='profilePicMainPagefadeIn' >
-                {/* <Image
-                    src={profilePic}
-                    alt='my-pic'
-                    className={styles.profilePic}
-                    placeholder='blur'
+                <Image
                     priority
-                /> */}
-
-                <picture>
-                    <source srcset="/aboutme/profile.avif" type="image/avif" />
-                    <source srcset="/aboutme/profile.webp" type="image/webp" />
-                    <img src="/aboutme/profile.avif" alt="photo" className={styles.profilePic} />
-                </picture>
+                    src='/aboutme/profile.webp'
+                    width={320}
+                    height={320}
+                    alt='photo'
+                    className={styles.profilePic}
+                />
             </Animation>
         </Box>
     )

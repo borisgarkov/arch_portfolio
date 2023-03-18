@@ -9,16 +9,9 @@ import PageTitleTemplate from '../components/CommonComponents/PageTitleTemplate'
 import Head from 'next/head';
 import Animation from '../utils/Animation';
 import Image from 'next/image';
-import profilePic from '../public/aboutme/profile.webp';
 
 export default function CV() {
     const isMobile = useScreenResolution('lg');
-
-    const backgroundScetchImageStyle = {
-        width: '800px',
-        position: 'absolute',
-        right: '1%',
-    };
 
     return (
         <>
@@ -37,13 +30,12 @@ export default function CV() {
                         <PageTitleTemplate>
                             <Box sx={{ marginTop: 5 }}>
                                 <Image
-                                    src={profilePic}
+                                    priority
+                                    src='/aboutme/profile.webp'
                                     alt='profile-pic'
                                     width={150}
                                     height={150}
                                     style={{ borderRadius: '50%' }}
-                                    placeholder='blur'
-                                    priority
                                 />
                                 <Typography variant='h3'>Николета Иванова</Typography>
                                 <Typography variant='h4'>Архитект</Typography>
@@ -83,16 +75,6 @@ export default function CV() {
                             </Grid>
                         </Animation>
 
-                        {/* {
-                            !isMobile &&
-                            <Animation type='CVbackgroundPic'>
-                                <img
-                                    src='/cv/backgroundScetchImage.png'
-                                    alt=""
-                                    style={{ ...backgroundScetchImageStyle }}
-                                />
-                            </Animation>
-                        } */}
                     </Grid>
                 </Box>
             </Navigation>

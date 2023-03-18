@@ -30,6 +30,10 @@ export default function Contacts() {
     };
 
     const sendMessage = () => {
+        // for reference
+        // https://dashboard.emailjs.com/admin
+        // https://www.emailjs.com/docs/sdk/send/
+
         if (
             details.email.trim() === '' ||
             details.name.trim() === '' ||

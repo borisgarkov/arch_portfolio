@@ -8,6 +8,7 @@ import {
 } from '../components/Contacts/contacts-styles';
 import styles from '../components/Contacts/styles.module.css';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
+import emailjs from '@emailjs/browser';
 
 export default function Contacts() {
 
@@ -25,7 +26,7 @@ export default function Contacts() {
             [id]: value
         }))
 
-        console.log(details);
+        // console.log(details);
     };
 
     const sendMessage = () => {
@@ -35,7 +36,33 @@ export default function Contacts() {
             details.message.trim() === ''
         ) {
             return
-        }
+        };
+
+        let templateParams = {
+            to_name: 'Nikoleta Ivanova',
+            from_name: details.name,
+            from_email: details.name,
+            message: details.message
+        };
+
+        emailjs.send(
+            'service_xt1dnbk',
+            'template_lvlcg4d',
+            templateParams,
+            'ty9KcqRCo6IoyZau2'
+        )
+            .then(function (response) {
+                console.log('SUCCESS!', response.status, response.text);
+
+                setDetails({
+                    email: '',
+                    name: '',
+                    message: ''
+                })
+
+            }, function (error) {
+                console.log('FAILED...', error);
+            });
     };
 
     return (
@@ -100,7 +127,7 @@ export default function Contacts() {
                                 fullWidth
                                 variant='contained'
                                 sx={{ ...sendButtonStyle }}
-                                onSubmit={sendMessage}
+                                onClick={sendMessage}
                             >
                                 Изпрати
                             </Button>

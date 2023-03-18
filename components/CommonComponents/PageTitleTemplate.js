@@ -11,7 +11,7 @@ export default function PageTitleTemplate(props) {
             zIndex: 1,
             position: 'relative'
         }}>
-            <Slide in timeout={1000} direction='right'>
+            <Slide in timeout={1500} direction='right' easing='ease-out'>
                 <Divider sx={{
                     marginBottom: 2,
                     width: '20vw',

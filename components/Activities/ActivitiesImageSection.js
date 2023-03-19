@@ -7,8 +7,8 @@ export default function ActivitiesImageSection({ activity }) {
     const isMobile = useScreenResolution('lg');
 
     const imageSrc = isMobile || !activity.reverse
-        ? '/activities/background.jpg'
-        : '/activities/background-reverse.jpg'
+        ? '/activities/background.JPG'
+        : '/activities/background-reverse.JPG'
 
     return (
         <Box sx={{

@@ -4,6 +4,7 @@ import HistoryEduOutlinedIcon from '@mui/icons-material/HistoryEduOutlined';
 import Diversity3OutlinedIcon from '@mui/icons-material/Diversity3Outlined';
 import AutoFixHighOutlinedIcon from '@mui/icons-material/AutoFixHighOutlined';
 import { titlesStyle } from "./commonStyle";
+import Image from "next/image";
 
 export default function PersonalInfo() {
 
@@ -90,7 +91,7 @@ export default function PersonalInfo() {
                             alignItems: 'center',
                             gap: 1,
                         }}>
-                        <img src={skill.icon} alt={skill.icon} width='15' height='15' />
+                        <Image src={skill.icon} alt={skill.icon} width='15' height='15' />
                         <Typography variant='h6'>{skill.title}</Typography>
                     </Stack>
                 ))
@@ -106,7 +107,7 @@ export default function PersonalInfo() {
                             alignItems: 'center',
                             gap: 1,
                         }}>
-                        <img src={lang.icon} alt={lang.icon} width='15' height='15' />
+                        <Image src={lang.icon} alt={lang.icon} width='15' height='15' />
                         <Typography variant='h6'>{lang.title}</Typography>
                     </Stack>
                 ))

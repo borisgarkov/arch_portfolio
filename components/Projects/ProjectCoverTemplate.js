@@ -6,6 +6,7 @@ import Fade from '@mui/material/Fade';
 import * as React from 'react';
 import Link from "next/link";
 import styles from '../BalkanArhitrav/balkaarhitrav-style.module.css';
+import Image from "next/image";
 
 export default function ProjectCoverTemplate(props) {
     const { title, sectionProjects } = props;
@@ -44,9 +45,11 @@ export default function ProjectCoverTemplate(props) {
                                             {project.city}
                                         </Typography>
                                         <Box className={styles.imageContainer} style={{ marginTop: '16px' }}>
-                                            <img
+                                            <Image
                                                 src={project.images[0]}
                                                 alt=''
+                                                width={245}
+                                                height={245}
                                                 className={styles.projectImg}
                                             />
                                         </Box>

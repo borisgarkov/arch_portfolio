@@ -7,6 +7,7 @@ import Footer from './Footer';
 import SidebarMenu from './SidebarMenu';
 import styles from './sidebar-style.module.css';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Navigation(props) {
     const [openDrawer, setOpenDrawer] = React.useState(false);
@@ -43,7 +44,7 @@ export default function Navigation(props) {
                     ...navbarColor,
                 }}>
                     <Link href='/home'>
-                        <img src='/navbar-logo/nav-logo-black.png' alt='logo' width='40' height='40' />
+                        <Image src='/navbar-logo/nav-logo-black.png' alt='logo' width='40' height='40' />
                     </Link>
 
                     <Box sx={{

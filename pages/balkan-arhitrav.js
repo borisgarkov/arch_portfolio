@@ -2,6 +2,7 @@ import { Box, Fade, Slide, Stack, Typography } from '@mui/material';
 import Navigation from '../components/Navigation/Navigation';
 import styles from '../components/BalkanArhitrav/balkaarhitrav-style.module.css';
 import PageTitleTemplate from '../components/CommonComponents/PageTitleTemplate';
+import Image from 'next/image';
 
 export default function BalkanArhitrav() {
     const texts = [
@@ -102,12 +103,14 @@ export default function BalkanArhitrav() {
                                             {project.imageText}
                                         </Typography>
                                         <Box className={styles.imageContainer}>
-                                            <img
+                                            <Image
                                                 src={project.image}
                                                 alt=''
                                                 style={{
                                                     objectPosition: index === 0 ? 'top' : null,
                                                 }}
+                                                width={245}
+                                                height={245}
                                                 className={styles.projectImg}
                                             />
                                         </Box>

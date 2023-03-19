@@ -9,6 +9,7 @@ import Link from "next/link";
 import BigImageContainer from "./ProjectPageComponents/BigImageContainer"
 import SmallImageContainer from "./ProjectPageComponents/SmallImageContainer"
 import programsPictureMapping from './programsPictureMapping';
+import Image from "next/image";
 
 export default function ProjectPageTemplate(props) {
     const project = props.project;
@@ -85,7 +86,7 @@ export default function ProjectPageTemplate(props) {
                                             justifyContent: 'center',
                                             alignItems: 'center',
                                         }}>
-                                            <img
+                                            <Image
                                                 src={programsPictureMapping[program.toLowerCase()]}
                                                 alt='icon'
                                                 width='20'

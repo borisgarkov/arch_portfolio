@@ -1,4 +1,5 @@
 import { Box, Stack, Typography } from "@mui/material";
+import Image from "next/image";
 
 export default function Contests() {
     const contests = [
@@ -39,7 +40,7 @@ export default function Contests() {
                             gap: 1,
                             marginBottom: 1,
                         }}>
-                        <img src='/cv/prize.png' alt='prize' width='15' height='15' />
+                        <Image src='/cv/prize.png' alt='prize' width='15' height='15' />
                         <Stack>
                             {
                                 contest.map(c => (

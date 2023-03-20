@@ -1,5 +1,6 @@
-import { Box, Button, Grid, TextField, Typography } from '@mui/material';
-import { useState } from 'react';
+import { Alert, Box, Button, Collapse, Grid, IconButton, TextField, Typography } from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
+import React, { useState } from 'react';
 import Navigation from '../components/Navigation/Navigation';
 import PageTitleTemplate from '../components/CommonComponents/PageTitleTemplate';
 import {
@@ -9,8 +10,19 @@ import {
 import styles from '../components/Contacts/styles.module.css';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import emailjs from '@emailjs/browser';
+import JSConfetti from 'js-confetti';
+
+function validateEmail(email) {
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+        return (true)
+    }
+
+    return (false)
+};
 
 export default function Contacts() {
+
+    const [openEmailError, setOpenEmailError] = React.useState(false);
 
     const [details, setDetails] = useState({
         email: '',
@@ -34,6 +46,16 @@ export default function Contacts() {
         // https://dashboard.emailjs.com/admin
         // https://www.emailjs.com/docs/sdk/send/
 
+        const jsConfetti = new JSConfetti();
+        jsConfetti.addConfetti({
+            emojis: ['📐', '🏛️', '✎'],
+            confettiRadius: 1,
+            confettiNumber: 30,
+        });
+
+        jsConfetti.addConfetti();
+
+
         if (
             details.email.trim() === '' ||
             details.name.trim() === '' ||
@@ -41,6 +63,11 @@ export default function Contacts() {
         ) {
             return
         };
+
+        if (!validateEmail(details.email.trim())) {
+            setOpenEmailError(true);
+            return
+        }
 
         let templateParams = {
             to_name: 'Nikoleta Ivanova',
@@ -72,14 +99,35 @@ export default function Contacts() {
     return (
         <Navigation>
             <Box sx={{ ...mainBoxStyle, }}>
-                <Box sx={{
-                    padding: '0 30px 30px 30px',
-                }}>
+                <Box>
                     <PageTitleTemplate>
                         <Typography variant='h3'>Контакти</Typography>
                     </PageTitleTemplate>
 
                     <Grid container spacing={2} sx={{ ...gridContainerStyle }}>
+                        <Grid item xs={12}>
+                            <Collapse in={openEmailError}>
+                                <Alert
+                                    severity='error'
+                                    action={
+                                        <IconButton
+                                            aria-label="close"
+                                            color="inherit"
+                                            size="small"
+                                            onClick={() => {
+                                                setOpenEmailError(false);
+                                            }}
+                                        >
+                                            <CloseIcon fontSize="inherit" />
+                                        </IconButton>
+                                    }
+                                    sx={{ marginBottom: 2 }}
+                                >
+                                    Въведен е невалиден имейл!
+                                </Alert>
+                            </Collapse>
+                        </Grid>
+
                         <Grid item xs={12} lg={6}>
                             <TextField
                                 fullWidth
@@ -110,6 +158,7 @@ export default function Contacts() {
                                 InputProps={{ classes: { input: styles.resizeText } }}
                             />
                         </Grid>
+
                         <Grid item xs={12}>
                             <TextField
                                 fullWidth

@@ -4,6 +4,7 @@ import Navigation from '../components/Navigation/Navigation';
 import DividerSection from '../components/Home/DividerSection';
 import Head from 'next/head';
 import AboutMe from '../components/Home/AboutMe/AboutMe';
+import TopHomeSection from '../components/Home/TopHomeSection/TopHomeSection';
 
 function Home() {
 
@@ -25,12 +26,17 @@ function Home() {
             </Head>
 
             <Navigation>
-                <Box>
-                    {/* <TopHomeSection /> */}
-
+                <section style={{
+                    scrollSnapType: 'y mandatory'
+                }}>
+                    <section style={{ scrollSnapAlign: 'start' }}>
+                        <TopHomeSection />
+                    </section>
                     <DividerSection />
-                    <AboutMe />
-                </Box>
+                    <section style={{ scrollSnapAlign: 'start' }}>
+                        <AboutMe />
+                    </section>
+                </section>
             </Navigation>
         </>
     )

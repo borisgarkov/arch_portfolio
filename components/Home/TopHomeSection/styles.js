@@ -58,7 +58,8 @@ const mainTextStyle = {
     left: '5%',
     zIndex: 2,
     border: '2px solid white',
-    padding: 10
+    padding: 10,
+    width: '700px',
 };
 
 const typography = {

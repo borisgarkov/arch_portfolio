@@ -1,5 +1,5 @@
 const mainBoxStyle = {
-    padding: '0 30px 30px 30px',
+    padding: { xs: '0 10px 10px 10px', lg: '0 30px 30px 30px' },
     position: 'relative',
     backgroundImage: { lg: 'url("/contacts/contacts-image.webp")' },
     backgroundPosition: 'right',

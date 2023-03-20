@@ -91,7 +91,28 @@ export default function PersonalInfo() {
                             alignItems: 'center',
                             gap: 1,
                         }}>
-                        <Image src={skill.icon} alt={skill.icon} width='15' height='15' />
+                        <Box sx={{
+                            border: '1px solid black',
+                            borderRadius: '50%',
+                            backgroundColor: 'black',
+                            height: '25px',
+                            width: '25px',
+                            overflow: 'hidden',
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                        }}>
+                            <Image
+                                src={skill.icon}
+                                alt={skill.icon}
+                                width='15'
+                                height='15'
+                                style={{
+                                    width: skill.title === 'Twinmotion' ? '20px' : '15px',
+                                    height: skill.title === 'Twinmotion' ? '20px' : '15px',
+                                }}
+                            />
+                        </Box>
                         <Typography variant='h6'>{skill.title}</Typography>
                     </Stack>
                 ))

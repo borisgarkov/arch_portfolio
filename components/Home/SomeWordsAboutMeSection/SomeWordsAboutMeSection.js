@@ -4,12 +4,17 @@ import { useRouter } from 'next/router';
 import { mainBox, seeMoreContainer } from './styles';
 import styles from './styles.module.css';
 import Animation from '../../../utils/Animation';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import Image from 'next/image';
+import { useTypewriter, Cursor } from 'react-simple-typewriter';
 
 const SomeWordsAboutMeSection = () => {
     const router = useRouter();
+
+    const [text, helper] = useTypewriter({
+        words: ['Няколко думи за мен ..', 'Някакъв друг текст'],
+        loop: 0,
+    });
 
     return (
         <Box sx={{ ...mainBox }}>

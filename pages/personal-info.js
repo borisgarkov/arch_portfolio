@@ -1,4 +1,4 @@
-import { Divider, Grid, Typography, Box, Avatar, Stack } from '@mui/material';
+import { Divider, Grid, Typography, Box } from '@mui/material';
 import Navigation from '../components/Navigation/Navigation';
 import useScreenResolution from '../hooks/useScreenResolution';
 import WorkExperience from '../components/PersonalInfo/WorkExperience';
@@ -6,23 +6,20 @@ import Education from '../components/PersonalInfo/Education';
 import Contests from '../components/PersonalInfo/Contests';
 import PersonalInfo from '../components/PersonalInfo/PersonalInfo';
 import PageTitleTemplate from '../components/CommonComponents/PageTitleTemplate';
-import Head from 'next/head';
 import Animation from '../utils/Animation';
 import Image from 'next/image';
+import Seo from '../components/Seo/Seo';
 
 export default function CV() {
     const isMobile = useScreenResolution('lg');
 
     return (
         <>
-            <Head>
-                <title>Nikoleta Ivanova CV Portfolio Architecture</title>
-                <meta
-                    name="description"
-                    content="Nikoleta Ivanova CV"
-                    key="desc"
-                />
-            </Head>
+            <Seo siteMetadata={{
+                title: 'Nikoleta Ivanova CV',
+                description: 'Николета Иванова CV / Nikoleta Ivanova Architect Personal information'
+            }}></Seo>
+
             <Navigation>
                 <Box sx={{ padding: '0 30px', marginBottom: 2, overflow: 'hidden' }}>
 

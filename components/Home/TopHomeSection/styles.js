@@ -37,19 +37,13 @@ const imageStyle = {
     zIndex: '2',
 };
 
-const outerBoxImageCarousel = {
-    zIndex: '2',
-    width: '100%',
-    height: '100%',
-    overflow: 'hidden',
-};
-
 const innerBoxImageCarousel = {
     display: 'flex',
     width: '100%',
     height: '100%',
     zIndex: '2',
     transition: 'transform 1s',
+    // backgroundColor: '#8997a0'
 };
 
 const mainTextStyle = {
@@ -71,8 +65,7 @@ export {
     gridItemText,
     gridItemImageCaroussel,
     imageStyle,
-    outerBoxImageCarousel,
     innerBoxImageCarousel,
     mainTextStyle,
-    typography
+    typography,
 }

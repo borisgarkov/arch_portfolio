@@ -33,7 +33,6 @@ export default function MyApp(props) {
 		<>
 			<Head>
 				<meta charset="UTF-8" />
-				<meta name="author" content="Nikoleta Ivanova" />
 				<meta name="viewport" content="initial-scale=1, width=device-width" />
 				<link rel="shortcut icon" href="/navbar-logo/nav-logo-black.png" />
 			</Head>

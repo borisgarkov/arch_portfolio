@@ -3,6 +3,7 @@ import Navigation from '../components/Navigation/Navigation';
 import styles from '../components/BalkanArhitrav/balkaarhitrav-style.module.css';
 import PageTitleTemplate from '../components/CommonComponents/PageTitleTemplate';
 import Image from 'next/image';
+import Seo from '../components/Seo/Seo';
 
 export default function BalkanArhitrav() {
     const texts = [
@@ -46,82 +47,88 @@ export default function BalkanArhitrav() {
     ];
 
     return (
-        <Navigation>
-            <Box sx={{
-                padding: '0 30px'
-            }}>
-                <PageTitleTemplate>
-                    <Typography variant='h2'>Балкан АРХитрав</Typography>
-                </PageTitleTemplate>
-
-
-                <Stack sx={{
-                    flexDirection: { xs: 'column-reverse', lg: 'row' }, gap: 10,
-                    alignItems: 'flex-start',
+        <>
+            <Seo siteMetadata={{
+                title: 'БалканАРХитрам - лятна школа по архитектура',
+                description: 'Balkanarhitrav summer architect school'
+            }}></Seo>
+            <Navigation>
+                <Box sx={{
+                    padding: '0 30px'
                 }}>
+                    <PageTitleTemplate>
+                        <Typography variant='h2'>Балкан АРХитрав</Typography>
+                    </PageTitleTemplate>
 
-                    <Box sx={{ width: { xs: '100%', lg: '30%' } }}>
-                        {
-                            texts.map(text => (
-                                <Typography key={text} variant='h6' sx={{
-                                    fontWeight: '300',
-                                    marginBottom: 2,
-                                    textAlign: 'justify',
-                                }}>
-                                    {text}
-                                </Typography>
-                            ))
-                        }
-                    </Box>
 
                     <Stack sx={{
-                        width: { xs: '100%', lg: '70%' }, flexDirection: { xs: 'column', lg: 'row' },
-                        position: { xs: 'static', lg: 'sticky' }, top: 100,
-                        gap: { xs: 5, lg: 0 }
+                        flexDirection: { xs: 'column-reverse', lg: 'row' }, gap: 10,
+                        alignItems: 'flex-start',
                     }}>
-                        {
-                            projectsSection.map((project, index) => (
-                                <Fade key={project.title} in timeout={1000}
-                                    style={{ transitionDelay: `${index * 400}ms` }}
-                                >
-                                    <Stack className={styles.projectContainer} sx={{
-                                        cursor: 'pointer',
-                                        width: { xs: '100%', lg: '33.33%' },
-                                        padding: '0 2.6vw',
-                                        borderRight: { lg: 'solid 1px #6A6A6A' },
-                                        borderLeft: { lg: index === 0 ? 'solid 1px #6A6A6A' : null },
+
+                        <Box sx={{ width: { xs: '100%', lg: '30%' } }}>
+                            {
+                                texts.map(text => (
+                                    <Typography key={text} variant='h6' sx={{
+                                        fontWeight: '300',
+                                        marginBottom: 2,
+                                        textAlign: 'justify',
                                     }}>
-                                        <Typography
-                                            className={styles.textTitle}
-                                            variant='h3'>
-                                            {project.title}
-                                        </Typography>
-                                        <Typography sx={{
-                                            marginTop: 2,
-                                            textAlign: 'right'
+                                        {text}
+                                    </Typography>
+                                ))
+                            }
+                        </Box>
+
+                        <Stack sx={{
+                            width: { xs: '100%', lg: '70%' }, flexDirection: { xs: 'column', lg: 'row' },
+                            position: { xs: 'static', lg: 'sticky' }, top: 100,
+                            gap: { xs: 5, lg: 0 }
+                        }}>
+                            {
+                                projectsSection.map((project, index) => (
+                                    <Fade key={project.title} in timeout={1000}
+                                        style={{ transitionDelay: `${index * 400}ms` }}
+                                    >
+                                        <Stack className={styles.projectContainer} sx={{
+                                            cursor: 'pointer',
+                                            width: { xs: '100%', lg: '33.33%' },
+                                            padding: '0 2.6vw',
+                                            borderRight: { lg: 'solid 1px #6A6A6A' },
+                                            borderLeft: { lg: index === 0 ? 'solid 1px #6A6A6A' : null },
                                         }}>
-                                            {project.imageText}
-                                        </Typography>
-                                        <Box className={styles.imageContainer}>
-                                            <Image
-                                                src={project.image}
-                                                alt=''
-                                                style={{
-                                                    objectPosition: index === 0 ? 'top' : null,
-                                                }}
-                                                width={245}
-                                                height={245}
-                                                className={styles.projectImg}
-                                            />
-                                        </Box>
-                                    </Stack>
-                                </Fade>
-                            ))
-                        }
+                                            <Typography
+                                                className={styles.textTitle}
+                                                variant='h3'>
+                                                {project.title}
+                                            </Typography>
+                                            <Typography sx={{
+                                                marginTop: 2,
+                                                textAlign: 'right'
+                                            }}>
+                                                {project.imageText}
+                                            </Typography>
+                                            <Box className={styles.imageContainer}>
+                                                <Image
+                                                    src={project.image}
+                                                    alt=''
+                                                    style={{
+                                                        objectPosition: index === 0 ? 'top' : null,
+                                                    }}
+                                                    width={245}
+                                                    height={245}
+                                                    className={styles.projectImg}
+                                                />
+                                            </Box>
+                                        </Stack>
+                                    </Fade>
+                                ))
+                            }
+                        </Stack>
                     </Stack>
-                </Stack>
-            </Box>
-        </Navigation >
+                </Box>
+            </Navigation >
+        </>
     )
 }
 

@@ -1,8 +1,7 @@
-import React from 'react';
+import TopHomeSection from '../components/Home/TopHomeSection/TopHomeSection';
+import AboutMe from '../components/Home/AboutMe/AboutMe';
 import Navigation from '../components/Navigation/Navigation';
 import DividerSection from '../components/Home/DividerSection';
-import AboutMe from '../components/Home/AboutMe/AboutMe';
-import TopHomeSection from '../components/Home/TopHomeSection/TopHomeSection';
 import Seo from '../components/Seo/Seo';
 
 export default function Home() {

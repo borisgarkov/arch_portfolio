@@ -1,55 +1,29 @@
-const mainGridContainer = {
-    width: '100%',
+const mainContainer = {
     marginBottom: { xs: 5, lg: 10 },
-    marginTop: '95px',
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: { lg: '0 80px' },
+    height: '100vh',
 };
 
-const gridItemText = {
-    backgroundImage: 'url("/image-gallery-homepage/portfolioBackground.png")',
-    backgroundSize: 'contain',
-    backgroundRepeat: 'no-repeat',
-    height: { xs: '200px', lg: '300px' },
-    position: 'relative',
-    display: 'flex',
-    alignItems: 'center',
-};
-
-const gridItemImageCaroussel = {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
+const imageBox = {
     width: '100%',
     height: '100%',
-    backgroundColor: 'mainPage.main',
-    // padding: { xs: 1, lg: 5 },
-    gap: 2,
-    position: 'relative',
+    zIndex: '2',
+    position: 'relative'
 };
 
 const imageStyle = {
     width: '100%',
     height: '100%',
-    objectFit: 'contain',
+    objectFit: 'cover',
     zIndex: '2',
 };
 
-const innerBoxImageCarousel = {
-    display: 'flex',
-    width: '100%',
-    height: '100%',
-    zIndex: '2',
-    transition: 'transform 1s',
-    // backgroundColor: '#8997a0'
-};
-
-const mainTextStyle = {
+const textBox = {
     position: 'absolute',
-    bottom: '25%',
-    left: '5%',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    // bottom: '25%',
+    // left: '5%',
     zIndex: 2,
     border: '2px solid white',
     padding: 10,
@@ -61,11 +35,9 @@ const typography = {
 };
 
 export {
-    mainGridContainer,
-    gridItemText,
-    gridItemImageCaroussel,
+    mainContainer,
     imageStyle,
-    innerBoxImageCarousel,
-    mainTextStyle,
+    imageBox,
+    textBox,
     typography,
 }

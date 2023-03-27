@@ -1,8 +1,8 @@
-import TopHomeSection from '../components/Home/TopHomeSection/TopHomeSection';
-import AboutMe from '../components/Home/AboutMe/AboutMe';
-import Navigation from '../components/Navigation/Navigation';
-import DividerSection from '../components/Home/DividerSection';
 import Seo from '../components/Seo/Seo';
+import Navigation from '../components/Navigation/Navigation';
+import HomeSection from '../components/Home/HomeSection/HomeSection';
+import DividerSection from '../components/Home/DividerSection';
+import AboutMe from '../components/Home/AboutMe/AboutMe';
 
 export default function Home() {
     return (
@@ -13,17 +13,9 @@ export default function Home() {
             }}></Seo>
 
             <Navigation>
-                <section style={{
-                    scrollSnapType: 'y mandatory'
-                }}>
-                    <section style={{ scrollSnapAlign: 'start' }}>
-                        <TopHomeSection />
-                    </section>
-                    <DividerSection />
-                    <section style={{ scrollSnapAlign: 'start' }}>
-                        <AboutMe />
-                    </section>
-                </section>
+                <HomeSection />
+                <DividerSection />
+                <AboutMe />
             </Navigation>
         </>
     )

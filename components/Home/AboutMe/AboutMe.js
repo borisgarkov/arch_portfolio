@@ -1,11 +1,10 @@
 import Box from "@mui/material/Box";
 import ActivitiesSection from "./ActivitiesSection";
 import { mainContainer, boxContainer, } from './aboutme-style';
-import SomeWordsAboutMeSection from "../SomeWordsAboutMeSection/SomeWordsAboutMeSection";
+import MobileSomeWordsAboutMeSection from "./MobileSomeWordsAboutMeSection";
+import SomeWordsAboutMeSection from "./SomeWordsAboutMeSection";
 import useScreenResolution from '../../../hooks/useScreenResolution';
-import MobileSomeWordsAboutMeSection from "../SomeWordsAboutMeSection/MobileSomeWordsAboutMeSection";
 import React from "react";
-import Image from "next/image";
 
 export default function AboutMe() {
     const isMobile = useScreenResolution('lg');
@@ -19,12 +18,6 @@ export default function AboutMe() {
                         <ActivitiesSection />
                     </>
                     : <Box sx={{ ...boxContainer }}>
-                        <Image
-                            priority
-                            src="/aboutme/backgroundImage.webp"
-                            fill='contain'
-                            alt="backgroundImage"
-                        />
                         <SomeWordsAboutMeSection />
                         <ActivitiesSection />
                     </Box>

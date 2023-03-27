@@ -1,5 +1,6 @@
-import { Stack } from "@mui/material";
+import { Box, Stack } from "@mui/material";
 import useImageCaroussel from "../../../hooks/useImageCaroussel";
+import DividerSection from "../DividerSection";
 import imageCarousel from "./carousselImages";
 import IntroText from "./IntroText";
 
@@ -8,8 +9,8 @@ export default function MobileHomeSection(params) {
 
     return (
         <Stack sx={{
-            margin: '36px auto',
-            gap: 5
+            height: '100vh',
+            justifyContent: 'space-between',
         }}>
             <img
                 src={imageCarousel[currentImageIndex]}
@@ -21,8 +22,10 @@ export default function MobileHomeSection(params) {
                     transition: 'opacity 1s',
                 }}
             />
-
             <IntroText />
+            <Box>
+                <DividerSection />
+            </Box>
         </Stack>
     )
 }

@@ -1,22 +1,28 @@
 import Stack from '@mui/material/Stack';
 import Grid from '@mui/material/Grid';
-import { imageStyle } from './styles';
 import useImageCaroussel from '../../../hooks/useImageCaroussel';
 import imageCarousel from './carousselImages';
 import IntroText from './IntroText';
+import DividerSection from '../DividerSection';
 
 export default function LaptopHomeSection() {
 
     const currentImageIndex = useImageCaroussel();
 
+    const smallImageStyle = {
+        width: '100%',
+        height: '123px',
+        objectFit: 'cover',
+    };
+
     return (
-        <Stack sx={{ height: '80vh' }}>
+        <Stack sx={{ height: '100vh', justifyContent: 'space-evenly' }}>
             <Grid container sx={{
                 width: '90%',
-                margin: 'auto',
+                margin: '0 auto',
                 height: '400px',
-                alignItems: 'flex-start',
-                justifyContent: 'space-evenly'
+                // alignItems: 'flex-start',
+                justifyContent: 'space-between',
             }}>
                 <Grid item lg={6} sx={{ height: '100%' }}>
                     <img
@@ -26,23 +32,21 @@ export default function LaptopHomeSection() {
                             height: '100%',
                             width: '100%',
                             objectFit: 'cover',
-                            transition: 'opacity 1s',
                         }}
                     />
                 </Grid>
 
                 <Grid item lg={2} sx={{ height: '100%' }}>
                     <Stack sx={{
-                        paddingLeft: 2,
-                        paddingRight: 2,
                         justifyContent: 'space-between',
+                        margin: '0 auto',
                         height: '100%'
                     }}>
                         <img
                             src={imageCarousel[0]}
                             alt='carousel-image'
                             style={{
-                                ...imageStyle,
+                                ...smallImageStyle,
                                 transition: 'opacity 1s',
                                 opacity: currentImageIndex === 0 ? 1 : 0.3
                             }}
@@ -51,7 +55,7 @@ export default function LaptopHomeSection() {
                             src={imageCarousel[1]}
                             alt='carousel-image'
                             style={{
-                                ...imageStyle,
+                                ...smallImageStyle,
                                 transition: 'opacity 1s',
                                 opacity: currentImageIndex === 1 ? 1 : 0.3
                             }}
@@ -60,7 +64,7 @@ export default function LaptopHomeSection() {
                             src={imageCarousel[2]}
                             alt='carousel-image'
                             style={{
-                                ...imageStyle,
+                                ...smallImageStyle,
                                 transition: 'opacity 1s',
                                 opacity: currentImageIndex === 2 ? 1 : 0.3
                             }}
@@ -68,18 +72,20 @@ export default function LaptopHomeSection() {
                     </Stack>
                 </Grid>
 
-                <Grid item lg={4} sx={{ height: '100%' }}>
+                <Grid item lg={3.74} sx={{ height: '100%', width: '100%' }}>
                     <Stack sx={{ height: '100%', justifyContent: 'space-between' }}>
                         <img
-                            src='/image-gallery-homepage/profile.webp'
+                            src='/image-gallery-homepage/04.jpg'
                             alt='carousel-image'
-                            style={{ height: '70%', width: '100%', objectFit: 'contain' }}
+                            style={{ height: '260px', width: '100%', objectFit: 'cover' }}
                         />
 
                         <IntroText />
                     </Stack>
                 </Grid>
             </Grid>
+
+            <DividerSection />
         </Stack>
     )
 };

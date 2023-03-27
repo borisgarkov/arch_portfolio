@@ -14,7 +14,6 @@ export default function Home() {
 
             <Navigation>
                 <HomeSection />
-                <DividerSection />
                 <AboutMe />
             </Navigation>
         </>

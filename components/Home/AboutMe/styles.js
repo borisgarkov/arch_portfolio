@@ -13,6 +13,7 @@ const seeMoreContainer = {
     flexDirection: 'row',
     alignItems: 'center',
     marginTop: 2,
+    marginBottom: 5,
     gap: 1,
     cursor: 'pointer',
 };

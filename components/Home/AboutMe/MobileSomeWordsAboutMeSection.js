@@ -12,6 +12,16 @@ const MobileSomeWordsAboutMeSection = () => {
 
     return (
         <>
+            <Animation style={{ marginBottom: '16px' }} type='profilePicMainPagefadeIn'>
+                <Image
+                    src={profilePic}
+                    alt='my-pic'
+                    className={styles.profilePic}
+                    placeholder='blur'
+                    priority
+                />
+            </Animation>
+
             <Animation type='someWordsAboutMe'>
                 <Typography variant="h4">
                     Няколко думи за мен ...
@@ -35,16 +45,6 @@ const MobileSomeWordsAboutMeSection = () => {
                     </Typography>
                     <ArrowForwardIosIcon className={styles.arrowIcon} />
                 </Stack>
-            </Animation>
-
-            <Animation type='profilePicMainPagefadeIn'>
-                <Image
-                    src={profilePic}
-                    alt='my-pic'
-                    className={styles.profilePic}
-                    placeholder='blur'
-                    priority
-                />
             </Animation>
         </>
     )

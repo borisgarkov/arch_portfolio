@@ -34,7 +34,7 @@ export default function SidebarMenu(props) {
                 ...subProjectsMenuStyle,
                 opacity: '1',
                 visibility: 'visible',
-                height: '260px',
+                height: '200px',
             })
 
         } else {
@@ -51,16 +51,11 @@ export default function SidebarMenu(props) {
         },
         {
             num: 2,
-            title: 'Предишен опит',
-            link: '/home',
-        },
-        {
-            num: 3,
             title: 'Проекти',
             link: '/home',
         },
         {
-            num: 4,
+            num: 3,
             title: 'БалканАРХитрав',
             link: '/balkan-arhitrav',
         },

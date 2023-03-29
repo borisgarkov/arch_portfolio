@@ -16,16 +16,14 @@ export default function MobileHomeSection(params) {
                 src={imageCarousel[currentImageIndex]}
                 alt='carousel-image'
                 style={{
-                    height: '350px',
+                    height: '270px',
                     width: '100%',
                     objectFit: 'cover',
                     transition: 'opacity 1s',
                 }}
             />
             <IntroText />
-            <Box>
-                <DividerSection />
-            </Box>
+            <DividerSection />
         </Stack>
     )
 }

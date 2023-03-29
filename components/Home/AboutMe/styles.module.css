@@ -21,8 +21,29 @@
         width: 320px;
         height: 320px;
         position: relative;
-        top: 50px;
+        top: 20px;
         right: 100px;
         margin-top: 0;
     }
+}
+
+.waves {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.waves svg {
+    position: relative;
+    display: block;
+    width: calc(117% + 1.3px);
+    height: 113px;
+    transform: rotateY(180deg);
+}
+
+.waves .shapeFill {
+    fill: #FFFFFF;
 }

@@ -6,15 +6,9 @@ import styles from './styles.module.css';
 import Animation from '../../../utils/Animation';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import Image from 'next/image';
-import { useTypewriter, Cursor } from 'react-simple-typewriter';
 
 const SomeWordsAboutMeSection = () => {
     const router = useRouter();
-
-    const [text, helper] = useTypewriter({
-        words: ['Няколко думи за мен ..', 'Някакъв друг текст'],
-        loop: 0,
-    });
 
     return (
         <Box sx={{ ...mainBox }}>
@@ -25,11 +19,15 @@ const SomeWordsAboutMeSection = () => {
                     </Typography>
 
                     <Typography variant="h6" sx={{ marginTop: 2, }}>
-                        Университет по архитектура, строителство и геодезия, випуск 2022
+                        УАСГ, гр. София
                     </Typography>
 
                     <Typography variant="h6" sx={{ marginTop: 1, }}>
                         Катедра: Градоустройство
+                    </Typography>
+
+                    <Typography variant="h6" sx={{ marginTop: 1, }}>
+                        Член на КАБ, 2022г. (ОПП)
                     </Typography>
 
                     <Stack

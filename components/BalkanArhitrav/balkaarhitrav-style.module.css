@@ -26,4 +26,10 @@
     filter: grayscale(0%);
 }
 
-/* .projectContainer:hover>.projectImg */
+@media (max-width:1200px) {
+    .imageContainer {
+        width: 245px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

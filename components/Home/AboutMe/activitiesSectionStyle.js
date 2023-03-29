@@ -1,10 +1,10 @@
 const activitiesMainBox = {
     backgroundColor: 'mainPage.main',
     width: { xs: '100%', lg: '559px' },
-    height: '100%',
+    // height: '100%',
     padding: { xs: 0, lg: 8 },
     position: 'relative',
-    top: { lg: '40px' },
+    top: { lg: '10px' },
     zIndex: 2,
 };
 

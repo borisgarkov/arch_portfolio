@@ -16,10 +16,10 @@ export default function LaptopHomeSection() {
     };
 
     return (
-        <Stack sx={{ height: '100vh', justifyContent: 'space-evenly' }}>
+        <Stack sx={{ justifyContent: 'space-evenly' }}>
             <Grid container sx={{
                 width: '90%',
-                margin: '0 auto',
+                margin: '100px auto',
                 height: '400px',
                 // alignItems: 'flex-start',
                 justifyContent: 'space-between',

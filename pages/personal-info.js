@@ -5,6 +5,7 @@ import WorkExperience from '../components/PersonalInfo/WorkExperience';
 import Education from '../components/PersonalInfo/Education';
 import Contests from '../components/PersonalInfo/Contests';
 import PersonalInfo from '../components/PersonalInfo/PersonalInfo';
+import styles from '../components/PersonalInfo/styles.module.css';
 import PageTitleTemplate from '../components/CommonComponents/PageTitleTemplate';
 import Animation from '../utils/Animation';
 import Image from 'next/image';
@@ -35,7 +36,14 @@ export default function CV() {
                                     style={{ borderRadius: '50%' }}
                                 />
                                 <Typography variant='h3'>Николета Иванова</Typography>
-                                <Typography variant='h4'>Архитект</Typography>
+                                <Typography variant='h4' sx={{ marginBottom: 5 }}>Архитект</Typography>
+                                <a href="/resume/resume.pdf"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className={styles.link}
+                                >
+                                    CV / Resume
+                                </a>
                             </Box>
                         </PageTitleTemplate>
                     </Box>

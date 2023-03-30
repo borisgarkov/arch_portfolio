@@ -10,14 +10,16 @@ import BigImageContainer from "./ProjectPageComponents/BigImageContainer"
 import SmallImageContainer from "./ProjectPageComponents/SmallImageContainer"
 import programsPictureMapping from './programsPictureMapping';
 import Image from "next/image";
+import urlFor from "../../utils/sanityImageBuilder";
 
 export default function ProjectPageTemplate(props) {
-    const project = props.project;
+    const project = props.project[0];
     const goBackButtonText = props.goBackButtonText;
 
     return (
         <Grid container sx={{
-            marginTop: 5
+            marginTop: 5,
+            // justifyContent: 'space-evenly',
         }}>
             <Grid item lg={4} sx={{
                 padding: 5,
@@ -103,7 +105,7 @@ export default function ProjectPageTemplate(props) {
                     }
                 </Stack>
 
-                <Link href='/projects' style={{ textDecoration: 'none', marginTop: 'auto' }}>
+                <Link href='/student-projects' style={{ textDecoration: 'none', marginTop: 'auto' }}>
                     <Stack sx={{
                         flexDirection: 'row',
                         alignItems: 'flex-end',
@@ -118,26 +120,16 @@ export default function ProjectPageTemplate(props) {
                 </Link>
             </Grid>
 
-            <Grid item lg={8} sx={{
-                padding: 5
-            }}>
-                <Stack sx={{
-                    flexDirection: 'row',
-                    gap: 2,
-                    justifyContent: 'space-evenly',
-                    marginBottom: 2
-                }}>
-                    <BigImageContainer image={project.images[0]} />
-                    <SmallImageContainer image={project.images[1]} />
-                </Stack>
-                <Stack sx={{
-                    flexDirection: 'row',
-                    gap: 2,
-                    justifyContent: 'space-evenly',
-                }}>
-                    <SmallImageContainer image={project.images[2]} />
-                    <BigImageContainer image={project.images[3]} />
-                </Stack>
+            <Grid item lg={8} sx={{ padding: 5 }}>
+                <Grid container sx={{ gap: 2 }}>
+                    {
+                        project.pictures.map((picture, index) => {
+                            return index % 2 === 0
+                                ? <BigImageContainer image={urlFor(picture).url()} />
+                                : <SmallImageContainer image={urlFor(picture).url()} />
+                        })
+                    }
+                </Grid>
             </Grid>
         </Grid>
     )

@@ -3,8 +3,11 @@ import Navigation from '../components/Navigation/Navigation';
 import HomeSection from '../components/Home/HomeSection/HomeSection';
 import DividerSection from '../components/Home/DividerSection';
 import AboutMe from '../components/Home/AboutMe/AboutMe';
+import sanityClient from '../utils/sanityClient';
 
-export default function Home() {
+export default function Home({ studentProjects }) {
+    console.log(studentProjects);
+
     return (
         <>
             <Seo siteMetadata={{
@@ -22,6 +25,8 @@ export default function Home() {
 
 export async function getStaticProps(context) {
     return {
-        props: {}, // will be passed to the page component as props
+        props: {
+
+        }, // will be passed to the page component as props
     }
 };

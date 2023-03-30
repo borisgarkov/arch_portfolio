@@ -3,13 +3,16 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Navigation from "../../components/Navigation/Navigation";
-import { getProjectsBySector } from '../../components/Projects/getProjectsData';
+// import { getProjectsBySector } from '../../components/Projects/getProjectsData';
 import PageTitleTemplate from '../../components/CommonComponents/PageTitleTemplate';
 import ProjectCoverTemplate from '../../components/Projects/ProjectCoverTemplate';
 import Seo from '../../components/Seo/Seo';
+import sanityClient from '../../utils/sanityClient';
 
 export default function Projects(props) {
-    const { INTERIOR, PUBLIC_BUILDINGS, CIVIL_BUILDINGS, URBAN_PLANNING } = props;
+    const { interior, civil_buildings, public_buildings, urban } = props;
+
+    console.log(interior);
 
     const gridItemsStyles = {
         borderRight: { lg: '1px solid black' }
@@ -41,23 +44,26 @@ export default function Projects(props) {
                             ...gridItemsStyles
                         }}>
                             <ProjectCoverTemplate title='ЖИЛИЩНИ СГРАДИ'
-                                sectionProjects={CIVIL_BUILDINGS} />
+                                sectionProjects={civil_buildings} />
                         </Grid>
+
                         <Grid item xs={12} lg={3} sx={{
                             ...gridItemsStyles
                         }}>
                             <ProjectCoverTemplate title='ОБЩЕСТВЕНИ СГРАДИ'
-                                sectionProjects={PUBLIC_BUILDINGS} />
+                                sectionProjects={public_buildings} />
                         </Grid>
+
                         <Grid item xs={12} lg={3} sx={{
                             ...gridItemsStyles
                         }}>
                             <ProjectCoverTemplate title='ИНТЕРИОР'
-                                sectionProjects={INTERIOR} />
+                                sectionProjects={interior} />
                         </Grid>
+
                         <Grid item xs={12} lg={3}>
                             <ProjectCoverTemplate title='ГРАДОУСТРОЙСТВО'
-                                sectionProjects={URBAN_PLANNING} />
+                                sectionProjects={urban} />
                         </Grid>
                     </Grid>
                 </Box>
@@ -67,9 +73,25 @@ export default function Projects(props) {
 };
 
 export async function getStaticProps() {
+    const interior = await sanityClient.fetch(
+        `*[_type == "studentProject" && category == "interior"]`
+    );
+    const civil_buildings = await sanityClient.fetch(
+        `*[_type == "studentProject" && category == "civil_buildings"]`
+    );
+    const public_buildings = await sanityClient.fetch(
+        `*[_type == "studentProject" && category == "public_buildings"]`
+    );
+    const urban = await sanityClient.fetch(
+        `*[_type == "studentProject" && category == "urban"]`
+    );
+
     return {
         props: {
-            ...getProjectsBySector()
+            interior,
+            civil_buildings,
+            public_buildings,
+            urban
         }
     }
 };

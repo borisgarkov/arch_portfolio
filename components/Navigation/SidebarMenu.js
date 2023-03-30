@@ -47,7 +47,7 @@ export default function SidebarMenu(props) {
         {
             num: 1,
             title: 'Студентски проекти',
-            link: '/projects',
+            link: '/student-projects',
         },
         {
             num: 2,

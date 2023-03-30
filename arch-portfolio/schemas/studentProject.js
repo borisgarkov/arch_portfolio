@@ -16,10 +16,11 @@ export default {
             title: 'Категория',
             options: {
                 list: [
-                    { title: 'ЖИЛИЩНИ СГРАДИ', value: 'civil_buildings' },
-                    { title: 'ОБЩЕСТВЕНИ СГРАДИ', value: 'public_buildings' },
-                    { title: 'ИНТЕРИОР', value: 'interior' },
-                    { title: 'ГРАДОУСТРОЙСТВО', value: 'urban' },
+                    { title: 'жилищни сгради', value: 'civil_buildings' },
+                    { title: 'обществени сгради', value: 'public_buildings' },
+                    { title: 'интериор', value: 'interior' },
+                    { title: 'градоустройство', value: 'urban' },
+                    { title: 'индустриални сгради', value: 'industrial_buildings' },
                 ],
                 layout: 'radio'
             }

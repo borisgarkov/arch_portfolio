@@ -7,10 +7,9 @@ import * as React from 'react';
 import Link from "next/link";
 import styles from '../BalkanArhitrav/balkaarhitrav-style.module.css';
 import Image from "next/image";
+import urlFor from "../../utils/sanityImageBuilder";
 
-export default function ProjectCoverTemplate(props) {
-    const { title, sectionProjects } = props;
-
+export default function ProjectCoverTemplate({ title, sectionProjects }) {
     return (
         <>
             < Typography variant="h5" sx={{
@@ -21,12 +20,12 @@ export default function ProjectCoverTemplate(props) {
             {
                 sectionProjects.map((project, index) => {
                     return (
-                        <React.Fragment key={project.title} >
-                            <Link href={`/projects/${project.slug}`} style={{
+                        <React.Fragment key={project._id} >
+                            <Link href={`/student-projects/${project.slug.current}`} style={{
                                 textDecoration: 'none', color: 'inherit'
                             }}>
 
-                                <Fade key={project.title} in timeout={1000}
+                                <Fade key={project._id} in timeout={1000}
                                     style={{ transitionDelay: `${index * 400}ms` }}>
                                     <Stack className={styles.projectContainer} sx={{
                                         padding: '0 2.6vw',
@@ -39,14 +38,16 @@ export default function ProjectCoverTemplate(props) {
                                         }}>
                                             {project.title}
                                         </Typography>
+
                                         <Typography sx={{
                                             textAlign: 'right'
                                         }}>
                                             {project.city}
                                         </Typography>
+
                                         <Box className={styles.imageContainer} style={{ marginTop: '16px' }}>
-                                            <Image
-                                                src={project.images[0]}
+                                            <img
+                                                src={urlFor(project.pictures[0]).url()}
                                                 alt=''
                                                 width={245}
                                                 height={245}

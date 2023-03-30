@@ -1,18 +1,18 @@
-import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
 import Image from "next/image";
 import styles from '../project-page.module.css';
 
 const SmallImageContainer = ({ image }) => {
     return (
-        <Box className={styles.imgSmallContainer}>
-            <Image
+        <Grid item xs={12} lg={4} className={styles.imgSmallContainer}>
+            <img
                 src={image}
                 alt='project-img'
-                width={300}
-                height={300}
+                // width={300}
+                // height={300}
                 className={styles.projectImg}
             />
-        </Box>
+        </Grid>
     )
 };
 

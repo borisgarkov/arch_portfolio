@@ -1,9 +1,11 @@
 import Navigation from "../../components/Navigation/Navigation";
-import { getAllProjectsSlugs, getCurrentProjectData } from "../../components/Projects/getProjectsData";
 import ProjectPageTemplate from "../../components/Projects/ProjectPageTemplate";
+import sanityClient from "../../utils/sanityClient";
 
 export default function Projects(props) {
     const project = props.project;
+
+    console.log(project);
 
     return (
         <Navigation>
@@ -13,14 +15,24 @@ export default function Projects(props) {
 };
 
 export async function getStaticPaths() {
+    const projectsSlugs = await sanityClient.fetch('*[_type == "studentProject"]["slug"].current');
+
     return {
-        paths: getAllProjectsSlugs(),
+        paths: projectsSlugs.map(project => {
+            return { params: { project: project } }
+        }),
         fallback: false,
     }
 };
 
 export async function getStaticProps(props) {
+    console.log(props)
+
     return {
-        props: { project: getCurrentProjectData(props.params.project) }
+        props: {
+            project: await sanityClient.fetch(`
+                *[_type == "studentProject" && slug.current == "${props.params.project}"]
+            `)
+        }
     }
 };

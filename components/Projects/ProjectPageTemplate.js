@@ -19,7 +19,6 @@ export default function ProjectPageTemplate(props) {
     return (
         <Grid container sx={{
             marginTop: 5,
-            // justifyContent: 'space-evenly',
         }}>
             <Grid item lg={4} sx={{
                 padding: 5,

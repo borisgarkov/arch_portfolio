@@ -1,50 +1,15 @@
-import { Box, Fade, Slide, Stack, Typography } from '@mui/material';
-import Navigation from '../components/Navigation/Navigation';
-import styles from '../components/BalkanArhitrav/balkaarhitrav-style.module.css';
-import PageTitleTemplate from '../components/CommonComponents/PageTitleTemplate';
+import { Box, Fade, Stack, Typography } from '@mui/material';
+import Navigation from '../../components/Navigation/Navigation';
+import styles from '../../components/BalkanArhitrav/balkaarhitrav-style.module.css';
+import PageTitleTemplate from '../../components/CommonComponents/PageTitleTemplate';
 import Image from 'next/image';
-import Seo from '../components/Seo/Seo';
+import Seo from '../../components/Seo/Seo';
+import sanityClient from '../../utils/sanityClient';
+import urlFor from '../../utils/sanityImageBuilder';
+import { useRouter } from 'next/router';
 
-export default function BalkanArhitrav() {
-    const texts = [
-        `Балкан АРХитрав е сдружение с нестопанска цел, чиито цели 
-        са устойчиво развитие в областта на архитектурата, урбанизма,
-        опазването на културното наследство, визуалните изкуства, 
-        дизайна и опазване на околната среда.
-        За постигане на целите си БалканАРХитрав се занимава с редица дейности, 
-        сред които е и организирането на лятно училище по архитектура, което
-        има за цел опознаване и валоризиране на традиционната селска 
-        архитектура, както и опазване на културното наследство.`,
-        `Първото лятно училище по архитектура "Поганово 2015" се 
-        организира в сътрудничество и с участието на Факултета 
-        по строителство и архитектура (GAF) в Ниш. 
-        От 2016г. лятното училище е с международен характер. В него 
-        съвместно участват също студенти и преподаватели от 
-        Университета по архитектура, строителство и геодезия (УАСГ), гр. София.`,
-        `По традиция програмата включва разработване на един 
-        или повече проекти в рамките на една седмица, които имат 
-        за цел да запазят и насърчават традиционната народна 
-        архитектура като културно наследство, което представлява 
-        потенциал за развитие на туризма.`
-    ];
-
-    const projectsSection = [
-        {
-            title: '2019г.',
-            image: '/arhitrav/2019.jpeg',
-            imageText: 'с.Челопеч, България - Технологичен парк в с.Челопеч',
-        },
-        {
-            title: '2020г.',
-            image: '/arhitrav/2020.jpg',
-            imageText: 'с.Сенокос, Сърбия - Инсталация на входа на с.Сенокос',
-        },
-        {
-            title: '2021г.',
-            image: '/arhitrav/2021.jpeg',
-            imageText: 'с.Чавдар, България - Общински център за гости в с.Чавдар',
-        },
-    ];
+export default function BalkanArhitrav({ texts, projects }) {
+    const router = useRouter();
 
     return (
         <>
@@ -68,7 +33,7 @@ export default function BalkanArhitrav() {
 
                         <Box sx={{ width: { xs: '100%', lg: '30%' } }}>
                             {
-                                texts.map(text => (
+                                texts[0].text.map(text => (
                                     <Typography key={text} variant='h6' sx={{
                                         fontWeight: '300',
                                         marginBottom: 2,
@@ -86,9 +51,10 @@ export default function BalkanArhitrav() {
                             gap: { xs: 5, lg: 0 }
                         }}>
                             {
-                                projectsSection.map((project, index) => (
+                                projects.map((project, index) => (
                                     <Fade key={project.title} in timeout={1000}
                                         style={{ transitionDelay: `${index * 400}ms` }}
+                                        onClick={() => router.push(`/balkan-arhitrav/${project.year.slice(0, 4)}`)}
                                     >
                                         <Stack className={styles.projectContainer} sx={{
                                             cursor: 'pointer',
@@ -100,17 +66,17 @@ export default function BalkanArhitrav() {
                                             <Typography
                                                 className={styles.textTitle}
                                                 variant='h3'>
-                                                {project.title}
+                                                {project.year}
                                             </Typography>
                                             <Typography sx={{
                                                 marginTop: 2,
                                                 textAlign: 'right'
                                             }}>
-                                                {project.imageText}
+                                                {project.title}
                                             </Typography>
                                             <Box className={styles.imageContainer}>
-                                                <Image
-                                                    src={project.image}
+                                                <img
+                                                    src={urlFor(project.picture_main_page).url()}
                                                     alt=''
                                                     style={{
                                                         objectPosition: index === 0 ? 'top' : null,
@@ -133,7 +99,13 @@ export default function BalkanArhitrav() {
 }
 
 export async function getStaticProps(context) {
+    const texts = await sanityClient.fetch(`*[_type == "balkanArhitravMainPageText"]`);
+    const projects = await sanityClient.fetch(`*[_type == "balkanArhitravProjects"] | order(year asc)`);
+
     return {
-        props: {}, // will be passed to the page component as props
+        props: {
+            texts,
+            projects
+        }, // will be passed to the page component as props
     }
 }

@@ -13,6 +13,7 @@ const iconsMainBox = {
     gridTemplateColumns: 'repeat(auto-fit, minmax(170px, 1fr))',
     justifyContent: 'center',
     gridGap: '16px',
+    padding: { xs: '24px', lg: 0 }
 };
 
 const iconsContainer = {

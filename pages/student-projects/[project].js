@@ -5,8 +5,6 @@ import sanityClient from "../../utils/sanityClient";
 export default function Projects(props) {
     const project = props.project;
 
-    console.log(project);
-
     return (
         <Navigation>
             <ProjectPageTemplate project={project} goBackButtonText='Назад към СТУДЕНТСКИ ПРОЕКТИ' />
@@ -26,8 +24,6 @@ export async function getStaticPaths() {
 };
 
 export async function getStaticProps(props) {
-    console.log(props)
-
     return {
         props: {
             project: await sanityClient.fetch(`

@@ -4,8 +4,13 @@ import useImageCaroussel from '../../../hooks/useImageCaroussel';
 import imageCarousel from './carousselImages';
 import IntroText from './IntroText';
 import DividerSection from '../DividerSection';
+import { useContext } from 'react';
+import { HomeDataContext } from '../../../pages/home';
 
 export default function LaptopHomeSection() {
+    // const homeData = useContext(HomeDataContext);
+
+    // console.log(homeData);
 
     const currentImageIndex = useImageCaroussel();
 

@@ -9,20 +9,25 @@ export default function MobileHomeSection(params) {
 
     return (
         <Stack sx={{
-            height: '100vh',
             justifyContent: 'space-between',
         }}>
-            <img
-                src={imageCarousel[currentImageIndex]}
-                alt='carousel-image'
-                style={{
-                    height: '270px',
-                    width: '100%',
-                    objectFit: 'cover',
-                    transition: 'opacity 1s',
-                }}
-            />
-            <IntroText />
+            <Box sx={{
+                marginBottom: 10,
+            }}>
+                <img
+                    src={imageCarousel[currentImageIndex]}
+                    alt='carousel-image'
+                    style={{
+                        height: '270px',
+                        width: '100%',
+                        objectFit: 'cover',
+                        transition: 'opacity 1s',
+                    }}
+                />
+            </Box>
+            <Box sx={{ marginBottom: 5 }}>
+                <IntroText />
+            </Box>
             <DividerSection />
         </Stack>
     )

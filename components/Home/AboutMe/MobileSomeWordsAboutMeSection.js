@@ -22,17 +22,23 @@ const MobileSomeWordsAboutMeSection = () => {
                 />
             </Animation>
 
-            <Animation type='someWordsAboutMe'>
+            <Animation type='someWordsAboutMe' style={{
+                padding: '24px',
+            }}>
                 <Typography variant="h4">
                     Няколко думи за мен ...
                 </Typography>
 
                 <Typography variant="h6" sx={{ marginTop: 2, }}>
-                    Университет по архитектура, строителство и геодезия, випуск 2022
+                    УАСГ, гр. София
                 </Typography>
 
                 <Typography variant="h6" sx={{ marginTop: 1, }}>
                     Катедра: Градоустройство
+                </Typography>
+
+                <Typography variant="h6" sx={{ marginTop: 1, }}>
+                    Член на КАБ, 2022г. (ОПП)
                 </Typography>
 
                 <Stack

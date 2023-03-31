@@ -4,21 +4,17 @@ export default function useImageCaroussel(props) {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
     useEffect(() => {
-        const imageInterval = setInterval(() => {
-
-            if (currentImageIndex == 2) {
-                setCurrentImageIndex(0)
-                return
-            }
-
-            setCurrentImageIndex(currentImageIndex + 1)
-        }, 2500)
+        const interval = setInterval(() => {
+            setCurrentImageIndex((prevValue) => {
+                return prevValue === 2 ? 0 : prevValue + 1;
+            });
+        }, 2500);
 
         return () => {
-            console.log('interval is cleared')
-            clearInterval(imageInterval)
-        }
-    }, [currentImageIndex]);
+            clearInterval(interval);
+            console.log('interval cleared');
+        };
+    }, []);
 
     return currentImageIndex
 }

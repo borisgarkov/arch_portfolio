@@ -1,10 +1,14 @@
 import { Box, Typography } from "@mui/material";
+import { useContext } from "react";
 import { useTypewriter, Cursor } from "react-simple-typewriter";
 import useScreenResolution from "../../../hooks/useScreenResolution";
+import { HomeDataContext } from "../../../pages/home";
 
 export default function IntroText() {
+    const homeData = useContext(HomeDataContext)
+
     const [text, helper] = useTypewriter({
-        words: ['PORTFOLIO', 'WEBSITE', 'CV'],
+        words: homeData.updating_text,
         loop: 0,
     });
 
@@ -18,8 +22,8 @@ export default function IntroText() {
                 <Cursor cursorColor='black' />
             </Typography>
             <Typography variant='h4' sx={{ textAlign: 'center', width: '100%' }}>
-                by Nikoleta Ivanova
+                {homeData.subtitle}
             </Typography>
         </Box>
     )
-}
+};

@@ -7,8 +7,10 @@ import { createContext } from 'react';
 
 export const HomeDataContext = createContext(null);
 
-export default function Home({ homeData }) {
-    console.log(homeData)
+export default function Home({
+    homeData,
+}) {
+    console.log(homeData[0])
 
     return (
         <>
@@ -18,7 +20,7 @@ export default function Home({ homeData }) {
             }} />
 
             <Navigation>
-                <HomeDataContext.Provider value={homeData}>
+                <HomeDataContext.Provider value={homeData[0]}>
                     <HomeSection />
                     <AboutMe />
                 </HomeDataContext.Provider>
@@ -29,10 +31,22 @@ export default function Home({ homeData }) {
 
 export async function getStaticProps(context) {
     const homeData = await sanityClient.fetch(`*[_type == "homeData"]`);
+    // const picture_1 = await sanityClient.fetch(
+    //     `*[_type == "homeData"]["picture_1"].asset->url`
+    // );
+    // const picture_2 = await sanityClient.fetch(
+    //     `*[_type == "homeData"]["picture_2"].asset->url`
+    // );
+    // const picture_3 = await sanityClient.fetch(
+    //     `*[_type == "homeData"]["picture_3"].asset->url`
+    // )
 
     return {
         props: {
-            homeData
+            homeData,
+            // picture_1,
+            // picture_2,
+            // picture_3
         }, // will be passed to the page component as props
     }
 };

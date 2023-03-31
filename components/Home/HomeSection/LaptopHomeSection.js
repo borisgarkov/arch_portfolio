@@ -1,24 +1,32 @@
 import Stack from '@mui/material/Stack';
 import Grid from '@mui/material/Grid';
 import useImageCaroussel from '../../../hooks/useImageCaroussel';
-import imageCarousel from './carousselImages';
 import IntroText from './IntroText';
 import DividerSection from '../DividerSection';
 import { useContext } from 'react';
 import { HomeDataContext } from '../../../pages/home';
+import urlFor from '../../../utils/sanityImageBuilder';
+import Image from 'next/image';
+import { useMemo } from 'react';
+
+console.log('test');
+
+const smallImageStyle = {
+    width: '100%',
+    height: '123px',
+    objectFit: 'cover',
+};
+
+const imageCarousel = [
+    '/image-gallery-homepage/01.jpg',
+    '/image-gallery-homepage/02.jpg',
+    '/image-gallery-homepage/03.jpg',
+]
 
 export default function LaptopHomeSection() {
-    // const homeData = useContext(HomeDataContext);
-
-    // console.log(homeData);
+    const homeData = useContext(HomeDataContext);
 
     const currentImageIndex = useImageCaroussel();
-
-    const smallImageStyle = {
-        width: '100%',
-        height: '123px',
-        objectFit: 'cover',
-    };
 
     return (
         <Stack sx={{ justifyContent: 'space-evenly' }}>
@@ -26,7 +34,6 @@ export default function LaptopHomeSection() {
                 width: '90%',
                 margin: '100px auto',
                 height: '400px',
-                // alignItems: 'flex-start',
                 justifyContent: 'space-between',
             }}>
                 <Grid item lg={6} sx={{ height: '100%' }}>
@@ -80,7 +87,7 @@ export default function LaptopHomeSection() {
                 <Grid item lg={3.74} sx={{ height: '100%', width: '100%' }}>
                     <Stack sx={{ height: '100%', justifyContent: 'space-between' }}>
                         <img
-                            src='/image-gallery-homepage/04.jpg'
+                            src={urlFor(homeData.side_picture).url()}
                             alt='carousel-image'
                             style={{ height: '260px', width: '100%', objectFit: 'cover' }}
                         />

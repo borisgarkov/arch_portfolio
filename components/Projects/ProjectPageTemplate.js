@@ -15,6 +15,7 @@ import urlFor from "../../utils/sanityImageBuilder";
 export default function ProjectPageTemplate(props) {
     const project = props.project[0];
     const goBackButtonText = props.goBackButtonText;
+    let count = 0;
 
     return (
         <Grid container sx={{

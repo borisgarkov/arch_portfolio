@@ -6,7 +6,6 @@ import Fade from '@mui/material/Fade';
 import * as React from 'react';
 import Link from "next/link";
 import styles from '../BalkanArhitrav/balkaarhitrav-style.module.css';
-import Image from "next/image";
 import urlFor from "../../utils/sanityImageBuilder";
 
 export default function ProjectCoverTemplate({ title, sectionProjects }) {

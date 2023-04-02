@@ -3,7 +3,6 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Navigation from "../../components/Navigation/Navigation";
-// import { getProjectsBySector } from '../../components/Projects/getProjectsData';
 import PageTitleTemplate from '../../components/CommonComponents/PageTitleTemplate';
 import ProjectCoverTemplate from '../../components/Projects/ProjectCoverTemplate';
 import Seo from '../../components/Seo/Seo';
@@ -12,7 +11,7 @@ import sanityClient from '../../utils/sanityClient';
 export default function Projects(props) {
     const { interior, civil_buildings, public_buildings, urban } = props;
 
-    console.log(interior);
+    console.log(civil_buildings);
 
     const gridItemsStyles = {
         borderRight: { lg: '1px solid black' }
@@ -74,16 +73,16 @@ export default function Projects(props) {
 
 export async function getStaticProps() {
     const interior = await sanityClient.fetch(
-        `*[_type == "studentProject" && category == "interior"]`
+        `*[_type == "studentProject" && category == "interior" && isProjectVisible == true]`
     );
     const civil_buildings = await sanityClient.fetch(
-        `*[_type == "studentProject" && category == "civil_buildings"]`
+        `*[_type == "studentProject" && category == "civil_buildings" && isProjectVisible == true]`
     );
     const public_buildings = await sanityClient.fetch(
-        `*[_type == "studentProject" && category == "public_buildings"]`
+        `*[_type == "studentProject" && category == "public_buildings" && isProjectVisible == true]`
     );
     const urban = await sanityClient.fetch(
-        `*[_type == "studentProject" && category == "urban"]`
+        `*[_type == "studentProject" && category == "urban" && isProjectVisible == true]`
     );
 
     return {

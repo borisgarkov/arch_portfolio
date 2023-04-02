@@ -25,10 +25,10 @@ export default function LaptopHomeSection() {
     ]
 
     return (
-        <Stack sx={{ justifyContent: 'space-evenly' }}>
+        <Stack sx={{ justifyContent: 'space-evenly', height: '100%' }}>
             <Grid container sx={{
                 width: '90%',
-                margin: '100px auto',
+                margin: '0 auto',
                 height: '400px',
                 justifyContent: 'space-between',
             }}>

@@ -67,7 +67,6 @@ export default function Navigation(props) {
             </AppBar>
             <Box sx={{
                 marginTop: '64px',
-                // height: '100vh',
             }}>
                 {
                     props.children

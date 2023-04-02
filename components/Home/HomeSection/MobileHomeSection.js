@@ -18,28 +18,21 @@ export default function MobileHomeSection(params) {
     ]
 
     return (
-        <Stack sx={{
-            justifyContent: 'space-between',
-        }}>
-            <Box sx={{
-                marginBottom: 10,
-            }}>
+        <Stack sx={{ gap: 5 }}>
+            <Box sx={{}}>
                 <Image
                     src={imageCarousel[currentImageIndex]}
                     alt='carousel-image'
-                    height={270}
+                    height={350}
                     width={1000}
                     style={{
-                        height: '270px',
                         width: '100%',
                         objectFit: 'cover',
                         transition: 'opacity 1s',
                     }}
                 />
             </Box>
-            <Box sx={{ marginBottom: 5 }}>
-                <IntroText />
-            </Box>
+            <IntroText />
             <DividerSection />
         </Stack>
     )

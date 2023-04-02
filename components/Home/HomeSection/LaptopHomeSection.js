@@ -6,10 +6,6 @@ import DividerSection from '../DividerSection';
 import { useContext } from 'react';
 import { HomeDataContext } from '../../../pages/home';
 import urlFor from '../../../utils/sanityImageBuilder';
-import Image from 'next/image';
-import { useMemo } from 'react';
-
-console.log('test');
 
 const smallImageStyle = {
     width: '100%',
@@ -17,16 +13,16 @@ const smallImageStyle = {
     objectFit: 'cover',
 };
 
-const imageCarousel = [
-    '/image-gallery-homepage/01.jpg',
-    '/image-gallery-homepage/02.jpg',
-    '/image-gallery-homepage/03.jpg',
-]
-
 export default function LaptopHomeSection() {
     const homeData = useContext(HomeDataContext);
 
     const currentImageIndex = useImageCaroussel();
+
+    const imageCarousel = [
+        urlFor(homeData.picture_1).url(),
+        urlFor(homeData.picture_2).url(),
+        urlFor(homeData.picture_3).url(),
+    ]
 
     return (
         <Stack sx={{ justifyContent: 'space-evenly' }}>

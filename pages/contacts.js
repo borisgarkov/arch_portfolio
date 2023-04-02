@@ -1,10 +1,13 @@
-import { Alert, Box, Button, Collapse, Grid, IconButton, TextField, Typography } from '@mui/material';
+import {
+    Alert, Box, Button, Collapse, Grid,
+    IconButton, TextField, Typography
+} from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import React, { useState } from 'react';
 import Navigation from '../components/Navigation/Navigation';
 import PageTitleTemplate from '../components/CommonComponents/PageTitleTemplate';
 import {
-    mainBoxStyle, textFieldStyle,
+    mainBoxStyle,
     sendButtonStyle, gridContainerStyle
 } from '../components/Contacts/contacts-styles';
 import styles from '../components/Contacts/styles.module.css';
@@ -23,6 +26,7 @@ function validateEmail(email) {
 export default function Contacts() {
 
     const [openEmailError, setOpenEmailError] = React.useState(false);
+    const [buttonActive, setButtonActive] = React.useState(true);
 
     const [details, setDetails] = useState({
         email: '',
@@ -66,6 +70,8 @@ export default function Contacts() {
             message: details.message
         };
 
+        setButtonActive(false);
+
         emailjs.send(
             'service_xt1dnbk',
             'template_lvlcg4d',
@@ -73,13 +79,15 @@ export default function Contacts() {
             'ty9KcqRCo6IoyZau2'
         )
             .then(function (response) {
-                console.log('SUCCESS!', response.status, response.text);
+                // console.log('SUCCESS!', response.status, response.text);
 
                 setDetails({
                     email: '',
                     name: '',
                     message: ''
                 })
+
+                setButtonActive(true);
 
             }, function (error) {
                 console.log('FAILED...', error);
@@ -134,7 +142,12 @@ export default function Contacts() {
                                     type='email'
                                     value={details.email}
                                     onChange={updateDetails}
-                                    sx={{ ...textFieldStyle }}
+                                    sx={{
+                                        '& .MuiFilledInput-root': {
+                                            backgroundColor: 'white',
+                                            opacity: '0.7',
+                                        }
+                                    }}
                                     InputProps={{ classes: { input: styles.resizeText } }}
                                 />
                             </Grid>
@@ -149,7 +162,12 @@ export default function Contacts() {
                                     type='text'
                                     value={details.name}
                                     onChange={updateDetails}
-                                    sx={{ ...textFieldStyle }}
+                                    sx={{
+                                        '& .MuiFilledInput-root': {
+                                            backgroundColor: 'white',
+                                            opacity: '0.7',
+                                        }
+                                    }}
                                     InputProps={{ classes: { input: styles.resizeText } }}
                                 />
                             </Grid>
@@ -166,7 +184,12 @@ export default function Contacts() {
                                     multiline
                                     value={details.message}
                                     onChange={updateDetails}
-                                    sx={{ ...textFieldStyle }}
+                                    sx={{
+                                        '& .MuiFilledInput-root': {
+                                            backgroundColor: 'white',
+                                            opacity: '0.7',
+                                        }
+                                    }}
                                     InputProps={{ classes: { input: styles.resizeText } }}
                                 />
                             </Grid>
@@ -176,6 +199,7 @@ export default function Contacts() {
                                     variant='contained'
                                     sx={{ ...sendButtonStyle }}
                                     onClick={sendMessage}
+                                    disabled={!buttonActive}
                                 >
                                     Изпрати
                                 </Button>

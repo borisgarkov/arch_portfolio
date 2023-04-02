@@ -1,15 +1,11 @@
 const mainBoxStyle = {
     padding: { xs: '0 10px 10px 10px', lg: '0 30px 30px 30px' },
-    position: 'relative',
+    // position: 'relative',
     backgroundImage: { lg: 'url("/contacts/contacts-image.webp")' },
     backgroundPosition: 'right',
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
-    height: { lg: '100vh' },
-};
-
-const textFieldStyle = {
-    color: '#f3ede9',
+    minHeight: { lg: '100vh' },
 };
 
 const sendButtonStyle = {
@@ -23,7 +19,6 @@ const gridContainerStyle = {
 
 export {
     mainBoxStyle,
-    textFieldStyle,
     sendButtonStyle,
     gridContainerStyle
 };

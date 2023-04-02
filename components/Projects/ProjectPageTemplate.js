@@ -121,13 +121,20 @@ export default function ProjectPageTemplate(props) {
 
             <Grid item lg={8} sx={{ padding: 5 }}>
                 <Grid container sx={{ gap: 2 }}>
-                    {
-                        project.pictures.map((picture, index) => {
-                            return index % 2 === 0
-                                ? <BigImageContainer image={urlFor(picture).url()} />
-                                : <SmallImageContainer image={urlFor(picture).url()} />
-                        })
-                    }
+                    {project.pictures[0] !== undefined &&
+                        < BigImageContainer image={urlFor(project.pictures[0]).url()} />}
+                    {project.pictures[1] !== undefined &&
+                        <SmallImageContainer image={urlFor(project.pictures[1]).url()} />}
+                    {project.pictures[2] !== undefined &&
+                        <SmallImageContainer image={urlFor(project.pictures[2]).url()} />}
+                    {project.pictures[3] !== undefined &&
+                        < BigImageContainer image={urlFor(project.pictures[3]).url()} />}
+                    {project.pictures[4] !== undefined &&
+                        < BigImageContainer image={urlFor(project.pictures[4]).url()} />}
+                    {project.pictures[5] !== undefined &&
+                        <SmallImageContainer image={urlFor(project.pictures[5]).url()} />}
+                    {project.pictures[6] !== undefined &&
+                        <SmallImageContainer image={urlFor(project.pictures[6]).url()} />}
                 </Grid>
             </Grid>
         </Grid>

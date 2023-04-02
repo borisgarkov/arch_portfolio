@@ -4,7 +4,6 @@ import { useRouter } from 'next/router';
 import { mainBox, seeMoreContainer } from './styles';
 import styles from './styles.module.css';
 import Animation from '../../../utils/Animation';
-import 'react-lazy-load-image-component/src/effects/blur.css';
 import Image from 'next/image';
 
 const SomeWordsAboutMeSection = () => {

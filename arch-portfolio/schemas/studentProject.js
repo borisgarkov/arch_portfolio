@@ -35,6 +35,16 @@ export default {
             type: 'slug',
             title: 'URL линк'
         },
+        {
+            name: 'mainPagePicture',
+            type: 'image',
+            title: 'Снимка главна страница'
+        },
+        {
+            name: 'isProjectVisible',
+            title: 'Видим Проект?',
+            type: 'boolean'
+        },
         defineField({
             name: 'pictures',
             title: 'Снимки',

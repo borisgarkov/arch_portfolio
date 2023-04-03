@@ -8,7 +8,7 @@ import DividerSection from "../DividerSection";
 import IntroText from "./IntroText";
 
 export default function MobileHomeSection(params) {
-    const homeData = useContext(HomeDataContext);
+    const [homeData] = useContext(HomeDataContext);
     const currentImageIndex = useImageCaroussel();
 
     const imageCarousel = [

@@ -5,7 +5,7 @@ import useScreenResolution from "../../../hooks/useScreenResolution";
 import { HomeDataContext } from "../../../pages/home";
 
 export default function IntroText() {
-    const homeData = useContext(HomeDataContext)
+    const [homeData] = useContext(HomeDataContext)
 
     const [text, helper] = useTypewriter({
         words: homeData.updating_text,

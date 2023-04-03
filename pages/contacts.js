@@ -23,6 +23,13 @@ function validateEmail(email) {
     return (false)
 };
 
+const muiFilledInputStyle = {
+    '& .MuiFilledInput-root': {
+        backgroundColor: { lg: 'white' },
+        opacity: { lg: '0.7' },
+    }
+};
+
 export default function Contacts() {
 
     const [openEmailError, setOpenEmailError] = React.useState(false);
@@ -142,12 +149,7 @@ export default function Contacts() {
                                     type='email'
                                     value={details.email}
                                     onChange={updateDetails}
-                                    sx={{
-                                        '& .MuiFilledInput-root': {
-                                            backgroundColor: 'white',
-                                            opacity: '0.7',
-                                        }
-                                    }}
+                                    sx={{ ...muiFilledInputStyle }}
                                     InputProps={{ classes: { input: styles.resizeText } }}
                                 />
                             </Grid>
@@ -162,12 +164,7 @@ export default function Contacts() {
                                     type='text'
                                     value={details.name}
                                     onChange={updateDetails}
-                                    sx={{
-                                        '& .MuiFilledInput-root': {
-                                            backgroundColor: 'white',
-                                            opacity: '0.7',
-                                        }
-                                    }}
+                                    sx={{ ...muiFilledInputStyle }}
                                     InputProps={{ classes: { input: styles.resizeText } }}
                                 />
                             </Grid>
@@ -184,12 +181,7 @@ export default function Contacts() {
                                     multiline
                                     value={details.message}
                                     onChange={updateDetails}
-                                    sx={{
-                                        '& .MuiFilledInput-root': {
-                                            backgroundColor: 'white',
-                                            opacity: '0.7',
-                                        }
-                                    }}
+                                    sx={{ ...muiFilledInputStyle }}
                                     InputProps={{ classes: { input: styles.resizeText } }}
                                 />
                             </Grid>

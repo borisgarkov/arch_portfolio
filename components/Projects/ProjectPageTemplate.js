@@ -11,11 +11,31 @@ import SmallImageContainer from "./ProjectPageComponents/SmallImageContainer"
 import programsPictureMapping from './programsPictureMapping';
 import Image from "next/image";
 import urlFor from "../../utils/sanityImageBuilder";
+import useScreenResolution from '../../hooks/useScreenResolution';
+
+function GoBackButton(props) {
+    return (
+        <Link href='/student-projects' style={{ textDecoration: 'none', marginTop: 'auto' }}>
+            <Stack sx={{
+                flexDirection: 'row',
+                alignItems: 'flex-end',
+                gap: 2,
+                color: 'black',
+                marginTop: 2,
+            }}>
+                <ArrowBackIcon />
+                <Typography>
+                    {props.goBackButtonText}
+                </Typography>
+            </Stack>
+        </Link>
+    )
+};
 
 export default function ProjectPageTemplate(props) {
     const project = props.project[0];
     const goBackButtonText = props.goBackButtonText;
-    let count = 0;
+    const isMobile = useScreenResolution('lg');
 
     return (
         <Grid container sx={{
@@ -89,7 +109,7 @@ export default function ProjectPageTemplate(props) {
                                             alignItems: 'center',
                                         }}>
                                             <Image
-                                                src={programsPictureMapping[program.toLowerCase()]}
+                                                src={programsPictureMapping[program.toLowerCase().trim()]}
                                                 alt='icon'
                                                 width='20'
                                                 height='20'
@@ -105,39 +125,33 @@ export default function ProjectPageTemplate(props) {
                     }
                 </Stack>
 
-                <Link href='/student-projects' style={{ textDecoration: 'none', marginTop: 'auto' }}>
-                    <Stack sx={{
-                        flexDirection: 'row',
-                        alignItems: 'flex-end',
-                        gap: 2,
-                        color: 'black',
-                    }}>
-                        <ArrowBackIcon />
-                        <Typography>
-                            {goBackButtonText}
-                        </Typography>
-                    </Stack>
-                </Link>
+                {!isMobile && <GoBackButton goBackButtonText={goBackButtonText} />}
             </Grid>
 
-            <Grid item lg={8} sx={{ padding: 5 }}>
+            <Grid item xs={12} lg={8} sx={{ padding: 5 }}>
                 <Grid container sx={{ gap: 2 }}>
                     {project.pictures[0] !== undefined &&
-                        < BigImageContainer image={urlFor(project.pictures[0]).url()} />}
+                        <BigImageContainer image={urlFor(project.pictures[0]).url()} />}
                     {project.pictures[1] !== undefined &&
                         <SmallImageContainer image={urlFor(project.pictures[1]).url()} />}
                     {project.pictures[2] !== undefined &&
                         <SmallImageContainer image={urlFor(project.pictures[2]).url()} />}
                     {project.pictures[3] !== undefined &&
-                        < BigImageContainer image={urlFor(project.pictures[3]).url()} />}
+                        <BigImageContainer image={urlFor(project.pictures[3]).url()} />}
                     {project.pictures[4] !== undefined &&
-                        < BigImageContainer image={urlFor(project.pictures[4]).url()} />}
+                        <BigImageContainer image={urlFor(project.pictures[4]).url()} />}
                     {project.pictures[5] !== undefined &&
                         <SmallImageContainer image={urlFor(project.pictures[5]).url()} />}
                     {project.pictures[6] !== undefined &&
                         <SmallImageContainer image={urlFor(project.pictures[6]).url()} />}
                 </Grid>
             </Grid>
+
+            {
+                isMobile && <Grid item xs={12} sx={{ padding: '0 40px 40px' }}>
+                    <GoBackButton goBackButtonText={goBackButtonText} />
+                </Grid>
+            }
         </Grid>
     )
 };

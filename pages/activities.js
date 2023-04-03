@@ -6,8 +6,11 @@ import activities from '../components/Activities/activities.json';
 import PageTitleTemplate from '../components/CommonComponents/PageTitleTemplate';
 import ActivitiesTemplate from '../components/Activities/ActivitiesTemplate';
 import Seo from '../components/Seo/Seo';
+import sanityClient from '../utils/sanityClient';
 
-export default function Activities() {
+export default function Activities({ activities }) {
+    console.log(activities)
+
     return (
         <>
             <Seo siteMetadata={{
@@ -32,8 +35,8 @@ export default function Activities() {
                         }}
                     >
                         {
-                            Object.values(activities).map((activity, index) =>
-                                <React.Fragment key={activity.title}>
+                            activities.map((activity, index) =>
+                                <React.Fragment key={activity._id}>
                                     <ActivitiesTemplate activity={activity} index={index} />
                                 </React.Fragment>
                             )
@@ -46,7 +49,11 @@ export default function Activities() {
 };
 
 export async function getStaticProps(context) {
+    const activities = await sanityClient.fetch(`*[_type == "activities"] | order(order_number asc)`);
+
     return {
-        props: {}, // will be passed to the page component as props
+        props: {
+            activities
+        }, // will be passed to the page component as props
     }
-}
+};

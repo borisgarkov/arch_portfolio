@@ -4,12 +4,15 @@ import {
     activitiesMainBox, iconsMainBox,
     iconsContainer, iconTitle, titleStyle
 } from "./activitiesSectionStyle";
-import activities from '../../Activities/activities.json';
 import IconImageFrame from "../../Activities/IconImageFrame";
 import Animation from "../../../utils/Animation";
+import { useContext } from "react";
+import { HomeDataContext } from "../../../pages/home";
 
 export default function ActivitiesSection() {
     const router = useRouter();
+    const [homeData, activities] = useContext(HomeDataContext);
+    console.log(activities);
 
     return (
         <Box sx={{ ...activitiesMainBox }}>
@@ -22,13 +25,13 @@ export default function ActivitiesSection() {
 
             <Box sx={{ ...iconsMainBox }}>
                 {
-                    Object.values(activities).map((activity) =>
-                        <Animation type='activitiesTextMainPage' key={activity.title}>
+                    activities.map((activity, index) =>
+                        <Animation type='activitiesTextMainPage' key={activity._id}>
                             <Stack
                                 onClick={() => router.push('/activities')}
                                 sx={{ ...iconsContainer }}
                             >
-                                <IconImageFrame activity={activity} />
+                                <IconImageFrame activity={activity} index={index} />
                                 <Typography sx={{ ...iconTitle }}>
                                     {activity.title}
                                 </Typography>

@@ -3,8 +3,9 @@ import styles from './styles.module.css';
 import Image from "next/image";
 import frame from '../../public/activities/frame.png';
 import useScreenResolution from "../../hooks/useScreenResolution";
+import urlFor from '../../utils/sanityImageBuilder';
 
-export default function IconImageFrame({ activity }) {
+export default function IconImageFrame({ activity, index }) {
     const isMobile = useScreenResolution('lg');
 
     return (
@@ -13,7 +14,7 @@ export default function IconImageFrame({ activity }) {
             width: '170px',
             height: '170px',
             position: 'relative',
-            marginLeft: !isMobile && !activity.reverse ? 'auto' : null
+            marginLeft: !isMobile && index % 2 !== 0 ? 'auto' : null
         }}>
             <Image
                 src={frame}
@@ -22,7 +23,7 @@ export default function IconImageFrame({ activity }) {
                 fill
             />
             <Image
-                src={activity.image}
+                src={urlFor(activity.picture).url()}
                 alt='icon'
                 width={50}
                 height={50}

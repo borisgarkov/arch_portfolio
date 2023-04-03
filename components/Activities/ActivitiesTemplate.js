@@ -5,11 +5,11 @@ import useScreenResolution from '../../hooks/useScreenResolution';
 import Animation from '../../utils/Animation';
 import { mainBox } from "./activitiesTemplateStyles";
 
-const MobileSectionAlignment = ({ activity }) => {
+const MobileSectionAlignment = ({ activity, index }) => {
     return (
         <>
-            <ActivitiesImageSection activity={activity} />
-            <ActivitiesTextSection activity={activity} />
+            <ActivitiesImageSection activity={activity} index={index} />
+            <ActivitiesTextSection activity={activity} index={index} />
         </>
     )
 }
@@ -22,17 +22,17 @@ export default function ActivitiesTemplate({ activity, index }) {
             <Box sx={{ ...mainBox }}>
                 {
                     isMobile
-                        ? <MobileSectionAlignment activity={activity} />
+                        ? <MobileSectionAlignment activity={activity} index={index} />
                         : <>
                             {
-                                activity.reverse
+                                index % 2 === 0
                                     ? <>
-                                        <ActivitiesTextSection activity={activity} />
-                                        <ActivitiesImageSection activity={activity} />
+                                        <ActivitiesTextSection activity={activity} index={index} />
+                                        <ActivitiesImageSection activity={activity} index={index} />
                                     </>
                                     : <>
-                                        <ActivitiesImageSection activity={activity} />
-                                        <ActivitiesTextSection activity={activity} />
+                                        <ActivitiesImageSection activity={activity} index={index} />
+                                        <ActivitiesTextSection activity={activity} index={index} />
                                     </>
                             }
                         </>

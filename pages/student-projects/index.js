@@ -25,7 +25,8 @@ export default function Projects(props) {
             }}></Seo>
             <Navigation>
                 <Box sx={{
-                    padding: '0 30px'
+                    padding: { lg: '0 30px' },
+                    // marginTop: 0
                 }}>
                     <Box sx={{
                         paddingLeft: 1.5,

@@ -7,7 +7,7 @@ import { createContext } from 'react';
 
 export const HomeDataContext = createContext(null);
 
-export default function Home({ homeData }) {
+export default function Home({ homeData, activities }) {
     return (
         <>
             <Seo siteMetadata={{
@@ -16,7 +16,7 @@ export default function Home({ homeData }) {
             }} />
 
             <Navigation>
-                <HomeDataContext.Provider value={homeData[0]}>
+                <HomeDataContext.Provider value={[homeData[0], activities]}>
                     <HomeSection />
                     <AboutMe />
                 </HomeDataContext.Provider>
@@ -27,10 +27,12 @@ export default function Home({ homeData }) {
 
 export async function getStaticProps(context) {
     const homeData = await sanityClient.fetch(`*[_type == "homeData"]`);
+    const activities = await sanityClient.fetch(`*[_type == "activities"] | order(order_number asc)`);
 
     return {
         props: {
-            homeData
+            homeData,
+            activities
         }, // will be passed to the page component as props
     }
 };

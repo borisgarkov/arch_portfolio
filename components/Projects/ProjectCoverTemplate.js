@@ -27,19 +27,21 @@ export default function ProjectCoverTemplate({ title, sectionProjects }) {
                                 <Fade key={project._id} in timeout={1000}
                                     style={{ transitionDelay: `${index * 400}ms` }}>
                                     <Stack className={styles.projectContainer} sx={{
-                                        padding: '0 2.6vw',
+                                        padding: { lg: '0 2.6vw' },
                                         height: '350px',
                                         justifyContent: 'flex-end',
                                     }}>
                                         <Typography sx={{
                                             marginTop: 2,
-                                            textAlign: 'right'
+                                            textAlign: 'right',
+                                            paddingRight: { xs: 2, lg: 0 }
                                         }}>
                                             {project.title}
                                         </Typography>
 
                                         <Typography sx={{
-                                            textAlign: 'right'
+                                            textAlign: 'right',
+                                            paddingRight: { xs: 2, lg: 0 }
                                         }}>
                                             {project.city}
                                         </Typography>
@@ -48,8 +50,6 @@ export default function ProjectCoverTemplate({ title, sectionProjects }) {
                                             <img
                                                 src={urlFor(project.pictures[0]).url()}
                                                 alt=''
-                                                width={245}
-                                                height={245}
                                                 className={styles.projectImg}
                                             />
                                         </Box>

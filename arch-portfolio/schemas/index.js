@@ -1,3 +1,4 @@
+import activities from './activities';
 import balkanArhitravMainPageText from './balkanArhitravMainPageText';
 import balkanArhitravProjects from './balkanArhitravProjects';
 import blockContent from './blockContent'
@@ -9,5 +10,6 @@ export const schemaTypes = [
     homeData,
     balkanArhitravMainPageText,
     balkanArhitravProjects,
+    activities,
     blockContent
 ];

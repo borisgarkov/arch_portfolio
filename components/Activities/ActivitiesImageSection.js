@@ -3,10 +3,10 @@ import Image from "next/image";
 import useScreenResolution from "../../hooks/useScreenResolution";
 import IconImageFrame from "./IconImageFrame";
 
-export default function ActivitiesImageSection({ activity }) {
+export default function ActivitiesImageSection({ activity, index }) {
     const isMobile = useScreenResolution('lg');
 
-    const imageSrc = isMobile || !activity.reverse
+    const imageSrc = isMobile || index % 2 !== 0
         ? '/activities/background.JPG'
         : '/activities/background-reverse.JPG'
 
@@ -22,7 +22,7 @@ export default function ActivitiesImageSection({ activity }) {
                 alt='background-image'
                 fill
             />
-            <IconImageFrame activity={activity} />
+            <IconImageFrame activity={activity} index={index} />
         </Box >
     )
 };

@@ -14,10 +14,9 @@ const smallImageStyle = {
 };
 
 export default function LaptopHomeSection() {
-    const homeData = useContext(HomeDataContext);
+    const [homeData] = useContext(HomeDataContext);
 
     const currentImageIndex = useImageCaroussel();
-
     const imageCarousel = [
         urlFor(homeData.picture_1).url(),
         urlFor(homeData.picture_2).url(),

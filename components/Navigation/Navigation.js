@@ -8,10 +8,14 @@ import SidebarMenu from './SidebarMenu';
 import styles from './sidebar-style.module.css';
 import Link from 'next/link';
 import Image from 'next/image';
+import BackToTopButton from '../CommonComponents/BackToTopButton';
+import useScreenResolution from '../../hooks/useScreenResolution';
 
 export default function Navigation(props) {
     const [openDrawer, setOpenDrawer] = React.useState(false);
     const [classNames, setClassNames] = React.useState([styles.sidebar]);
+
+    const isMobile = useScreenResolution('lg');
 
     const [menuIconText, setMenuIconText] = React.useState('Menu');
 
@@ -42,7 +46,7 @@ export default function Navigation(props) {
             }}>
                 <Toolbar sx={{
                     ...navbarColor,
-                }}>
+                }} id='navbar'>
                     <Link href='/home'>
                         <Image src='/navbar-logo/nav-logo-black.png' alt='logo' width='40' height='40' />
                     </Link>
@@ -65,6 +69,8 @@ export default function Navigation(props) {
                     </Box>
                 </Toolbar>
             </AppBar>
+            {/* <Toolbar id='navbar' /> */}
+
             <Box sx={{
                 marginTop: '64px',
             }}>
@@ -74,6 +80,7 @@ export default function Navigation(props) {
             </Box>
 
             <SidebarMenu classNames={classNames} handleDrawerClick={handleDrawerClick} />
+            {/* {isMobile && <BackToTopButton />} */}
             <Footer />
         </>
     )

@@ -8,7 +8,7 @@ export default function Seo(props) {
 
     const title = siteMetadata.title ?? 'Nikoleta Ivanova Architect Portfolio';
     const description = siteMetadata.description ?? 'Architectural personal portfolio, website and CV';
-    const siteUrl = 'https://arch-portfolio-iota.vercel.app';
+    const siteUrl = 'https://www.arch-nivanova.site';
     const image = '/aboutme/profile.jpg';
     const keywords = "архитектура, портфолио, architecture, portfolio, Nikoleta Ivanova, Николета Иванова, desgin, дизайн, 3D, интериор, заснемане на сгради, проекти, реконструкция";
 

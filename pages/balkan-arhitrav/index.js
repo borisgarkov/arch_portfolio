@@ -31,7 +31,7 @@ export default function BalkanArhitrav({ texts, projects }) {
                         alignItems: 'flex-start',
                     }}>
 
-                        <Box sx={{ width: { xs: '100%', lg: '30%' } }}>
+                        <Box sx={{ width: { xs: '100%', lg: '30%' }, padding: { xs: '0 12px', lg: 0 } }}>
                             {
                                 texts[0].text.map(text => (
                                     <Typography key={text} variant='h6' sx={{

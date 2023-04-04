@@ -3,13 +3,15 @@ import balkanArhitravMainPageText from './balkanArhitravMainPageText';
 import balkanArhitravProjects from './balkanArhitravProjects';
 import blockContent from './blockContent'
 import homeData from './homeData';
+import projects from './projects';
 import studentProject from './studentProject'
 
 export const schemaTypes = [
     studentProject,
-    homeData,
+    projects,
     balkanArhitravMainPageText,
     balkanArhitravProjects,
     activities,
+    homeData,
     blockContent
 ];

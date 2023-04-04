@@ -15,6 +15,7 @@ const sendButtonStyle = {
 
 const gridContainerStyle = {
     width: { xs: '100%', lg: '50%' },
+    margin: 0,
 }
 
 export {

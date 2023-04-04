@@ -27,8 +27,12 @@ const muiFilledInputStyle = {
     '& .MuiFilledInput-root': {
         backgroundColor: { lg: 'white' },
         opacity: { lg: '0.7' },
-    }
+    },
 };
+
+const gridItemsStyle = {
+    padding: '!important 0'
+}
 
 export default function Contacts() {
 
@@ -114,7 +118,9 @@ export default function Contacts() {
                             <Typography variant='h3'>Контакти</Typography>
                         </PageTitleTemplate>
 
-                        <Grid container spacing={2} sx={{ ...gridContainerStyle }}>
+                        <Grid container spacing={2} sx={{
+                            ...gridContainerStyle,
+                        }}>
                             <Grid item xs={12}>
                                 <Collapse in={openEmailError}>
                                     <Alert
@@ -138,7 +144,7 @@ export default function Contacts() {
                                 </Collapse>
                             </Grid>
 
-                            <Grid item xs={12} lg={6}>
+                            <Grid item xs={12} lg={6} sx={{ ...gridItemsStyle }}>
                                 <TextField
                                     fullWidth
                                     required
@@ -153,7 +159,8 @@ export default function Contacts() {
                                     InputProps={{ classes: { input: styles.resizeText } }}
                                 />
                             </Grid>
-                            <Grid item xs={12} lg={6}>
+
+                            <Grid item xs={12} lg={6} sx={{ ...gridItemsStyle }}>
                                 <TextField
                                     fullWidth
                                     required
@@ -169,7 +176,7 @@ export default function Contacts() {
                                 />
                             </Grid>
 
-                            <Grid item xs={12}>
+                            <Grid item xs={12} sx={{ ...gridItemsStyle }}>
                                 <TextField
                                     fullWidth
                                     id="message"
@@ -185,7 +192,8 @@ export default function Contacts() {
                                     InputProps={{ classes: { input: styles.resizeText } }}
                                 />
                             </Grid>
-                            <Grid item xs={12}>
+
+                            <Grid item xs={12} sx={{ ...gridItemsStyle }}>
                                 <Button
                                     fullWidth
                                     variant='contained'

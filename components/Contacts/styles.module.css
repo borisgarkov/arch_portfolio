@@ -1,11 +1,8 @@
 .resizeText {
     font-size: 1.25rem;
-    /* background-color: white; */
-    /* opacity: 0.7; */
 }
 
 .gridItemEmail {
-    /* margin-top: 16px; */
     display: flex;
     align-items: center;
     justify-content: center;

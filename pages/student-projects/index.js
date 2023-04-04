@@ -11,7 +11,7 @@ import sanityClient from '../../utils/sanityClient';
 export default function Projects(props) {
     const { interior, civil_buildings, public_buildings, urban } = props;
 
-    console.log(civil_buildings);
+    console.log(urban);
 
     const gridItemsStyles = {
         borderRight: { lg: '1px solid black' }
@@ -26,7 +26,6 @@ export default function Projects(props) {
             <Navigation>
                 <Box sx={{
                     padding: { lg: '0 30px' },
-                    // marginTop: 0
                 }}>
                     <Box sx={{
                         paddingLeft: 1.5,

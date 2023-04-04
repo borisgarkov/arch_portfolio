@@ -1,16 +1,13 @@
-import { Box, Grid, Slide, Stack, Typography } from "@mui/material";
-import Link from "next/link";
+import { Box, Grid, Slide, Typography } from "@mui/material";
 import Navigation from "../../components/Navigation/Navigation";
-import BigImageContainer from "../../components/Projects/ProjectPageComponents/BigImageContainer";
-import SmallImageContainer from "../../components/Projects/ProjectPageComponents/SmallImageContainer";
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import sanityClient from "../../utils/sanityClient";
-import urlFor from "../../utils/sanityImageBuilder";
+import GoBackButton from "../../components/Projects/GoBackButton";
+import ProjectImages from "../../components/Projects/ProjectImages";
+import useScreenResolution from "../../hooks/useScreenResolution";
 
 export default function Projects(props) {
     const project = props.project[0];
-
-    console.log(project);
+    const isMobile = useScreenResolution('lg');
 
     return (
         <Navigation>
@@ -47,84 +44,24 @@ export default function Projects(props) {
                         ))
                     }
 
-                    <Typography sx={{
-                        marginTop: 5,
-                        marginBottom: 2
-                    }}>
-                        ИЗПОЛЗВАНИ ПРОГРАМИ
-                    </Typography>
-
-                    {/* <Stack sx={{
-                        flexDirection: 'row',
-                        gap: 2
-                    }}>
-                        {
-                            project.programmes.map((program, index) => {
-                                return (
-                                    <Fade in
-                                        timeout={1000}
-                                        style={{ transitionDelay: `${index * 400}ms` }}
-                                        key={program}
-                                    >
-                                        <Stack sx={{
-                                            flexDirection: 'column',
-                                            gap: 1,
-                                            justifyContent: 'center',
-                                            alignItems: 'center',
-                                            borderRadius: '50%',
-                                        }}>
-                                            <Box sx={{
-                                                border: '1px solid black',
-                                                borderRadius: '50%',
-                                                backgroundColor: 'black',
-                                                height: '32px',
-                                                width: '32px',
-                                                overflow: 'hidden',
-                                                display: 'flex',
-                                                justifyContent: 'center',
-                                                alignItems: 'center',
-                                            }}>
-                                                <Image
-                                                    src={programsPictureMapping[program.toLowerCase()]}
-                                                    alt='icon'
-                                                    width='20'
-                                                    height='20'
-                                                />
-                                            </Box>
-                                            <Typography sx={{}}>
-                                                {program}
-                                            </Typography>
-                                        </Stack>
-                                    </Fade>
-                                )
-                            })
-                        }
-                    </Stack> */}
-
-                    <Link href='/balkan-arhitrav' style={{ textDecoration: 'none', marginTop: 'auto' }}>
-                        <Stack sx={{
-                            flexDirection: 'row',
-                            alignItems: 'flex-end',
-                            gap: 2,
-                            color: 'black',
-                        }}>
-                            <ArrowBackIcon />
-                            <Typography>Назад към проекти</Typography>
-                        </Stack>
-                    </Link>
+                    {
+                        !isMobile && <GoBackButton
+                            goBackButtonText={'Назад към Балкан АРХитрав'}
+                            goBackLink={'/balkan-arhitrav'}
+                        />
+                    }
                 </Grid>
 
-                <Grid item lg={8} sx={{ padding: 5 }}>
-                    <Grid container sx={{ gap: 2 }}>
-                        {
-                            project.project_pictures.map((picture, index) => {
-                                return index % 2 === 0
-                                    ? <BigImageContainer image={urlFor(picture).url()} />
-                                    : <SmallImageContainer image={urlFor(picture).url()} />
-                            })
-                        }
+                <ProjectImages pictures={project.project_pictures} />
+
+                {
+                    isMobile && <Grid item xs={12} sx={{ padding: '0 40px 40px' }}>
+                        <GoBackButton
+                            goBackButtonText={'Назад към Балкан АРХитрав'}
+                            goBackLink={'/balkan-arhitrav'}
+                        />
                     </Grid>
-                </Grid>
+                }
             </Grid>
         </Navigation >
     )

@@ -2,7 +2,6 @@ import { Box, Fade, Stack, Typography } from '@mui/material';
 import Navigation from '../../components/Navigation/Navigation';
 import styles from '../../components/BalkanArhitrav/balkaarhitrav-style.module.css';
 import PageTitleTemplate from '../../components/CommonComponents/PageTitleTemplate';
-import Image from 'next/image';
 import Seo from '../../components/Seo/Seo';
 import sanityClient from '../../utils/sanityClient';
 import urlFor from '../../utils/sanityImageBuilder';
@@ -17,9 +16,10 @@ export default function BalkanArhitrav({ texts, projects }) {
                 title: 'БалканАРХитрам - лятна школа по архитектура',
                 description: 'Balkanarhitrav summer architect school'
             }}></Seo>
+
             <Navigation>
                 <Box sx={{
-                    padding: '0 30px'
+                    padding: { xs: '0 12px', lg: '0 30px' }
                 }}>
                     <PageTitleTemplate>
                         <Typography variant='h2'>Балкан АРХитрав</Typography>
@@ -81,7 +81,7 @@ export default function BalkanArhitrav({ texts, projects }) {
                                                     style={{
                                                         objectPosition: index === 0 ? 'top' : null,
                                                     }}
-                                                    width={245}
+                                                    // width={245}
                                                     height={245}
                                                     className={styles.projectImg}
                                                 />

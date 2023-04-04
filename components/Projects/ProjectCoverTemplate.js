@@ -48,7 +48,7 @@ export default function ProjectCoverTemplate({ title, sectionProjects }) {
 
                                         <Box className={styles.imageContainer} style={{ marginTop: '16px' }}>
                                             <img
-                                                src={urlFor(project.pictures[0]).url()}
+                                                src={urlFor(project.mainPagePicture).url()}
                                                 alt=''
                                                 className={styles.projectImg}
                                             />

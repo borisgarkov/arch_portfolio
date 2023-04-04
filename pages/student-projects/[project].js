@@ -13,7 +13,9 @@ export default function Projects(props) {
 };
 
 export async function getStaticPaths() {
-    const projectsSlugs = await sanityClient.fetch('*[_type == "studentProject"]["slug"].current');
+    const projectsSlugs = await sanityClient.fetch(
+        '*[_type == "studentProject" && isProjectVisible == true]["slug"].current'
+    );
 
     return {
         paths: projectsSlugs.map(project => {

@@ -25,6 +25,8 @@ const mainBoxStyle = {
     height: '100vh',
     overflow: 'hidden',
     display: 'flex',
+    flexDirection: { xs: 'column', lg: 'row' },
+    gap: { xs: 10, lg: 0 },
     justifyContent: 'center',
     alignItems: 'center',
 };

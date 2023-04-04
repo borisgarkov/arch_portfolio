@@ -3,11 +3,20 @@ import { useRouter } from "next/router";
 import React from "react";
 import { CoverBox, imageStyle, mainBoxStyle } from "../components/Index/styles";
 import styles from '../components/IntroPage/intro-styles.module.css';
+import useScreenResolution from '../hooks/useScreenResolution';
 
-export default function Home() {
+const Button = (props) => {
     const router = useRouter();
-    let zIndex = 9999;
 
+    return (
+        <Box onClick={() => router.push('/home')} {...props}>
+            НАЧАЛО
+        </Box>
+    )
+};
+
+const LaptopVersion = () => {
+    let zIndex = 9999;
     const images = [
         {
             coverBoxStyle: styles.schema,
@@ -28,7 +37,7 @@ export default function Home() {
     ];
 
     return (
-        <Box sx={{ ...mainBoxStyle }}>
+        <>
             {
                 images.map((image, index) => {
                     zIndex -= 1
@@ -48,13 +57,30 @@ export default function Home() {
                     )
                 })
             }
+            <Button className={styles.portfolioButton} />
+        </>
+    )
+};
 
-            <Box
-                onClick={() => router.push('/home')}
-                className={styles.portfolioButton}
-            >
-                НАЧАЛО
-            </Box>
+const MobileVersion = () => {
+    return (
+        <>
+            <img src='/navbar-logo/nav-logo.png' alt='logo' className={styles.mobileImg} />
+            <Button className={styles.mobileButton} />
+        </>
+    )
+};
+
+export default function Home() {
+    const isMobile = useScreenResolution('lg');
+
+    return (
+        <Box sx={{ ...mainBoxStyle }}>
+            {
+                isMobile
+                    ? <MobileVersion />
+                    : <LaptopVersion />
+            }
         </Box>
     )
 };

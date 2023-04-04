@@ -72,3 +72,46 @@
         bottom: 50px;
     }
 }
+
+.mobileImg {
+    width: 70%;
+    animation: mobileImg 1s;
+    animation-fill-mode: backwards;
+    animation-timing-function: linear;
+}
+
+.mobileButton {
+    color: white;
+    border: 1px solid white;
+    border-radius: 20px;
+    padding: 8px 70px;
+    cursor: pointer;
+    animation: mobileButton 1s;
+    animation-fill-mode: backwards;
+    animation-timing-function: linear;
+    animation-delay: 1s;
+}
+
+@keyframes mobileImg {
+    0% {
+        opacity: 0;
+        scale: 0.5;
+    }
+
+    100% {
+        opacity: 100%;
+        scale: 1;
+    }
+}
+
+@keyframes mobileButton {
+    0% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+
+    100% {
+        opacity: 100%;
+        transform: translateY(0%);
+    }
+}

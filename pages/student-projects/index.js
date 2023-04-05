@@ -7,6 +7,7 @@ import PageTitleTemplate from '../../components/CommonComponents/PageTitleTempla
 import ProjectCoverTemplate from '../../components/Projects/ProjectCoverTemplate';
 import Seo from '../../components/Seo/Seo';
 import sanityClient from '../../utils/sanityClient';
+import FadeInTransition from '../../components/Transitions/FadeInTransition';
 
 export default function Projects(props) {
     const { interior, civil_buildings, public_buildings, urban } = props;
@@ -23,50 +24,52 @@ export default function Projects(props) {
                 title: 'Студентски проекти - Николета Иванова',
                 description: 'Student projects - Nikoleta Ivanova'
             }}></Seo>
-            <Navigation>
-                <Box sx={{
-                    padding: { lg: '0 30px' },
-                }}>
+            <FadeInTransition>
+                <Navigation>
                     <Box sx={{
-                        paddingLeft: 1.5,
+                        padding: { lg: '0 30px' },
                     }}>
-                        <PageTitleTemplate>
-                            <Typography variant='h3'>СТУДЕНТСКИ ПРОЕКТИ</Typography>
-                        </PageTitleTemplate>
+                        <Box sx={{
+                            paddingLeft: 1.5,
+                        }}>
+                            <PageTitleTemplate>
+                                <Typography variant='h3'>СТУДЕНТСКИ ПРОЕКТИ</Typography>
+                            </PageTitleTemplate>
+                        </Box>
+
+                        <Grid container sx={{
+                            justifyContent: 'center',
+                            marginTop: 5,
+                        }}>
+                            <Grid item xs={12} lg={3} sx={{
+                                ...gridItemsStyles
+                            }}>
+                                <ProjectCoverTemplate title='ЖИЛИЩНИ СГРАДИ'
+                                    sectionProjects={civil_buildings} />
+                            </Grid>
+
+                            <Grid item xs={12} lg={3} sx={{
+                                ...gridItemsStyles
+                            }}>
+                                <ProjectCoverTemplate title='ОБЩЕСТВЕНИ СГРАДИ'
+                                    sectionProjects={public_buildings} />
+                            </Grid>
+
+                            <Grid item xs={12} lg={3} sx={{
+                                ...gridItemsStyles
+                            }}>
+                                <ProjectCoverTemplate title='ИНТЕРИОР'
+                                    sectionProjects={interior} />
+                            </Grid>
+
+                            <Grid item xs={12} lg={3}>
+                                <ProjectCoverTemplate title='ГРАДОУСТРОЙСТВО'
+                                    sectionProjects={urban} />
+                            </Grid>
+                        </Grid>
                     </Box>
-
-                    <Grid container sx={{
-                        justifyContent: 'center',
-                        marginTop: 5,
-                    }}>
-                        <Grid item xs={12} lg={3} sx={{
-                            ...gridItemsStyles
-                        }}>
-                            <ProjectCoverTemplate title='ЖИЛИЩНИ СГРАДИ'
-                                sectionProjects={civil_buildings} />
-                        </Grid>
-
-                        <Grid item xs={12} lg={3} sx={{
-                            ...gridItemsStyles
-                        }}>
-                            <ProjectCoverTemplate title='ОБЩЕСТВЕНИ СГРАДИ'
-                                sectionProjects={public_buildings} />
-                        </Grid>
-
-                        <Grid item xs={12} lg={3} sx={{
-                            ...gridItemsStyles
-                        }}>
-                            <ProjectCoverTemplate title='ИНТЕРИОР'
-                                sectionProjects={interior} />
-                        </Grid>
-
-                        <Grid item xs={12} lg={3}>
-                            <ProjectCoverTemplate title='ГРАДОУСТРОЙСТВО'
-                                sectionProjects={urban} />
-                        </Grid>
-                    </Grid>
-                </Box>
-            </Navigation>
+                </Navigation>
+            </FadeInTransition>
         </>
     )
 };

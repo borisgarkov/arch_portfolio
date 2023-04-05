@@ -1,14 +1,17 @@
 import Navigation from "../../components/Navigation/Navigation";
 import ProjectPageTemplate from "../../components/Projects/ProjectPageTemplate";
+import FadeInTransition from "../../components/Transitions/FadeInTransition";
 import sanityClient from "../../utils/sanityClient";
 
 export default function Projects(props) {
     const project = props.project;
 
     return (
-        <Navigation>
-            <ProjectPageTemplate project={project} goBackButtonText='Назад към СТУДЕНТСКИ ПРОЕКТИ' />
-        </Navigation >
+        <FadeInTransition>
+            <Navigation>
+                <ProjectPageTemplate project={project} goBackButtonText='Назад към СТУДЕНТСКИ ПРОЕКТИ' />
+            </Navigation >
+        </FadeInTransition>
     )
 };
 

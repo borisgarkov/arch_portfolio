@@ -4,6 +4,7 @@ import React from "react";
 import { CoverBox, imageStyle, mainBoxStyle } from "../components/Index/styles";
 import styles from '../components/IntroPage/intro-styles.module.css';
 import useScreenResolution from '../hooks/useScreenResolution';
+import FadeInTransition from '../components/Transitions/FadeInTransition';
 
 const Button = (props) => {
     const router = useRouter();
@@ -75,12 +76,14 @@ export default function Home() {
     const isMobile = useScreenResolution('lg');
 
     return (
-        <Box sx={{ ...mainBoxStyle }}>
-            {
-                isMobile
-                    ? <MobileVersion />
-                    : <LaptopVersion />
-            }
-        </Box>
+        <FadeInTransition>
+            <Box sx={{ ...mainBoxStyle }}>
+                {
+                    isMobile
+                        ? <MobileVersion />
+                        : <LaptopVersion />
+                }
+            </Box>
+        </FadeInTransition>
     )
 };

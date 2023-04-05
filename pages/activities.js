@@ -7,6 +7,7 @@ import PageTitleTemplate from '../components/CommonComponents/PageTitleTemplate'
 import ActivitiesTemplate from '../components/Activities/ActivitiesTemplate';
 import Seo from '../components/Seo/Seo';
 import sanityClient from '../utils/sanityClient';
+import FadeInTransition from '../components/Transitions/FadeInTransition';
 
 export default function Activities({ activities }) {
     console.log(activities)
@@ -17,33 +18,35 @@ export default function Activities({ activities }) {
                 title: 'Дейности - Николета Иванова',
                 description: 'Activities - Nikoleta Ivanova'
             }}></Seo>
-            <Navigation>
-                <Box>
-                    <Box sx={{
-                        padding: '0 30px',
+            <FadeInTransition>
+                <Navigation>
+                    <Box>
+                        <Box sx={{
+                            padding: '0 30px',
 
-                    }}>
-                        <PageTitleTemplate>
-                            <Typography variant='h2'>Дейности</Typography>
-                        </PageTitleTemplate>
-                    </Box>
+                        }}>
+                            <PageTitleTemplate>
+                                <Typography variant='h2'>Дейности</Typography>
+                            </PageTitleTemplate>
+                        </Box>
 
-                    <Box
-                        sx={{
-                            width: '85%',
-                            margin: '0 auto',
-                        }}
-                    >
-                        {
-                            activities.map((activity, index) =>
-                                <React.Fragment key={activity._id}>
-                                    <ActivitiesTemplate activity={activity} index={index} />
-                                </React.Fragment>
-                            )
-                        }
+                        <Box
+                            sx={{
+                                width: '85%',
+                                margin: '0 auto',
+                            }}
+                        >
+                            {
+                                activities.map((activity, index) =>
+                                    <React.Fragment key={activity._id}>
+                                        <ActivitiesTemplate activity={activity} index={index} />
+                                    </React.Fragment>
+                                )
+                            }
+                        </Box>
                     </Box>
-                </Box>
-            </Navigation>
+                </Navigation>
+            </FadeInTransition>
         </>
     )
 };

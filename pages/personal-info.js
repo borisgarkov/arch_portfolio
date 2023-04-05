@@ -10,6 +10,7 @@ import PageTitleTemplate from '../components/CommonComponents/PageTitleTemplate'
 import Animation from '../utils/Animation';
 import Image from 'next/image';
 import Seo from '../components/Seo/Seo';
+import FadeInTransition from '../components/Transitions/FadeInTransition';
 
 export default function CV() {
     const isMobile = useScreenResolution('lg');
@@ -21,68 +22,70 @@ export default function CV() {
                 description: 'Николета Иванова CV / Nikoleta Ivanova Architect Personal information'
             }}></Seo>
 
-            <Navigation>
-                <Box sx={{ padding: '0 30px', marginBottom: 2, overflow: 'hidden' }}>
+            <FadeInTransition>
+                <Navigation>
+                    <Box sx={{ padding: '0 30px', marginBottom: 2, overflow: 'hidden' }}>
 
-                    <Box sx={{ marginLeft: '6%' }}>
-                        <PageTitleTemplate>
-                            <Box sx={{ marginTop: 5 }}>
-                                <Image
-                                    priority
-                                    src='/aboutme/profile.webp'
-                                    alt='profile-pic'
-                                    width={150}
-                                    height={150}
-                                    style={{ borderRadius: '50%' }}
-                                />
-                                <Typography variant='h3'>Николета Иванова</Typography>
-                                <Typography variant='h4' sx={{ marginBottom: 5 }}>Архитект</Typography>
-                                <a href="/resume/resume.pdf"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className={styles.link}
+                        <Box sx={{ marginLeft: '6%' }}>
+                            <PageTitleTemplate>
+                                <Box sx={{ marginTop: 5 }}>
+                                    <Image
+                                        priority
+                                        src='/aboutme/profile.webp'
+                                        alt='profile-pic'
+                                        width={150}
+                                        height={150}
+                                        style={{ borderRadius: '50%' }}
+                                    />
+                                    <Typography variant='h3'>Николета Иванова</Typography>
+                                    <Typography variant='h4' sx={{ marginBottom: 5 }}>Архитект</Typography>
+                                    <a href="/resume/resume.pdf"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className={styles.link}
+                                    >
+                                        CV / Resume
+                                    </a>
+                                </Box>
+                            </PageTitleTemplate>
+                        </Box>
+
+                        <Grid container sx={{
+                            margin: '0 auto',
+                            justifyContent: { lg: 'space-evenly' }
+                        }}>
+
+                            <Animation type='CVleftSide'>
+                                <Grid
+                                    item
+                                    xs='auto'
+                                    sx={{ paddingRight: { lg: 5 } }}
                                 >
-                                    CV / Resume
-                                </a>
-                            </Box>
-                        </PageTitleTemplate>
+                                    <PersonalInfo />
+                                </Grid>
+                            </Animation>
+
+                            {
+                                !isMobile &&
+                                <Divider flexItem orientation='vertical' />
+                            }
+
+                            <Animation type='CVrightSide'>
+                                <Grid
+                                    item
+                                    xs='auto'
+                                    sx={{ paddingLeft: { lg: 5 } }}
+                                >
+                                    <WorkExperience />
+                                    <Education />
+                                    <Contests />
+                                </Grid>
+                            </Animation>
+
+                        </Grid>
                     </Box>
-
-                    <Grid container sx={{
-                        margin: '0 auto',
-                        justifyContent: { lg: 'space-evenly' }
-                    }}>
-
-                        <Animation type='CVleftSide'>
-                            <Grid
-                                item
-                                xs='auto'
-                                sx={{ paddingRight: { lg: 5 } }}
-                            >
-                                <PersonalInfo />
-                            </Grid>
-                        </Animation>
-
-                        {
-                            !isMobile &&
-                            <Divider flexItem orientation='vertical' />
-                        }
-
-                        <Animation type='CVrightSide'>
-                            <Grid
-                                item
-                                xs='auto'
-                                sx={{ paddingLeft: { lg: 5 } }}
-                            >
-                                <WorkExperience />
-                                <Education />
-                                <Contests />
-                            </Grid>
-                        </Animation>
-
-                    </Grid>
-                </Box>
-            </Navigation>
+                </Navigation>
+            </FadeInTransition>
         </>
     )
 };

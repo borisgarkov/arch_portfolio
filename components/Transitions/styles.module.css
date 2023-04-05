@@ -1,5 +1,5 @@
 .fadeIn {
-    animation: fadeIn 0.5s;
+    animation: fadeIn 1s;
     animation-fill-mode: forwards;
     animation-timing-function: linear;
 }
@@ -15,7 +15,7 @@
 }
 
 .fadeOut {
-    animation: fadeOut 0.5s;
+    animation: fadeOut 1s;
     animation-fill-mode: forwards;
     animation-timing-function: linear;
 }

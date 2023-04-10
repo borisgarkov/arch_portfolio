@@ -32,7 +32,7 @@ const muiFilledInputStyle = {
 };
 
 const gridItemsStyle = {
-    paddingLeft: '0 !important'
+    paddingLeft: { xs: '0 !important', lg: '16px !important' },
 }
 
 export default function Contacts() {

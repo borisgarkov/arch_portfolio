@@ -6,7 +6,7 @@ import AutoFixHighOutlinedIcon from '@mui/icons-material/AutoFixHighOutlined';
 import { titlesStyle } from "./commonStyle";
 import Image from "next/image";
 
-export default function PersonalInfo() {
+export default function PersonalInfo({ certificates }) {
 
     const softwareSkills = [
         {
@@ -135,7 +135,40 @@ export default function PersonalInfo() {
             }
 
             <Typography variant='h5' sx={{ ...titlesStyle }}>Сертификати</Typography>
-            <Typography variant='h6'>...</Typography>
+
+            {
+                certificates.map(c => (
+                    <Box key={c._id} sx={{
+                        display: 'flex',
+                        alignItems: 'baseline',
+                        justifyContent: 'center',
+                        marginBottom: 1.5,
+                        gap: 1,
+                    }}>
+                        <img src='/cv/certificate.png' alt='certificate-icon' width={15} height={15} />
+                        <Typography variant='h6' sx={{
+                            wordWrap: 'break-word',
+                            maxWidth: '250px',
+                            transition: 'all 0.3s',
+                            '&:hover': {
+                                color: '#8b8b8b'
+                            }
+                        }}>
+                            <a href={c.file.asset.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                style={{
+                                    color: 'inherit',
+                                    textDecoration: 'none',
+                                }}
+                            >
+                                {c.title}
+                            </a>
+                        </Typography>
+                    </Box>
+                ))
+            }
+
 
             <Typography variant='h5' sx={{ ...titlesStyle }}>Други умения</Typography>
             {

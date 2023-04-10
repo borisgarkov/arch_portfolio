@@ -78,7 +78,8 @@ export default function BalkanArhitrav({ texts, projects }) {
                                                 </Typography>
                                                 <Typography sx={{
                                                     marginTop: 2,
-                                                    textAlign: 'right'
+                                                    textAlign: 'right',
+                                                    paddingRight: { xs: 2, lg: 0 }
                                                 }}>
                                                     {project.title}
                                                 </Typography>
@@ -90,7 +91,7 @@ export default function BalkanArhitrav({ texts, projects }) {
                                                             objectPosition: index === 0 ? 'top' : null,
                                                         }}
                                                         // width={245}
-                                                        height={245}
+                                                        height={300}
                                                         className={styles.projectImg}
                                                     />
                                                 </Box>

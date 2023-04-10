@@ -11,8 +11,9 @@ import Animation from '../utils/Animation';
 import Image from 'next/image';
 import Seo from '../components/Seo/Seo';
 import FadeInTransition from '../components/Transitions/FadeInTransition';
+import sanityClient from '../utils/sanityClient';
 
-export default function CV() {
+export default function CV({ certificates }) {
     const isMobile = useScreenResolution('lg');
 
     return (
@@ -61,7 +62,7 @@ export default function CV() {
                                     xs='auto'
                                     sx={{ paddingRight: { lg: 5 } }}
                                 >
-                                    <PersonalInfo />
+                                    <PersonalInfo certificates={certificates} />
                                 </Grid>
                             </Animation>
 
@@ -91,7 +92,13 @@ export default function CV() {
 };
 
 export async function getStaticProps(context) {
+    const certificates = await sanityClient.fetch(`
+    *[_type == "certificates"]{title,_id,file{asset->{url}}} | order(title desc)
+    `);
+
     return {
-        props: {}, // will be passed to the page component as props
+        props: {
+            certificates
+        }, // will be passed to the page component as props
     }
 }

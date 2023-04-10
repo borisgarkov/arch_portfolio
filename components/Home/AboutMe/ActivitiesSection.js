@@ -12,7 +12,6 @@ import { HomeDataContext } from "../../../pages/home";
 export default function ActivitiesSection() {
     const router = useRouter();
     const [homeData, activities] = useContext(HomeDataContext);
-    console.log(activities);
 
     return (
         <Box sx={{ ...activitiesMainBox }}>

@@ -12,8 +12,6 @@ import FadeInTransition from '../../components/Transitions/FadeInTransition';
 export default function Projects(props) {
     const { interior, civil_buildings, public_buildings, urban } = props;
 
-    console.log(urban);
-
     const gridItemsStyles = {
         borderRight: { lg: '1px solid black' }
     };

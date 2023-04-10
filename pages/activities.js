@@ -10,8 +10,6 @@ import sanityClient from '../utils/sanityClient';
 import FadeInTransition from '../components/Transitions/FadeInTransition';
 
 export default function Activities({ activities }) {
-    console.log(activities)
-
     return (
         <>
             <Seo siteMetadata={{

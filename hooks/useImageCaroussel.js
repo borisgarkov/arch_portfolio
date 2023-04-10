@@ -12,7 +12,7 @@ export default function useImageCaroussel(props) {
 
         return () => {
             clearInterval(interval);
-            console.log('interval cleared');
+            // console.log('interval cleared');
         };
     }, []);
 

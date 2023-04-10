@@ -5,29 +5,9 @@ import CssBaseline from '@mui/material/CssBaseline';
 import '../utils/animation-keyframes.css';
 import '../utils/global.css';
 import { theme } from '../utils/mainTheme';
-import LoadingButton from '../components/Navigation/LoadingButton';
-import { useRouter } from 'next/router';
 
 export default function MyApp(props) {
 	const { Component, pageProps } = props;
-
-	// const [isLoading, setIsLoading] = React.useState(false);
-	// const router = useRouter();
-
-	// React.useEffect(() => {
-	// 	const handleStart = (url) => (url !== router.asPath) && setIsLoading(true);
-	// 	const handleComplete = (url) => (url === router.asPath) && setIsLoading(false);
-
-	// 	router.events.on('routeChangeStart', handleStart);
-	// 	router.events.on('routeChangeComplete', handleComplete);
-	// 	router.events.on('routeChangeError', handleComplete);
-
-	// 	return () => {
-	// 		router.events.off('routeChangeStart', handleStart);
-	// 		router.events.off('routeChangeComplete', handleComplete);
-	// 		router.events.off('routeChangeError', handleComplete);
-	// 	}
-	// })
 
 	return (
 		<>

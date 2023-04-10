@@ -73,10 +73,6 @@ export default function Projects(props) {
 export async function getStaticPaths() {
     const projectsSlugs = await sanityClient.fetch('*[_type == "balkanArhitravProjects"]["year"]');
 
-    console.log(projectsSlugs.map(project => {
-        return { params: { project: project.slice(0, 4) } }
-    }))
-
     return {
         paths: projectsSlugs.map(project => {
             return { params: { project: project.slice(0, 4) } }

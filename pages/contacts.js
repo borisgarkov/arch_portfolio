@@ -152,7 +152,7 @@ export default function Contacts() {
                                         fullWidth
                                         required
                                         id="email"
-                                        label="Имейл"
+                                        label="Вашият имейл адрес"
                                         variant="filled"
                                         color='neutral'
                                         type='email'
@@ -168,7 +168,7 @@ export default function Contacts() {
                                         fullWidth
                                         required
                                         id="name"
-                                        label="Име"
+                                        label="Вашето име"
                                         variant="filled"
                                         color='neutral'
                                         type='text'

@@ -32,7 +32,19 @@ export async function getStaticProps(props) {
     return {
         props: {
             project: await sanityClient.fetch(`
-                *[_type == "studentProject" && slug.current == "${props.params.project}"]
+                *[_type == "studentProject" && slug.current == "${props.params.project}"]{
+                    _id,
+                    album{asset->{url}},
+                    category,
+                    city,
+                    content,
+                    isProjectVisible,
+                    mainPagePicture,
+                    pictures,
+                    programmes,
+                    slug,
+                    title
+                  }
             `)
         }
     }

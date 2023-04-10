@@ -9,6 +9,7 @@ import Image from "next/image";
 import useScreenResolution from '../../hooks/useScreenResolution';
 import GoBackButton from "./GoBackButton";
 import ProjectImages from './ProjectImages';
+import styles from '../PersonalInfo/styles.module.css';
 
 export default function ProjectPageTemplate(props) {
     const project = props.project[0];
@@ -47,6 +48,21 @@ export default function ProjectPageTemplate(props) {
                             {text}
                         </Typography>
                     ))
+                }
+
+                {
+                    project.album && <a href={project.album.asset.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.link}
+                        style={{
+                            marginTop: '40px',
+                            marginBottom: '16px',
+                            width: '50%'
+                        }}
+                    >
+                        Виж повече за проекта...
+                    </a>
                 }
 
                 <Typography sx={{

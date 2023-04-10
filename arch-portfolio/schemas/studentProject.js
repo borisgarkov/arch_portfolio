@@ -41,6 +41,11 @@ export default {
             title: 'Снимка главна страница'
         },
         {
+            name: 'album',
+            type: 'file',
+            title: 'Албум'
+        },
+        {
             name: 'isProjectVisible',
             title: 'Видим Проект?',
             type: 'boolean'

@@ -21,12 +21,15 @@ export default function BalkanArhitrav({ texts, projects }) {
             <FadeInTransition>
                 <Navigation>
                     <Box sx={{
-                        padding: { xs: '0 12px', lg: '0 30px' }
+                        padding: { lg: '0 30px' }
                     }}>
-                        <PageTitleTemplate>
-                            <Typography variant='h2'>Балкан АРХитрав</Typography>
-                        </PageTitleTemplate>
-
+                        <Box sx={{
+                            paddingLeft: 1.5,
+                        }}>
+                            <PageTitleTemplate>
+                                <Typography variant='h2'>Балкан АРХитрав</Typography>
+                            </PageTitleTemplate>
+                        </Box>
 
                         <Stack sx={{
                             flexDirection: { xs: 'column-reverse', lg: 'row' }, gap: 10,
@@ -61,12 +64,15 @@ export default function BalkanArhitrav({ texts, projects }) {
                                             <Stack className={styles.projectContainer} sx={{
                                                 cursor: 'pointer',
                                                 width: { xs: '100%', lg: '33.33%' },
-                                                padding: '0 2.6vw',
+                                                padding: { lg: '0 2.6vw' },
                                                 borderRight: { lg: 'solid 1px #6A6A6A' },
                                                 borderLeft: { lg: index === 0 ? 'solid 1px #6A6A6A' : null },
                                             }}>
                                                 <Typography
                                                     className={styles.textTitle}
+                                                    sx={{
+                                                        padding: { xs: '0 2.6vw', lg: 0 },
+                                                    }}
                                                     variant='h3'>
                                                     {project.year}
                                                 </Typography>

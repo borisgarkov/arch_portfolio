@@ -23,6 +23,6 @@ export default function ActivitiesImageSection({ activity, index }) {
                 fill
             />
             <IconImageFrame activity={activity} index={index} />
-        </Box >
+        </Box>
     )
 };

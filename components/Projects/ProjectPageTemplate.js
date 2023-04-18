@@ -19,6 +19,7 @@ export default function ProjectPageTemplate(props) {
     return (
         <Grid container sx={{
             marginTop: 5,
+            minHeight: 'calc(100vh - 144px)',
         }}>
             <Grid item lg={4} sx={{
                 padding: 5,

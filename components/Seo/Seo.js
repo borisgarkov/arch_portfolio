@@ -9,7 +9,7 @@ export default function Seo(props) {
     const title = siteMetadata.title ?? 'Nikoleta Ivanova Architect Portfolio';
     const description = siteMetadata.description ?? 'Architectural personal portfolio, website and CV';
     const siteUrl = 'https://www.arch-nivanova.site';
-    const image = '/aboutme/profile.jpg';
+    const image = `${siteUrl}/aboutme/profile.jpg`;
     const keywords = "архитектура, портфолио, architecture, portfolio, Nikoleta Ivanova, Николета Иванова, desgin, дизайн, 3D, интериор, заснемане на сгради, проекти, реконструкция";
 
     return (
@@ -20,7 +20,6 @@ export default function Seo(props) {
             <meta property="og:title" content={title} />
             <meta property="og:site_name" content={title} />
             <meta property="og:url" content={siteUrl + router.pathname} />
-            <meta property="og:image" content={image} />
             <meta property="og:image" content={image} />
             <meta property="og:description" content={description} />
             <meta property="og:type" content="website" />

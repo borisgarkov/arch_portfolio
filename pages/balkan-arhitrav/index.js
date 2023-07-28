@@ -21,7 +21,8 @@ export default function BalkanArhitrav({ texts, projects }) {
             <FadeInTransition>
                 <Navigation>
                     <Box sx={{
-                        padding: { lg: '0 30px' }
+                        padding: { lg: '0 30px' },
+                        minHeight: 'calc(100vh - 144px)',
                     }}>
                         <Box sx={{
                             paddingLeft: 1.5,

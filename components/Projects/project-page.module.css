@@ -19,17 +19,45 @@
     transition: all 0.5s;
 }
 
-.imgBigContainer:hover>.projectImg {
+.imgBigContainer:hover > .projectImg {
     transform: scale(1.05);
 }
 
-.imgSmallContainer:hover>.projectImg {
+.imgSmallContainer:hover > .projectImg {
     transform: scale(1.05);
 }
 
 .programmes::before {
-    content: '';
+    content: "";
     width: 20px;
     height: 1px;
     background-color: black;
+}
+
+.techProjImg {
+    width: 900px;
+    height: 500px;
+    object-fit: contain;
+}
+
+@media screen and (max-width: 1200px) {
+    .techProjImg {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+}
+
+.smallTechPic {
+    width: 100px;
+    height: 80px;
+    object-fit: cover;
+    opacity: 0.6;
+    cursor: pointer;
+    transition: opacity 0.5s ease-in-out;
+    padding-bottom: 16px;
+}
+
+.smallTechPic:hover {
+    opacity: 1;
 }

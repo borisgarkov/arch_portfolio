@@ -3,6 +3,7 @@ import ProjectPageTemplate from "../../components/Projects/ProjectPageTemplate"
 import Seo from "../../components/Seo/Seo"
 import FadeInTransition from "../../components/Transitions/FadeInTransition"
 import sanityClient from "../../utils/sanityClient"
+import { projectType } from "../../components/Projects/projectsConstants"
 
 export default function Projects({ projectsContainer }) {
     const project = projectsContainer[0]
@@ -19,7 +20,8 @@ export default function Projects({ projectsContainer }) {
                 <Navigation>
                     <ProjectPageTemplate
                         project={project}
-                        goBackButtonText="Назад към СТУДЕНТСКИ ПРОЕКТИ"
+                        type={projectType.TECHNICAL_PROJECT}
+                        goBackButtonText="Назад към ТЕХНИЧЕСКИ ПРОЕКТИ"
                     />
                 </Navigation>
             </FadeInTransition>
@@ -29,7 +31,7 @@ export default function Projects({ projectsContainer }) {
 
 export async function getStaticPaths() {
     const projectsSlugs = await sanityClient.fetch(
-        '*[_type == "studentProject" && isProjectVisible == true]["slug"].current'
+        '*[_type == "technicalProject" && isProjectVisible == true]["slug"].current'
     )
 
     return {
@@ -43,8 +45,8 @@ export async function getStaticPaths() {
 export async function getStaticProps(props) {
     return {
         props: {
-            project: await sanityClient.fetch(`
-                *[_type == "studentProject" && slug.current == "${props.params.project}"]{
+            projectsContainer: await sanityClient.fetch(`
+                *[_type == "technicalProject" && slug.current == "${props.params.project}"]{
                     _id,
                     album{asset->{url}},
                     category,

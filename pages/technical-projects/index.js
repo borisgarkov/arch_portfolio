@@ -3,6 +3,7 @@ import Box from "@mui/material/Box"
 import Typography from "@mui/material/Typography"
 import Navigation from "../../components/Navigation/Navigation"
 
+import PasswordPage from "../../components/Projects/PasswordPage"
 import PageTitleTemplate from "../../components/CommonComponents/PageTitleTemplate"
 import ProjectCoverTemplate from "../../components/Projects/ProjectCoverTemplate"
 import Seo from "../../components/Seo/Seo"
@@ -10,15 +11,14 @@ import FadeInTransition from "../../components/Transitions/FadeInTransition"
 
 import sanityClient from "../../utils/sanityClient"
 
-export default function Projects(props) {
-    const { architecture, existing, reconstruction, other } = props
-
+export default function Projects({ architecture, existing, reconstruction, other, projectsPassword }) {
     const gridItemsStyles = {
         borderRight: { lg: "1px solid black" },
     }
 
     return (
         <>
+            <PasswordPage projectsPassword={projectsPassword[0].password} />
             <Seo
                 siteMetadata={{
                     title: "Технически проекти - Николета Иванова",
@@ -127,12 +127,15 @@ export async function getStaticProps() {
         `*[_type == "technicalProject" && category == "other" && isProjectVisible == true]`
     )
 
+    const projectsPassword = await sanityClient.fetch(`*[_type == "technicalProjectPassword"]`)
+
     return {
         props: {
             architecture,
             existing,
             reconstruction,
             other,
+            projectsPassword,
         },
     }
 }

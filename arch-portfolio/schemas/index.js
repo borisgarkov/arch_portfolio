@@ -6,10 +6,12 @@ import certificates from "./certificates"
 import homeData from "./homeData"
 import technicalProject from "./technicalProject"
 import studentProject from "./studentProject"
+import technicalProjectPassword from "./technicalProjectPassword"
 
 export const schemaTypes = [
 	studentProject,
 	technicalProject,
+	technicalProjectPassword,
 	balkanArhitravMainPageText,
 	balkanArhitravProjects,
 	activities,

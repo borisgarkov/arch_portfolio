@@ -18,6 +18,8 @@ import TechnicalProjectPictures from "./TechnicalProjectPictures"
 export default function ProjectPageTemplate({ project, goBackButtonText, type }) {
     const isMobile = useScreenResolution("lg")
 
+    const goBackLink = type === projectType.TECHNICAL_PROJECT ? "/technical-projects" : "/student-projects"
+
     return (
         <Grid
             container
@@ -150,7 +152,7 @@ export default function ProjectPageTemplate({ project, goBackButtonText, type })
                 {!isMobile && (
                     <GoBackButton
                         goBackButtonText={goBackButtonText}
-                        goBackLink={"/student-projects"}
+                        goBackLink={goBackLink}
                     />
                 )}
             </Grid>
@@ -169,7 +171,7 @@ export default function ProjectPageTemplate({ project, goBackButtonText, type })
                 >
                     <GoBackButton
                         goBackButtonText={goBackButtonText}
-                        goBackLink={"/student-projects"}
+                        goBackLink={goBackLink}
                     />
                 </Grid>
             )}

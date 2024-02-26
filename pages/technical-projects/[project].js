@@ -4,12 +4,15 @@ import Seo from "../../components/Seo/Seo"
 import FadeInTransition from "../../components/Transitions/FadeInTransition"
 import sanityClient from "../../utils/sanityClient"
 import { projectType } from "../../components/Projects/projectsConstants"
+import PasswordPage from "../../components/Projects/PasswordPage"
 
-export default function Projects({ projectsContainer }) {
+export default function Projects({ projectsContainer, projectsPassword }) {
     const project = projectsContainer[0]
 
     return (
         <>
+            <PasswordPage projectsPassword={projectsPassword[0].password} />
+
             <Seo
                 siteMetadata={{
                     title: `${project.title}`,
@@ -60,6 +63,7 @@ export async function getStaticProps(props) {
                     title
                   }
             `),
+            projectsPassword: await sanityClient.fetch(`*[_type == "technicalProjectPassword"]`),
         },
     }
 }

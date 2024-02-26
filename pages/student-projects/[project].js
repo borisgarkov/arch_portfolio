@@ -43,7 +43,7 @@ export async function getStaticPaths() {
 export async function getStaticProps(props) {
     return {
         props: {
-            project: await sanityClient.fetch(`
+            projectsContainer: await sanityClient.fetch(`
                 *[_type == "studentProject" && slug.current == "${props.params.project}"]{
                     _id,
                     album{asset->{url}},

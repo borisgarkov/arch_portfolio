@@ -46,6 +46,9 @@ export default function TechnicalProjectPictures({ pictures }) {
                 justifyContent: "center",
                 flexDirection: "column",
                 gap: "36px",
+                alignSelf: "start",
+                position: { xs: "static", lg: "sticky" },
+                top: 100,
             }}
         >
             <Box
@@ -86,7 +89,7 @@ export default function TechnicalProjectPictures({ pictures }) {
                     flexDirection: "row",
                     justifyContent: "center",
                     gap: "16px",
-                    width: "90%",
+                    width: "100%",
                     margin: "0 auto",
                     // maxWidth: { sm: "100%", lg: "900px" },
                     overflow: "scroll",

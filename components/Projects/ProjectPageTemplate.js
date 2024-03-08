@@ -10,8 +10,6 @@ import useScreenResolution from "../../hooks/useScreenResolution"
 import GoBackButton from "./GoBackButton"
 import ProjectImages from "./ProjectImages"
 import styles from "../PersonalInfo/styles.module.css"
-import BigImageContainer from "./ProjectPageComponents/BigImageContainer"
-import urlFor from "../../utils/sanityImageBuilder"
 import { projectType } from "./projectsConstants"
 import TechnicalProjectPictures from "./TechnicalProjectPictures"
 

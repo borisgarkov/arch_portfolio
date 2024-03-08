@@ -50,9 +50,6 @@ export default function TechnicalProjectPictures({ pictures }) {
         >
             <Box
                 sx={{
-                    // display: "flex",
-                    // flexDirection: "row",
-                    // alignItems: "center",
                     position: "relative",
                 }}
             >
@@ -87,9 +84,11 @@ export default function TechnicalProjectPictures({ pictures }) {
                 sx={{
                     display: "flex",
                     flexDirection: "row",
-                    // justifyContent: "center",
+                    justifyContent: "center",
                     gap: "16px",
-                    maxWidth: { sm: "100%", lg: "900px" },
+                    width: "90%",
+                    margin: "0 auto",
+                    // maxWidth: { sm: "100%", lg: "900px" },
                     overflow: "scroll",
                     overflowY: "hidden",
                     scrollbarWidth: "thin",

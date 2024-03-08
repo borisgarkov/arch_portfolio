@@ -20,6 +20,8 @@ export default function ProjectPageTemplate({ project, goBackButtonText, type })
 
     const goBackLink = type === projectType.TECHNICAL_PROJECT ? "/technical-projects" : "/student-projects"
 
+    const extraLargeTextSize = { fontSize: { xl: "1vw" } }
+
     return (
         <Grid
             container
@@ -59,7 +61,7 @@ export default function ProjectPageTemplate({ project, goBackButtonText, type })
                     </Slide>
                     <Typography
                         variant="h5"
-                        sx={{ textTransform: "uppercase" }}
+                        sx={{ textTransform: "uppercase", ...extraLargeTextSize }}
                     >
                         {project.title}
                     </Typography>
@@ -67,8 +69,9 @@ export default function ProjectPageTemplate({ project, goBackButtonText, type })
 
                 {project.content.map((text) => (
                     <Typography
+                        // variant="h6"
                         key={text}
-                        sx={{ textAlign: "justify" }}
+                        sx={{ textAlign: "justify", ...extraLargeTextSize }}
                     >
                         {text}
                     </Typography>
@@ -84,6 +87,7 @@ export default function ProjectPageTemplate({ project, goBackButtonText, type })
                             marginTop: "40px",
                             marginBottom: "16px",
                             width: "50%",
+                            ...extraLargeTextSize,
                         }}
                     >
                         Виж повече за проекта...
@@ -94,6 +98,7 @@ export default function ProjectPageTemplate({ project, goBackButtonText, type })
                     sx={{
                         marginTop: 5,
                         marginBottom: 2,
+                        ...extraLargeTextSize,
                     }}
                 >
                     ИЗПОЛЗВАНИ ПРОГРАМИ
